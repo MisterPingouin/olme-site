@@ -10,6 +10,7 @@ import Mixologie from "./sections/Mixologie";
 import Vins from "./sections/Vins";
 import Food from "./sections/Food";
 import Infos from "./sections/Infos";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [active, setActive] = useState<string>("mixologie"); // par défaut
@@ -122,6 +123,8 @@ export default function Home() {
       {active === "vins" && <Vins />}
       {active === "food" && <Food />}
       {active === "infos" && <Infos />}
+
+      <Footer/>
     </>
   );
 }
