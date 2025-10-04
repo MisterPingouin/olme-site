@@ -40,7 +40,7 @@ export default function Footer() {
                 <li><Link href="#mixologie">Mixologie</Link></li>
                 <li><Link href="#vins">Vins & softs</Link></li>
                 <li><Link href="#food">Brut Food</Link></li>
-                <li><Link href="#infos">Infos pratiques</Link></li>
+                <li><Link href=""></Link>Mentions légales</li>
               </ul>
             </nav>
           </div>
