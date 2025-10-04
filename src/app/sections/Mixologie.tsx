@@ -6,16 +6,19 @@ export default function Mixologie() {
     <section
       id="mixologie"
       aria-labelledby="mixologie-title"
-      className="anchor bg-o-red text-o-sand -mt-[2px]"
+      className="anchor bg-o-red text-o-sand -mt-[2px] overflow-x-hidden"
     >
-      <div className="mx-auto max-w-[1200px] px-6 py-16">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
         {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
         <div className="md:flex md:items-start md:gap-10">
           {/* Colonne gauche */}
           <div className="flex-1 min-w-0">
-            {/* Header: titre | texte (aligné au centre vertical du titre) */}
+            {/* Header: titre | texte */}
             <div className="md:flex md:items-center md:justify-between md:gap-10">
-              <h2 id="mixologie-title" className="text-[90px] leading-[1.1] font-b">
+              <h2
+                id="mixologie-title"
+                className="font-b leading-[1.1] break-words text-[clamp(40px,10vw,90px)]"
+              >
                 Mixologie
               </h2>
 
@@ -26,7 +29,7 @@ export default function Mixologie() {
             </div>
 
             {/* Règle pointillée plus visible */}
-            <hr className="mt-5 border-0 border-b-2 border-dotted border-o-sand/60" />
+            <hr className="mt-6 border-0 border-b-2 border-dotted border-o-sand/60" />
 
             {/* Contenu listes */}
             <div className="mt-6 space-y-10">
@@ -36,19 +39,20 @@ export default function Mixologie() {
                     id={`sec-${sec.title}`}
                     className="font-b text-24 mb-4 tracking-tight"
                   >
-                    {sec.title}{" "}
-                    <span className="font-b">{sec.subtitle}</span>
+                    {sec.title} <span className="font-b">{sec.subtitle}</span>
                   </h3>
 
                   <div className="space-y-3">
                     {sec.items.map((item) => (
                       <div
                         key={item.name}
-                        className="flex items-baseline justify-between gap-6"
+                        className="flex items-baseline justify-between gap-4 sm:gap-6"
                       >
                         <div className="min-w-0">
-                          <div className="font-b li-arrow">{item.name}</div>
-                          <div className="text-16 text-o-sand/90">{item.notes}</div>
+                          <div className="font-b li-arrow break-words">{item.name}</div>
+                          <div className="text-16 text-o-sand/90 break-words">
+                            {item.notes}
+                          </div>
                         </div>
 
                         {/* Prix : colonne fixe en md+ */}
@@ -68,17 +72,19 @@ export default function Mixologie() {
             </div>
           </div>
 
-          {/* Colonne droite : image (fixe) */}
+          {/* Colonne droite : image (responsive) */}
           <div className="mt-8 md:mt-0 md:self-start md:shrink-0">
-            <Image
-              src="/img/fleur.svg"
-              alt="Illustration botanique"
-              width={425}
-              height={497}
-              priority
-              className="w-[425px] h-[497px] object-contain"
-              sizes="(min-width: 1024px) 425px, 60vw"
-            />
+            <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
+              <Image
+                src="/img/fleur.svg"
+                alt="Illustration botanique"
+                width={425}
+                height={497}
+                priority
+                className="w-full h-full object-contain"
+                sizes="(min-width: 768px) 425px, 92vw"
+              />
+            </div>
           </div>
         </div>
       </div>
