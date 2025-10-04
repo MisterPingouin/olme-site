@@ -8,24 +8,68 @@ export default function Mixologie() {
       aria-labelledby="mixologie-title"
       className="anchor bg-o-red text-o-sand -mt-[2px]"
     >
-      <div className="mx-auto px-30 py-16">
-        {/* Grille titre | texte | image */}
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_520px_425px] md:grid-rows-[auto_auto_auto] md:gap-x-10">
-          <h2
-            id="mixologie-title"
-            className="text-[90px] leading-[1.1] font-b md:row-start-1 md:col-start-1"
-          >
-            Mixologie
-          </h2>
+      <div className="mx-auto max-w-[1200px] px-6 py-16">
+        {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
+        <div className="md:flex md:items-start md:gap-10">
+          {/* Colonne gauche */}
+          <div className="flex-1 min-w-0">
+            {/* Header: titre | texte (aligné au centre vertical du titre) */}
+            <div className="md:flex md:items-center md:justify-between md:gap-10">
+              <h2 id="mixologie-title" className="text-[90px] leading-[1.1] font-b">
+                Mixologie
+              </h2>
 
-          {/* Centrage vertical du paragraphe par rapport au titre */}
-          <p className="text-o-sand/90 max-w-[520px] md:row-start-1 md:col-start-2 md:self-center mt-4 md:mt-0">
-            Un menu cocktail signature. Nez gourmand ou épicé, bouche acidulée au
-            sucré-salé, la créativité n’a pas de limites.
-          </p>
+              <p className="max-w-[520px] text-o-sand/90 mt-4 md:mt-0 md:self-center">
+                Un menu cocktail signature. Nez gourmand ou épicé, bouche acidulée au
+                sucré-salé, la créativité n’a pas de limites.
+              </p>
+            </div>
 
-          {/* Image à droite, reste alignée en haut et couvre aussi le contenu */}
-          <div className="mt-8 md:mt-0 md:row-start-1 md:row-span-3 md:col-start-3 md:self-start md:justify-self-end">
+            {/* Règle pointillée plus visible */}
+            <hr className="mt-5 border-0 border-b-2 border-dotted border-o-sand/60" />
+
+            {/* Contenu listes */}
+            <div className="mt-6 space-y-10">
+              {MIXO_SECTIONS.map((sec, idx) => (
+                <section key={sec.title} aria-labelledby={`sec-${sec.title}`}>
+                  <h3
+                    id={`sec-${sec.title}`}
+                    className="font-b text-24 mb-4 tracking-tight"
+                  >
+                    {sec.title}{" "}
+                    <span className="font-b">{sec.subtitle}</span>
+                  </h3>
+
+                  <div className="space-y-3">
+                    {sec.items.map((item) => (
+                      <div
+                        key={item.name}
+                        className="flex items-baseline justify-between gap-6"
+                      >
+                        <div className="min-w-0">
+                          <div className="font-b li-arrow">{item.name}</div>
+                          <div className="text-16 text-o-sand/90">{item.notes}</div>
+                        </div>
+
+                        {/* Prix : colonne fixe en md+ */}
+                        <div className="text-right font-b whitespace-nowrap w-auto md:w-20 shrink-0">
+                          {item.price} €
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Séparateur de section */}
+                  {idx < MIXO_SECTIONS.length - 1 && (
+                    <hr className="mt-8 border-0 border-b-2 border-dotted border-o-sand/50" />
+                  )}
+                </section>
+              ))}
+            </div>
+          </div>
+
+          {/* Colonne droite : image (fixe) */}
+          <div className="mt-8 md:mt-0 md:self-start md:shrink-0">
             <Image
               src="/img/fleur.svg"
               alt="Illustration botanique"
@@ -35,48 +79,6 @@ export default function Mixologie() {
               className="w-[425px] h-[497px] object-contain"
               sizes="(min-width: 1024px) 425px, 60vw"
             />
-          </div>
-
-          {/* Règle pointillée plus visible */}
-          <hr className="col-span-1 md:col-span-2 mt-5 border-0 border-b-2 border-dotted border-o-sand/60" />
-
-          {/* Contenu */}
-          <div className="mt-6 col-span-1 md:col-span-2 space-y-10">
-            {MIXO_SECTIONS.map((sec, idx) => (
-              <section key={sec.title} aria-labelledby={`sec-${sec.title}`}>
-                <h3
-                  id={`sec-${sec.title}`}
-                  className="font-b text-24 mb-4 tracking-tight"
-                >
-                  {sec.title}{" "}
-                  {/* Sous-titre en gras */}
-                  <span className="font-b">{sec.subtitle}</span>
-                </h3>
-
-                <div className="space-y-3">
-                  {sec.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className="md:grid md:grid-cols-[minmax(0,1fr)_80px] md:items-baseline md:gap-6 flex items-baseline justify-between"
-                    >
-                      <div className="min-w-0">
-                        <div className="font-b li-arrow">{item.name}</div>
-                        <div className="text-16 text-o-sand/90">
-                          {item.notes}
-                        </div>
-                      </div>
-                      <div className="text-right font-b whitespace-nowrap">
-                        {item.price} €
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {idx < MIXO_SECTIONS.length - 1 && (
-                  <hr className="mt-8 border-0 border-b-2 border-dotted border-o-sand/50" />
-                )}
-              </section>
-            ))}
           </div>
         </div>
       </div>
