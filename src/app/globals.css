@@ -1,63 +1,88 @@
 @import "tailwindcss";
 
-/* --- Tokens (extraits utiles) --- */
+/* ——— Thème court ——— */
 @theme {
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system,
+  --color-o-red:   #E84420;
+  --color-o-brown: #DE9E53;
+  --color-o-sand:  #F1D6A5;
+  --color-o-green: #0D392A;
+  --color-o-blue:  #41BEDF;
+
+  --font-sans: var(--ff, "Figtree"), ui-sans-serif, system-ui, -apple-system,
                "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
 
-  --color-forest: #0D392A; /* fond */
-  --color-sand:   #F1D6A5; /* beige */
-  --color-flame:  #EA4D2E; /* remplace par ton rouge exact si tu l’as */
-  --color-sky:    #35B6DA; /* remplace par le bleu exact des onglets */
+  --font-weight-l: 300;
+  --font-weight-r: 400;
+  --font-weight-b: 700;
 
-  --text-hero:       90px;
-  --text-title-24:   24px;
-  --text-title-16:   16px;
-  --text-body-16:    16px;
-  --leading-106: 1.06;
-  --leading-160: 1.60;
-  --tracking-0: 0;
+  --text-16: 16px;
+  --text-24: 24px;
+  --text-90: 90px;
 }
 
-/* --- Utilitaires typographiques (déjà fournis, rappel) --- */
+@layer base {
+  html, body { @apply font-sans antialiased; }
+}
+
+/* ——— Utils généraux ——— */
 @layer utilities {
-  .ty-hero        { @apply text-hero       leading-106 tracking-0 font-700; }
-  .ty-title-24    { @apply text-title-24   leading-106 tracking-0 font-700; }
-  .ty-title-16    { @apply text-title-16   leading-106 tracking-0 font-700; }
-  .ty-body        { @apply text-body-16    leading-[1.60] tracking-0 font-300; }
-  .ty-body-strong { @apply text-body-16    leading-[1.60] tracking-0 font-700; }
-}
+  /* Hero = 100dvh, fond responsive fourni */
+  .hero { height: 100dvh; overflow: hidden; }
+  .bg-olme {
+    background-image: image-set(
+      url("/bg/fond-degrade.webp") type("image/webp") 1x,
+      url("/bg/fond-degrade@2x.webp") type("image/webp") 2x,
+      url("/bg/fond-degrade.png") type("image/png") 1x,
+      url("/bg/fond-degrade@2x.png") type("image/png") 2x
+    );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-/* --- BACKGROUND: image-set (WebP + PNG, DPR 1x/2x) --- */
-.bg-olme {
-  background-image: image-set(
-    url("/bg/fond-degrade.webp") type("image/webp") 1x,
-    url("/bg/fond-degrade@2x.webp") type("image/webp") 2x,
-    url("/bg/fond-degrade.png") type("image/png") 1x,
-    url("/bg/fond-degrade@2x.png") type("image/png") 2x
-  );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+  /* Conteneur “maquette” : 1340×445, marge gauche 50px, top visuel similaire */
+  .frame {
+    position: relative;
+  width: min(1340px, calc(100vw - 100px)); /* ≤1340px, sinon garde 50px de marge totale */
+      aspect-ratio: 1340 / 445;       /* conserve le ratio */
 
-/* --- Onglets (chips) --- */
-.tabs-wrap { display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; gap: .75rem; }
-.tab-chip {
-  position: relative; display: inline-flex; align-items: center; gap: .5rem;
-  padding: .75rem 1rem .6rem 1rem; border-radius: 14px 14px 0 0;
-  border: 1px dashed color-mix(in srgb, var(--color-sand) 70%, transparent 30%);
-  background: color-mix(in oklab, var(--color-sand) 88%, white 12%);
-  color: var(--color-forest); box-shadow: 0 6px 0 rgba(0,0,0,.1) inset;
-}
-.tab-chip--active { background: var(--color-sky); color: #07333F; border-style: solid; }
-.tab-chip::before {
-  content:""; position: absolute; left: -10px; bottom: 0; width: 22px; height: 22px;
-  background: inherit; border-left: inherit; border-bottom: inherit;
-  transform: skewX(-35deg) translateY(45%); border-bottom-left-radius: 12px;
-}
-.tab-num { @apply ty-title-24; line-height: 1; }
-.tab-label { @apply ty-title-16; line-height: 1; }
+      margin-inline: auto;                     /* centre le bloc */
+    margin-top: clamp(120px, 36vh, 380px); /* ≈ Top: 346–382px sur desktop */
+  }
 
-/* --- Cadres pointillés --- */
-.dashed-box { border: 1px dashed color-mix(in srgb, var(--color-sand) 55%, transparent 45%); border-radius: 8px; }
+  /* Positions internes exprimées en % du conteneur (=> scalable) */
+  .p-logo {               /* top: 36px ; left: 0 ; w: 656px */
+    position: absolute; left: 0%; top: 8.09%;
+    width: min(656px, 48.95%);
+  }
+  .p-orn {                /* top: 0px ; left: 800px ; w: 197px */
+    position: absolute; left: 59.70%; top: 0%;
+    width: min(197px, 14.70%);
+  }
+  .p-text {               /* top: 237px ; left: 800px ; w: 540px */
+    position: absolute; left: 59.70%; top: 53.26%;
+    width: min(540px, 40.30%);
+  }
+  .p-info {               /* top: 301px ; left: 0px ; w: 654px */
+    position: absolute; left: 0%; top: 67.64%;
+    width: min(654px, 48.80%);
+  }
+
+  /* Ligne pointillée (haut/bas seulement) + séparateurs verticaux */
+  .dash-row {
+    display: inline-flex; align-items: stretch;
+    color: var(--color-o-sand);
+    border-top: 1px dashed currentColor;
+    border-bottom: 1px dashed currentColor;
+  }
+  .dash-row > * { padding: 12px 18px; }
+  .dash-row > * + * { border-left: 1px dashed currentColor; }
+
+  /* Line-height 160% (maquette) */
+  .lh-160 { line-height: 1.6; }
+
+    /* Optionnel: affinage très grands écrans (évite d’over-scaler l’ornement) */
+  @media (min-width: 1920px) {
+    .frame { width: 1340px; }
+  }
+}
