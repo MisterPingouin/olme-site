@@ -5,7 +5,7 @@ export default function Vins(){
 return (
 <section id="vins" className="anchor" style={{ backgroundColor: "#DE9E53" }}>
 <div className="mx-auto max-w-[1200px] px-6 py-16 text-o-green">
-<h2 className="text-[56px] leading-[1.1] font-b mb-6">Vins, bières & softs</h2>
+<h2 className="text-[90px] leading-[1.1] font-b mb-6">Vins, bières & softs</h2>
 <p className="text-o-green/80 mb-10">Carte courte et vivante. Du verre à la bouteille : classiques, biodynamie, nature – des jus bien faits et des belles trouvailles de vignerons.</p>
 
 

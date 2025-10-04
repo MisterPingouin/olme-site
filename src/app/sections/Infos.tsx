@@ -5,7 +5,7 @@ export default function Infos(){
 return (
 <section id="infos" className="anchor" style={{ backgroundColor: "#41BEDF" }}>
 <div className="mx-auto max-w-[1200px] px-6 py-16 text-o-green">
-<h2 className="text-[56px] leading-[1.1] font-b mb-10">{INFOS.heading}</h2>
+<h2 className="text-[90px] leading-[1.1] font-b mb-10">{INFOS.heading}</h2>
 
 
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-14">

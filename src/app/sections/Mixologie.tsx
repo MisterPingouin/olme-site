@@ -4,11 +4,11 @@ import { MIXO_SECTIONS } from "../data/content";
 export default function Mixologie(){
 return (
 <section id="mixologie" className="anchor bg-o-red text-o-sand">
-<div className="mx-auto max-w-[1200px] px-6 py-16">
-<h2 className="text-[56px] leading-[1.1] font-b mb-6">Mixologie</h2>
-<p className="text-o-sand/90 mb-10">Un menu cocktail signature. Nez gourmand ou épicé, bouche acidulée au sucré-salé, la créativité n’a pas de limites.</p>
-
-
+<div className="mx-auto px-20 py-16">
+    <div className="flex items-center gap-10">
+<h2 className="text-[90px] leading-[1.1] font-b mb-6">Mixologie</h2>
+<p className="text-o-sand/90 max-w-99">Un menu cocktail signature. Nez gourmand ou épicé, bouche acidulée au sucré-salé, la créativité n’a pas de limites.</p>
+</div>
 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 <div className="space-y-10">
 {MIXO_SECTIONS.map(sec => (
@@ -32,7 +32,7 @@ return (
 
 <aside className="hidden md:block">
 <div className="rounded-2xl overflow-hidden">
-<img src="/img/mixologie.jpg" alt="Cocktail" className="w-full h-[520px] object-cover" />
+<img src="/img/fleur.svg" alt="Cocktail" className="w-full h-[520px] object-cover" />
 </div>
 </aside>
 </div>
