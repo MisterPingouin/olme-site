@@ -31,7 +31,7 @@ export default function OverlapTabs({
   const ml = size === "bottom" ? "-ml-3 md:-ml-4" : "-ml-2 md:-ml-3";
 
   return (
-    <nav aria-label="Onglets" className={cn("flex items-end", className)}>
+    <nav aria-label="Onglets" className={cn("flex justify-start -mb-3", className)}>
       {TABS.map((t, i) => {
         const isActive = t.id === activeId;
         return (
