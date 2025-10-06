@@ -46,7 +46,7 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 30;   // chevauchement pour masquer tout interstice
+  const OVERLAP = 30;   // chevauchement pour masquer tout interstice / chiffres
   const TAB_H = 60;     // hauteur des onglets
 
   const bgById: Record<string, string> = {
@@ -82,9 +82,9 @@ function InlineTabs({
               aria-current={active ? "page" : undefined}
               className={[
                 "relative shrink-0 grow-0",
-                "h-[60px]",
+                `h-[${TAB_H}px]`,
                 "rounded-tr-[20px] ring-0 border-0",
-                // ⬅️ radius TL uniquement pour les onglets 2→4 (jamais Mixologie)
+                // radius TL uniquement pour les onglets 2→4 (jamais Mixologie)
                 i > 0 ? "rounded-tl-[20px]" : "",
                 "flex items-center px-3",
                 getBg(t.id),
@@ -132,7 +132,6 @@ export default function Home() {
   // "Sheet" unique (onglets + section) pour animations perfs
   const TABS_H = 60;
   const [sheetOpen, setSheetOpen] = useState(false);
-  const CLOSED_Y = Math.max(vh - TABS_H, 0);
 
   // --- Desktop ---
   const panelTopRef = useRef<HTMLDivElement | null>(null);
@@ -195,11 +194,11 @@ export default function Home() {
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; position légèrement remontée */}
+            {/* Bloc global aligné GAUCHE ; position LÉGÈREMENT remontée */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(60px, 24vh, 136px)", // ← remonté très légèrement
+                marginTop: "clamp(58px, 23.5vh, 134px)", // ← un chouïa plus haut
                 maxWidth: "420px",
               }}
             >
@@ -331,9 +330,9 @@ export default function Home() {
           animate={{ y: sheetOpen ? 0 : Math.max(vh - 60, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
         >
-          <InlineTabs activeId={active} onSelect={handleSelect} />
-
+          {/* ⬇️ Les onglets entrent DANS la zone scrollable pour ne plus rester visibles au scroll */}
           <div className="flex-1 overflow-y-auto">
+            <InlineTabs activeId={active} onSelect={handleSelect} />
             {active === "mixologie" && <Mixologie />}
             {active === "vins" && <Vins />}
             {active === "food" && <Food />}
