@@ -195,11 +195,12 @@ export default function Home() {
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; légèrement remonté (UNIQUEMENT ceci) */}
+            {/* Bloc global aligné GAUCHE ; LÉGÈREMENT remonté via calc(clamp(...) - 8px) */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(56px, 23vh, 132px)", // ← un peu plus haut qu'avant, sans impacter les onglets
+                /* OFFSET léger vers le haut */
+                marginTop: "calc(clamp(56px, 23vh, 132px) - 8px)",
                 maxWidth: "420px",
               }}
             >
@@ -331,7 +332,7 @@ export default function Home() {
           animate={{ y: sheetOpen ? 0 : Math.max(vh - 60, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
         >
-          {/* Les onglets restent dans la zone scrollable (ne sont PAS sticky au scroll) */}
+          {/* Les onglets dans la zone scrollable => disparaissent quand on scrolle */}
           <div className="flex-1 overflow-y-auto">
             <InlineTabs activeId={active} onSelect={handleSelect} />
             {active === "mixologie" && <Mixologie />}
