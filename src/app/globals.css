@@ -85,4 +85,13 @@
   @media (min-width: 1920px) {
     .frame { width: 1340px; }
   }
+
+  @layer utilities {
+  /* Marge de scroll pour que l’ancre ne colle pas au bord haut */
+  .anchor { scroll-margin-top: 12px; }
+
+  /* Optionnel : légère ombre interne sur la barre mobile si tu veux du relief */
+  .mobile-tabs-shadow { box-shadow: 0 -6px 24px rgba(0,0,0,.35); }
+}
+
 }
