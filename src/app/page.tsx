@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, avec numéros & multi-lignes) -----
+// ----- Onglets (design maquette, AVEC chiffres) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,8 +46,8 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 18;     // chevauchement plus fort pour recouvrir 02/03/04
-  const TAB_H = 60;       // hauteur des onglets (maquette)
+  const OVERLAP = 30; // chevauchement pour masquer 02/03/04
+  const TAB_H = 60;
 
   const bgById: Record<string, string> = {
     mixologie: "bg-o-red text-o-sand",
@@ -74,9 +74,6 @@ function InlineTabs({
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
           const num = String(i + 1).padStart(2, "0");
 
-          // Mixologie ne doit JAMAIS avoir le radius top-left ; les autres l'ont seulement quand actifs
-          const addLeftRadius = i > 0 && active;
-
           return (
             <button
               key={t.id}
@@ -85,20 +82,20 @@ function InlineTabs({
               aria-current={active ? "page" : undefined}
               className={[
                 "relative shrink-0 grow-0",
-                "h-[60px]", // hauteur fixe (TAB_H)
+                `h-[${TAB_H}px]`,
                 "rounded-tr-[20px] ring-0 border-0",
-                addLeftRadius ? "rounded-tl-[20px]" : "",
+                // radius TL uniquement sur Vins / Brut / Infos (pas Mixologie)
+                i > 0 ? "rounded-tl-[20px]" : "",
                 "flex items-center px-3",
                 getBg(t.id),
               ].join(" ")}
               style={{
-                // largeur = (100% + somme des overlaps) / 4
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
                 marginLeft: i > 0 ? -OVERLAP : 0,
                 zIndex: active ? 200 : 100 - i * 10,
               }}
             >
-              {/* Patch couleur à gauche (onglets 2→4) pour fond invisible */}
+              {/* Patch couleur à gauche (onglets 2→4) pour éviter tout fond visible */}
               {i > 0 && !active && (
                 <span
                   aria-hidden
@@ -107,15 +104,12 @@ function InlineTabs({
                 />
               )}
 
-              {/* Contenu interne : numéro à gauche, libellé à droite */}
+              {/* Numéro à gauche + libellé à droite (Figtree 700 / 14px / 106%) */}
               <div className="relative z-10 flex w-full items-center justify-between gap-2">
-                {/* Numéro (même typo que libellé) */}
                 <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
                   {num}
                 </span>
-
-                {/* Libellé multi-lignes, aligné à droite */}
-                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right mr-">
+                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
                   {labelById[t.id] ?? t.label}
                 </span>
               </div>
@@ -136,9 +130,9 @@ export default function Home() {
   const sheetRef = useRef<HTMLDivElement | null>(null);
 
   // "Sheet" unique (onglets + section) pour animations perfs
-  const TABS_H = 60; // MAJ hauteur onglets
+  const TABS_H = 60;
   const [sheetOpen, setSheetOpen] = useState(false);
-  const CLOSED_Y = Math.max(vh - TABS_H, 0); // onglets posés sur le bas
+  const CLOSED_Y = Math.max(vh - TABS_H, 0);
 
   // --- Desktop ---
   const panelTopRef = useRef<HTMLDivElement | null>(null);
@@ -198,14 +192,15 @@ export default function Home() {
             className="mx-auto w-full px-5 sm:px-6"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
-              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
+              // ↑ un peu plus de bas pour iPhone 11 (onglets 60 + marge 36)
+              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 36}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; légèrement remonté */}
+            {/* Bloc global aligné GAUCHE ; encore un peu remonté */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(64px, 25vh, 140px)", // ← remonté un peu
+                marginTop: "clamp(52px, 22vh, 124px)",
                 maxWidth: "420px",
               }}
             >
