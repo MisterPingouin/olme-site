@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, AVEC chiffres) -----
+// ----- Onglets (design maquette, SANS chiffres) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,8 +46,8 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 30; // chevauchement pour masquer 02/03/04
-  const TAB_H = 60;
+  const OVERLAP = 30;   // chevauchement pour masquer tout interstice
+  const TAB_H = 60;     // hauteur des onglets
 
   const bgById: Record<string, string> = {
     mixologie: "bg-o-red text-o-sand",
@@ -72,7 +72,6 @@ function InlineTabs({
         {TABS.map((t, i) => {
           const active = t.id === activeId;
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
-          const num = String(i + 1).padStart(2, "0");
 
           return (
             <button
@@ -82,9 +81,9 @@ function InlineTabs({
               aria-current={active ? "page" : undefined}
               className={[
                 "relative shrink-0 grow-0",
-                `h-[${TAB_H}px]`,
+                "h-[60px]",
                 "rounded-tr-[20px] ring-0 border-0",
-                // radius TL uniquement sur Vins / Brut / Infos (pas Mixologie)
+                // ⬅️ radius TL uniquement pour les onglets 2→4 (jamais Mixologie)
                 i > 0 ? "rounded-tl-[20px]" : "",
                 "flex items-center px-3",
                 getBg(t.id),
@@ -104,11 +103,8 @@ function InlineTabs({
                 />
               )}
 
-              {/* Numéro à gauche + libellé à droite (Figtree 700 / 14px / 106%) */}
-              <div className="relative z-10 flex w-full items-center justify-between gap-2">
-                <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
-                  {num}
-                </span>
+              {/* Libellé multi-lignes, aligné à droite — Figtree 700 / 14px / 106% */}
+              <div className="relative z-10 flex w-full items-center justify-end">
                 <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
                   {labelById[t.id] ?? t.label}
                 </span>
@@ -192,15 +188,14 @@ export default function Home() {
             className="mx-auto w-full px-5 sm:px-6"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
-              // ↑ un peu plus de bas pour iPhone 11 (onglets 60 + marge 36)
-              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 36}px)`,
+              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; encore un peu remonté */}
+            {/* Bloc global aligné GAUCHE ; position contrôlée */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(52px, 22vh, 124px)",
+                marginTop: "clamp(64px, 25vh, 140px)",
                 maxWidth: "420px",
               }}
             >
