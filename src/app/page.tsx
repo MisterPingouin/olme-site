@@ -46,9 +46,8 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  // ↑ chevauchement un peu plus fort pour recouvrir 02/03/04
-  const OVERLAP = 24;
-  const TAB_H = 60;
+  const OVERLAP = 18;     // chevauchement plus fort pour recouvrir 02/03/04
+  const TAB_H = 60;       // hauteur des onglets (maquette)
 
   const bgById: Record<string, string> = {
     mixologie: "bg-o-red text-o-sand",
@@ -75,6 +74,9 @@ function InlineTabs({
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
           const num = String(i + 1).padStart(2, "0");
 
+          // Mixologie ne doit JAMAIS avoir le radius top-left ; les autres l'ont seulement quand actifs
+          const addLeftRadius = i > 0 && active;
+
           return (
             <button
               key={t.id}
@@ -83,9 +85,9 @@ function InlineTabs({
               aria-current={active ? "page" : undefined}
               className={[
                 "relative shrink-0 grow-0",
-                `h-[${TAB_H}px]`,
+                "h-[60px]", // hauteur fixe (TAB_H)
                 "rounded-tr-[20px] ring-0 border-0",
-                // ❌ plus de radius en haut-gauche pour tous (y compris quand actif)
+                addLeftRadius ? "rounded-tl-[20px]" : "",
                 "flex items-center px-3",
                 getBg(t.id),
               ].join(" ")}
@@ -107,13 +109,13 @@ function InlineTabs({
 
               {/* Contenu interne : numéro à gauche, libellé à droite */}
               <div className="relative z-10 flex w-full items-center justify-between gap-2">
-                {/* Numéro – Figtree 700 / 14px / 106% / 0 */}
+                {/* Numéro (même typo que libellé) */}
                 <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
                   {num}
                 </span>
 
-                {/* Libellé multi-lignes aligné à droite – même typo */}
-                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
+                {/* Libellé multi-lignes, aligné à droite */}
+                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right mr-">
                   {labelById[t.id] ?? t.label}
                 </span>
               </div>
@@ -134,7 +136,7 @@ export default function Home() {
   const sheetRef = useRef<HTMLDivElement | null>(null);
 
   // "Sheet" unique (onglets + section) pour animations perfs
-  const TABS_H = 60; // (garde cohérence avec InlineTabs)
+  const TABS_H = 60; // MAJ hauteur onglets
   const [sheetOpen, setSheetOpen] = useState(false);
   const CLOSED_Y = Math.max(vh - TABS_H, 0); // onglets posés sur le bas
 
@@ -199,11 +201,11 @@ export default function Home() {
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; position contrôlée */}
+            {/* Bloc global aligné GAUCHE ; légèrement remonté */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(64px, 25vh, 140px)",
+                marginTop: "clamp(64px, 25vh, 140px)", // ← remonté un peu
                 maxWidth: "420px",
               }}
             >

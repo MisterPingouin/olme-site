@@ -53,7 +53,7 @@ export const WINES: WineSection[] = [
 { name: "→ Hédoniste", region: "Rhône — 100% viognier, La Durbane", byGlass: 8, bottle: 40 },
 { name: "→ Entre ciel et terre", region: "Coteaux-du-lyonnais — 100% chardonnay, dom. Prapin", byGlass: 8, bottle: 40 },
 { name: "→ Les cerisiers", region: "Coteaux-du-lyonnais — 100% chardonnay, dom. Prapin", byGlass: 8, bottle: 40 },
-{ name: "→ Fronteira", region: "Ardège — 4 cépages, Clot de l’Oum", byGlass: 8, bottle: 40 },
+{ name: "→ Fronteira", region: "Ardège — 4 cépages, Clot de l’Oum", bottle: 40 },
 ]},
 { title: "Rouge", items: [
 { name: "→ Aux vergers", region: "Beaujolais — 100% gamay, Cosima", byGlass: 8, bottle: 40 },
