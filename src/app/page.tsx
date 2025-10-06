@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, SANS chiffres) -----
+// ----- Onglets (design maquette, AVEC chiffres) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -72,6 +72,7 @@ function InlineTabs({
         {TABS.map((t, i) => {
           const active = t.id === activeId;
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
+          const num = String(i + 1).padStart(2, "0");
 
           return (
             <button
@@ -103,8 +104,11 @@ function InlineTabs({
                 />
               )}
 
-              {/* Libellé multi-lignes, aligné à droite — Figtree 700 / 14px / 106% */}
-              <div className="relative z-10 flex w-full items-center justify-end">
+              {/* Numéro à gauche + libellé à droite — Figtree 700 / 14px / 106% */}
+              <div className="relative z-10 flex w-full items-center justify-between gap-2">
+                <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
+                  {num}
+                </span>
                 <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
                   {labelById[t.id] ?? t.label}
                 </span>
@@ -191,11 +195,11 @@ export default function Home() {
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; position contrôlée */}
+            {/* Bloc global aligné GAUCHE ; position légèrement remontée */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(64px, 25vh, 140px)",
+                marginTop: "clamp(60px, 24vh, 136px)", // ← remonté très légèrement
                 maxWidth: "420px",
               }}
             >
