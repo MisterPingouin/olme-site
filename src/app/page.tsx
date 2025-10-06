@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, sans chiffres) -----
+// ----- Onglets (design maquette, avec numéros & multi-lignes) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,13 +46,23 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 12; // chevauchement renforcé pour ne jamais voir le fond
+  // ↑ chevauchement un peu plus fort pour recouvrir 02/03/04
+  const OVERLAP = 24;
+  const TAB_H = 60;
 
   const bgById: Record<string, string> = {
     mixologie: "bg-o-red text-o-sand",
     vins: "bg-[#DE9E53] text-o-green",
     food: "bg-[#F4E4C7] text-o-green",
     infos: "bg-o-blue text-o-green",
+  };
+
+  // Libellés formatés (sauts de ligne forcés)
+  const labelById: Record<string, string> = {
+    mixologie: "Mixologie",
+    vins: "Vins,\nbières\n& softs",
+    food: "Brut\nFood",
+    infos: "Infos\npratiques",
   };
 
   const getBg = (id: string) => bgById[id] ?? "";
@@ -63,6 +73,8 @@ function InlineTabs({
         {TABS.map((t, i) => {
           const active = t.id === activeId;
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
+          const num = String(i + 1).padStart(2, "0");
+
           return (
             <button
               key={t.id}
@@ -70,16 +82,15 @@ function InlineTabs({
               onClick={() => onSelect(t.id)}
               aria-current={active ? "page" : undefined}
               className={[
-                "relative h-[50px] shrink-0 grow-0",
+                "relative shrink-0 grow-0",
+                `h-[${TAB_H}px]`,
                 "rounded-tr-[20px] ring-0 border-0",
-                // radius haut-gauche quand actif pour un look homogène
-                active ? "rounded-tl-[20px]" : "",
-                "flex items-center justify-center text-center px-3",
-                "text-[13px] font-b leading-tight whitespace-normal break-words",
+                // ❌ plus de radius en haut-gauche pour tous (y compris quand actif)
+                "flex items-center px-3",
                 getBg(t.id),
               ].join(" ")}
               style={{
-                // largeur = (100% + 3 * overlap) / 4 pour compenser les 3 recouvrements
+                // largeur = (100% + somme des overlaps) / 4
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
                 marginLeft: i > 0 ? -OVERLAP : 0,
                 zIndex: active ? 200 : 100 - i * 10,
@@ -90,10 +101,22 @@ function InlineTabs({
                 <span
                   aria-hidden
                   className={["absolute top-0 h-full", getBg(prevId)].join(" ")}
-                  style={{ left: -OVERLAP, width: OVERLAP }}
+                  style={{ left: -OVERLAP, width: OVERLAP, zIndex: 0 }}
                 />
               )}
-              <span>{t.label}</span>
+
+              {/* Contenu interne : numéro à gauche, libellé à droite */}
+              <div className="relative z-10 flex w-full items-center justify-between gap-2">
+                {/* Numéro – Figtree 700 / 14px / 106% / 0 */}
+                <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
+                  {num}
+                </span>
+
+                {/* Libellé multi-lignes aligné à droite – même typo */}
+                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
+                  {labelById[t.id] ?? t.label}
+                </span>
+              </div>
             </button>
           );
         })}
@@ -111,7 +134,7 @@ export default function Home() {
   const sheetRef = useRef<HTMLDivElement | null>(null);
 
   // "Sheet" unique (onglets + section) pour animations perfs
-  const TABS_H = 50; // hauteur barre
+  const TABS_H = 60; // (garde cohérence avec InlineTabs)
   const [sheetOpen, setSheetOpen] = useState(false);
   const CLOSED_Y = Math.max(vh - TABS_H, 0); // onglets posés sur le bas
 
@@ -120,7 +143,6 @@ export default function Home() {
   const goToPanelTop = () =>
     panelTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  // clic onglet
   const handleSelect = (id: string) => {
     history.replaceState(null, "", `#${id}`);
 
@@ -131,7 +153,7 @@ export default function Home() {
         requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
       } else {
         if (id === active) {
-          setSheetOpen(false); // retour à la homepage
+          setSheetOpen(false); // retour accueil
         } else {
           setActive(id);
           sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
@@ -174,16 +196,14 @@ export default function Home() {
             className="mx-auto w-full px-5 sm:px-6"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
-              // rien n'est masqué par les onglets
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; légèrement plus bas qu'avant */}
+            {/* Bloc global aligné GAUCHE ; position contrôlée */}
             <div
               className="relative"
               style={{
-                // ↓ on redescend un peu le bloc
-                marginTop: "clamp(72px, 27vh, 148px)",
+                marginTop: "clamp(64px, 25vh, 140px)",
                 maxWidth: "420px",
               }}
             >
@@ -310,18 +330,13 @@ export default function Home() {
         <motion.div
           ref={sheetRef}
           className="fixed inset-0 z-[60] lg:hidden flex flex-col bg-transparent"
-          style={{
-            pointerEvents: "auto",
-            willChange: "transform",
-          }}
+          style={{ pointerEvents: "auto", willChange: "transform" }}
           initial={false}
-          animate={{ y: sheetOpen ? 0 : CLOSED_Y }}
+          animate={{ y: sheetOpen ? 0 : Math.max(vh - 60, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
         >
-          {/* Onglets en haut du sheet (en bas quand fermé) */}
           <InlineTabs activeId={active} onSelect={handleSelect} />
 
-          {/* Contenu scrollable */}
           <div className="flex-1 overflow-y-auto">
             {active === "mixologie" && <Mixologie />}
             {active === "vins" && <Vins />}
