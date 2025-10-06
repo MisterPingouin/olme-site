@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// Barre d'onglets (design maquette, sans chiffres)
+// ----- Onglets (design maquette, sans chiffres) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,17 +46,23 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
+  const OVERLAP = 12; // chevauchement renforcé pour ne jamais voir le fond
+
   const bgById: Record<string, string> = {
     mixologie: "bg-o-red text-o-sand",
     vins: "bg-[#DE9E53] text-o-green",
     food: "bg-[#F4E4C7] text-o-green",
     infos: "bg-o-blue text-o-green",
   };
+
+  const getBg = (id: string) => bgById[id] ?? "";
+
   return (
     <nav aria-label="Sections" className="w-full">
       <div className="flex w-full overflow-hidden">
         {TABS.map((t, i) => {
           const active = t.id === activeId;
+          const prevId = i > 0 ? TABS[i - 1].id : t.id;
           return (
             <button
               key={t.id}
@@ -64,15 +70,29 @@ function InlineTabs({
               onClick={() => onSelect(t.id)}
               aria-current={active ? "page" : undefined}
               className={[
-                "relative h-[50px] w-[calc(25%+6px)]",
-                i > 0 ? "-ml-2" : "",
+                "relative h-[50px] shrink-0 grow-0",
                 "rounded-tr-[20px] ring-0 border-0",
+                // radius haut-gauche quand actif pour un look homogène
+                active ? "rounded-tl-[20px]" : "",
                 "flex items-center justify-center text-center px-3",
                 "text-[13px] font-b leading-tight whitespace-normal break-words",
-                bgById[t.id],
+                getBg(t.id),
               ].join(" ")}
-              style={{ zIndex: active ? 200 : 100 - i * 10 }}
+              style={{
+                // largeur = (100% + 3 * overlap) / 4 pour compenser les 3 recouvrements
+                width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
+                marginLeft: i > 0 ? -OVERLAP : 0,
+                zIndex: active ? 200 : 100 - i * 10,
+              }}
             >
+              {/* Patch couleur à gauche (onglets 2→4) pour fond invisible */}
+              {i > 0 && !active && (
+                <span
+                  aria-hidden
+                  className={["absolute top-0 h-full", getBg(prevId)].join(" ")}
+                  style={{ left: -OVERLAP, width: OVERLAP }}
+                />
+              )}
               <span>{t.label}</span>
             </button>
           );
@@ -91,9 +111,9 @@ export default function Home() {
   const sheetRef = useRef<HTMLDivElement | null>(null);
 
   // "Sheet" unique (onglets + section) pour animations perfs
-  const TABS_H = 50; // hauteur barre (mesure stable)
+  const TABS_H = 50; // hauteur barre
   const [sheetOpen, setSheetOpen] = useState(false);
-  const CLOSED_Y = Math.max(vh - TABS_H, 0); // onglets visibles posés sur le bas
+  const CLOSED_Y = Math.max(vh - TABS_H, 0); // onglets posés sur le bas
 
   // --- Desktop ---
   const panelTopRef = useRef<HTMLDivElement | null>(null);
@@ -106,20 +126,13 @@ export default function Home() {
 
     if (isSmall) {
       if (!sheetOpen) {
-        // ouvrir + set active
         setActive(id);
         setSheetOpen(true);
-        // assure que la scrollbox repart en haut
-        requestAnimationFrame(() => {
-          sheetRef.current?.scrollTo(0, 0);
-        });
+        requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
       } else {
         if (id === active) {
-          // refermer (revenir à la homepage)
-          setSheetOpen(false);
-          // pas de scroll-to-top de la page pour éviter un saut visuel
+          setSheetOpen(false); // retour à la homepage
         } else {
-          // changer de section, pas d'anim du sheet
           setActive(id);
           sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -147,7 +160,7 @@ export default function Home() {
     }
   }, [isSmall]);
 
-  // Largeurs responsives fidèles à la maquette
+  // Largeurs responsives (fidèles à la maquette)
   const frameW = "min(351px, calc(100vw - 40px))";
   const contactW = "min(350px, calc(100vw - 40px))";
 
@@ -155,25 +168,26 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero relative min-h-dvh bg-olme overflow-hidden">
-        {/* --- MOBILE : homepage fidèle à la maquette --- */}
+        {/* --- MOBILE : homepage --- */}
         <div className="lg:hidden relative">
           <div
             className="mx-auto w-full px-5 sm:px-6"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
-              // padding bas dynamique = hauteur onglets + safe-area
-              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 20}px)`,
+              // rien n'est masqué par les onglets
+              paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE et position verticale stable */}
+            {/* Bloc global aligné GAUCHE ; légèrement plus bas qu'avant */}
             <div
               className="relative"
               style={{
-                marginTop: "clamp(88px, 31vh, 172px)",
-                maxWidth: "420px", // borne visuelle maquette
+                // ↓ on redescend un peu le bloc
+                marginTop: "clamp(72px, 27vh, 148px)",
+                maxWidth: "420px",
               }}
             >
-              {/* Logo à GAUCHE (aligné avec le reste) */}
+              {/* Logo à gauche */}
               <div className="flex">
                 <img
                   src="/logo/logo-olme.svg"
@@ -233,10 +247,7 @@ export default function Home() {
                   <div className="text-center px-4">
                     <div className="font-b text-[18px]">Contact</div>
                     <div className="font-l lh-160 text-[12px]">
-                      <a
-                        href="mailto:contact@olmebar.com"
-                        className="underline"
-                      >
+                      <a href="mailto:contact@olmebar.com" className="underline">
                         contact@olmebar.com
                       </a>
                       <br />
@@ -253,63 +264,28 @@ export default function Home() {
         {/* --- DESKTOP (≥ lg) : inchangé --- */}
         <div className="hidden lg:block">
           <div className="frame">
-            <img
-              src="/logo/logo-olme.svg"
-              alt="Olmé"
-              className="p-logo select-none"
-              draggable={false}
-            />
-            <img
-              src="/ornaments/ornament-botanic.svg"
-              alt=""
-              aria-hidden="true"
-              className="p-orn select-none"
-              draggable={false}
-            />
+            <img src="/logo/logo-olme.svg" alt="Olmé" className="p-logo select-none" draggable={false} />
+            <img src="/ornaments/ornament-botanic.svg" alt="" aria-hidden="true" className="p-orn select-none" draggable={false} />
             <div className="p-text text-o-sand">
-              <h3 className="text-16 font-b lh-160">
-                Olmé, bar à cocktails à Lyon
-              </h3>
-              <p className="mt-2 text-16 font-l lh-160">
-                Un lieu de vie moderne dédié à la mixologie, au vin et à la
-                bière craft.
-              </p>
-              <p className="text-16 font-l lh-160">
-                Un lieu où chaque cocktail évoque un souvenir, un voyage :
-                d’abord le nez, puis le goût — le sel, le feu, le kick.
-              </p>
-              <p className="text-16 font-l lh-160">
-                Ici, pas besoin de réservation pour boire un bon cocktail. <br />{" "}
-                Nous servons à manger jusqu’à 23h !
-              </p>
-              <p className="mt-2 text-16 lh-160">
-                <span className="font-b">Le + :</span> producteurs engagés et
-                fait maison, du bar aux assiettes.
-              </p>
+              <h3 className="text-16 font-b lh-160">Olmé, bar à cocktails à Lyon</h3>
+              <p className="mt-2 text-16 font-l lh-160">Un lieu de vie moderne dédié à la mixologie, au vin et à la bière craft.</p>
+              <p className="text-16 font-l lh-160">Un lieu où chaque cocktail évoque un souvenir, un voyage : d’abord le nez, puis le goût — le sel, le feu, le kick.</p>
+              <p className="text-16 font-l lh-160">Ici, pas besoin de réservation pour boire un bon cocktail. <br /> Nous servons à manger jusqu’à 23h !</p>
+              <p className="mt-2 text-16 lh-160"><span className="font-b">Le + :</span> producteurs engagés et fait maison, du bar aux assiettes.</p>
             </div>
             <div className="p-info">
               <div className="dash-row text-16">
                 <div>
                   <div className="font-b text-24">Adresse</div>
-                  <div className="font-l lh-160">
-                    15 rue montesquieu <br /> 69007 LYON
-                  </div>
+                  <div className="font-l lh-160">15 rue montesquieu <br /> 69007 LYON</div>
                 </div>
                 <div>
                   <div className="font-b text-24">Ouverture</div>
-                  <div className="font-l lh-160">
-                    Lundi – Mercredi → 18h – 00h <br /> Jeudi – Samedi → 18h –
-                    01h
-                  </div>
+                  <div className="font-l lh-160">Lundi – Mercredi → 18h – 00h <br /> Jeudi – Samedi → 18h – 01h</div>
                 </div>
                 <div>
                   <div className="font-b text-24">Contact</div>
-                  <div className="mb-2 font-l lh-160">
-                    <a href="mailto:contact@olmebar.com" className="underline">
-                      contact@olmebar.com
-                    </a>
-                    <br /> 06 00 00 00 00
-                  </div>
+                  <div className="mb-2 font-l lh-160"><a href="mailto:contact@olmebar.com" className="underline">contact@olmebar.com</a><br /> 06 00 00 00 00</div>
                 </div>
               </div>
             </div>
@@ -318,16 +294,8 @@ export default function Home() {
           {/* Onglets bas desktop */}
           <div className="absolute inset-x-0 bottom-0 z-[50]">
             <div className="mx-auto max-w-[1280px] px-4">
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ type: "spring", stiffness: 180, damping: 18 }}
-              >
-                <OverlapTabs
-                  activeId={active}
-                  onSelect={handleSelect}
-                  size="bottom"
-                />
+              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 180, damping: 18 }}>
+                <OverlapTabs activeId={active} onSelect={handleSelect} size="bottom" />
               </motion.div>
             </div>
           </div>
@@ -337,21 +305,20 @@ export default function Home() {
       {/* Ancre haut de panneau desktop */}
       <div ref={panelTopRef} />
 
-      {/* --- MOBILE : SHEET (onglets + section) ultra-performant --- */}
+      {/* --- MOBILE : SHEET (onglets + section) performant --- */}
       {isSmall && (
         <motion.div
           ref={sheetRef}
           className="fixed inset-0 z-[60] lg:hidden flex flex-col bg-transparent"
           style={{
-            // quand fermé : pas d'interaction inutile → gains perf
-            pointerEvents: sheetOpen ? "auto" : "none",
+            pointerEvents: "auto",
             willChange: "transform",
           }}
           initial={false}
           animate={{ y: sheetOpen ? 0 : CLOSED_Y }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
         >
-          {/* Onglets en haut du sheet (visibles en bas quand fermé) */}
+          {/* Onglets en haut du sheet (en bas quand fermé) */}
           <InlineTabs activeId={active} onSelect={handleSelect} />
 
           {/* Contenu scrollable */}
