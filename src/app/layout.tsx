@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--ff",        // relie à --font-sans du thème
   display: "swap",
 });
