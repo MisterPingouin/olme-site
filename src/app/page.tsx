@@ -44,9 +44,12 @@ function useViewportH() {
 function InlineTabs({
   activeId,
   onSelect,
+  // MASK_BG: notifier la fin de l’animation de l’onglet actif (02–04)
+  onActiveAnimEnd,
 }: {
   activeId: string;
   onSelect: (id: string) => void;
+  onActiveAnimEnd?: () => void;
 }) {
   const OVERLAP = 30;
   const REVEAL = 26;
@@ -100,7 +103,7 @@ function InlineTabs({
                 "relative shrink-0 grow-0 h-[60px]",
                 textById[t.id],
                 "rounded-tr-[20px] ring-0 border-0 px-3",
-                "flex items-center overflow-hidden select-none", // évite les drags
+                "flex items-center overflow-hidden select-none",
               ].join(" ")}
               style={{
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
@@ -121,6 +124,10 @@ function InlineTabs({
                 clipPath: animateThis
                   ? { duration: DUR, times: [0, 0.85, 1], ease: "easeInOut" }
                   : { duration: DUR / 2, ease: "easeInOut" },
+              }}
+              // MASK_BG: quand l’anim de l’onglet actif (02–04) se termine
+              onAnimationComplete={() => {
+                if (animateThis) onActiveAnimEnd?.();
               }}
             >
               {/* Fond coloré coupé par le clip */}
@@ -169,6 +176,9 @@ export default function Home() {
   const TABS_H = 60;
   const [sheetOpen, setSheetOpen] = useState(false);
 
+  // MASK_BG: fond plein après anim (évite de voir le hero derrière)
+  const [sheetMasked, setSheetMasked] = useState(false);
+
   // Header (barre) + logo
   const [headerVisible, setHeaderVisible] = useState(false);
   const [logoVisible, setLogoVisible] = useState(false);
@@ -190,7 +200,6 @@ export default function Home() {
       }
     };
 
-    // Important: passive:false pour pouvoir preventDefault sur iOS Safari
     el.addEventListener("touchmove", blockScroll, { passive: false });
     el.addEventListener("wheel", blockScroll, { passive: false });
 
@@ -207,7 +216,7 @@ export default function Home() {
     if (!el) return;
 
     let raf = 0;
-    const THRESH = 6; // marge anti-jitter (px)
+    const THRESH = 6;
 
     const onScroll = () => {
       if (raf) cancelAnimationFrame(raf);
@@ -216,7 +225,6 @@ export default function Home() {
       });
     };
 
-    // init + écoute
     setLogoAtTop(el.scrollTop <= THRESH);
     el.addEventListener("scroll", onScroll, { passive: true });
 
@@ -233,6 +241,11 @@ export default function Home() {
     []
   );
 
+  const activeIndex = useMemo(
+    () => TABS.findIndex((t) => t.id === active),
+    [active]
+  );
+
   const handleSelect = useCallback((id: string) => {
     history.replaceState(null, "", `#${id}`);
 
@@ -242,10 +255,12 @@ export default function Home() {
         setHeaderVisible(true);
         setLogoVisible(false);
         setSheetOpen(true);
+        setSheetMasked(false); // MASK_BG: on attend la fin d’anim
         requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
       } else {
         if (id !== active) {
           setActive(id);
+          // on garde le masque si déjà actif
           sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
         }
       }
@@ -259,6 +274,7 @@ export default function Home() {
   const handleLogoHome = useCallback(() => {
     setSheetOpen(false);
     setLogoVisible(false);
+    setSheetMasked(false); // MASK_BG: retire le fond quand on redescend
     setActive("mixologie");
     if (typeof window !== "undefined") {
       history.replaceState(null, "", window.location.pathname);
@@ -276,6 +292,7 @@ export default function Home() {
       setHeaderVisible(true);
       setLogoVisible(false);
       setSheetOpen(true);
+      setSheetMasked(false); // attend fin anim
       setTimeout(() => sheetRef.current?.scrollTo(0, 0), 0);
     } else {
       setTimeout(() => goToPanelTop(), 0);
@@ -345,7 +362,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Adresse / Ouverture / Contact (inchangé visuellement) */}
+              {/* Adresse / Ouverture / Contact */}
               <div className="mt-8 text-o-sand" style={{ width: frameW }}>
                 <div className="dash-row w-full">
                   <div className="pr-4">
@@ -368,10 +385,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- DESKTOP (≥ lg) : inchangé visuellement, optimisé perf --- */}
+        {/* --- DESKTOP (≥ lg) --- */}
         <div className="hidden lg:block">
           <div className="frame">
-            {/* LCP desktop : Image Next avec priority */}
             <Image
               src="/logo/logo-olme.svg"
               alt="Olmé"
@@ -384,13 +400,11 @@ export default function Home() {
               draggable={false}
             />
 
-            {/* Ornement lourd : ne se charge QUE si media ≥ 1024px */}
             <picture>
               <source
                 media="(min-width:1024px)"
                 srcSet="/ornaments/ornament-botanic.svg"
               />
-              {/* Fallback 1×1 transparent pour empêcher le téléchargement hors media */}
               <img
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
                 alt=""
@@ -447,16 +461,23 @@ export default function Home() {
       {/* --- MOBILE : SHEET (header sticky + onglets + section) --- */}
       {isSmall && (
         <motion.div
-          className="fixed inset-0 z-[60] lg:hidden flex flex-col bg-transparent"
+          // MASK_BG: on applique la couleur une fois l’anim terminée
+          className={[
+            "fixed inset-0 z-[60] lg:hidden flex flex-col",
+            sheetOpen && sheetMasked ? "bg-[#072821]" : "bg-transparent",
+          ].join(" ")}
           style={{ pointerEvents: "auto", willChange: "transform" }}
           initial={false}
           animate={{ y: sheetOpen ? 0 : Math.max(vh - TABS_H, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
           onAnimationComplete={() => {
             if (sheetOpen) {
-              setLogoVisible(true); // le logo n’apparaît qu’après l’animation de montée
+              // Fin de l’anim de montée : si onglet 01 -> masquer maintenant
+              if (activeIndex === 0) setSheetMasked(true);
+              setLogoVisible(true);
             } else {
-              setHeaderVisible(false); // on retire la barre après la descente
+              setHeaderVisible(false);
+              setSheetMasked(false); // en descente, on retire le masque
             }
           }}
         >
@@ -465,14 +486,11 @@ export default function Home() {
             ref={sheetRef}
             className={[
               "flex-1",
-              sheetOpen ? "overflow-y-auto overscroll-contain" : "overflow-hidden overscroll-none", // FIX: coupe la scroll-area quand fermé
-              sheetOpen ? "touch-auto" : "touch-none", // FIX: bloque les gestes tactiles sur iOS/Android
-              "select-none", // évite les drags involontaires
+              sheetOpen ? "overflow-y-auto overscroll-contain" : "overflow-hidden overscroll-none",
+              sheetOpen ? "touch-auto" : "touch-none",
+              "select-none",
             ].join(" ")}
-            style={{
-              // Redondance defensive au cas où les utilitaires Tailwind seraient purgés
-              touchAction: sheetOpen ? "auto" : "none", // FIX
-            }}
+            style={{ touchAction: sheetOpen ? "auto" : "none" }}
           >
             {/* HEADER STICKY tout en haut pendant le scroll */}
             {headerVisible && (
@@ -504,7 +522,14 @@ export default function Home() {
             )}
 
             {/* Onglets puis contenu */}
-            <InlineTabs activeId={active} onSelect={handleSelect} />
+            <InlineTabs
+              activeId={active}
+              onSelect={handleSelect}
+              onActiveAnimEnd={() => {
+                // MASK_BG: si onglet 02–04, on masque après l’anim du clip
+                if (sheetOpen && activeIndex > 0) setSheetMasked(true);
+              }}
+            />
             {active === "mixologie" && <Mixologie />}
             {active === "vins" && <Vins />}
             {active === "food" && <Food />}
