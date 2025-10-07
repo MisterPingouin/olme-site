@@ -9,26 +9,44 @@ export default function Vins() {
       className="anchor bg-[#DE9E53] text-o-green overflow-x-hidden"
     >
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
-        {/* Layout principal : gauche (contenu) | droite (image) */}
-        <div className="md:flex md:items-start md:gap-10">
+        {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
+        <div className="flex items-start gap-10">
           {/* Colonne gauche */}
           <div className="flex-1 min-w-0">
-            <h2
-              id="vins-title"
-              className="font-b leading-[1.1] break-words text-[clamp(40px,9.5vw,90px)]"
-            >
-              Vins, bières & softs
-            </h2>
+            {/* Header: titre | sous-texte */}
+            <div className="md:flex md:items-center md:justify-between md:gap-10">
+              <div className="flex justify-between items-center">
+                <h2
+                  id="vins-title"
+                  className="font-b leading-[1.1] break-words text-[clamp(40px,9.5vw,90px)]"
+                >
+                  Vins, bières & softs
+                </h2>
 
-            {/* Sous-titre SOUS le titre */}
-            <p className="mt-3 max-w-[640px] text-o-green/80">
-              Carte courte et vivante. Du verre à la bouteille : classiques,
-              biodynamie, nature — des jus bien faits et des belles trouvailles
-              de vignerons. Bière craft et Soda sauvage. Sélection de bières
-              artisanales et sodas maison pour changer des habitudes.
-            </p>
+                {/* Petite illustration mobile à droite du titre */}
+                <div className="flex md:hidden">
+                  <div className="mx-auto w-full max-w-[75px]">
+                    <Image
+                      src="/img/fleur.svg"
+                      alt="Illustration"
+                      width={55}
+                      height={75}
+                      priority
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
 
-            {/* Règle pointillée (plus visible) */}
+              <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
+                Carte courte et vivante. Du verre à la bouteille : classiques,
+                biodynamie, nature — des jus bien faits et des belles trouvailles
+                de vignerons. Bière craft et Soda sauvage. Sélection de bières
+                artisanales et sodas maison pour changer des habitudes.
+              </p>
+            </div>
+
+            {/* Règle pointillée */}
             <hr className="mt-6 border-0 border-b-2 border-dotted border-o-green/60" />
 
             {/* Sections */}
@@ -48,14 +66,16 @@ export default function Vins() {
                         key={item.name}
                         className="flex items-baseline justify-between gap-4 sm:gap-6"
                       >
-                        {/* Nom + sous-titre */}
+                        {/* Nom + région */}
                         <div className="min-w-0">
                           <div className="font-b li-arrow break-words">
                             {item.name}
                           </div>
-                          <div className="text-16 text-o-green/80 break-words">
-                            {item.region}
-                          </div>
+                          {item.region && (
+                            <div className="text-16 text-o-green/80 break-words">
+                              {item.region}
+                            </div>
+                          )}
                         </div>
 
                         {/* Prix : verre + bouteille */}
@@ -88,8 +108,8 @@ export default function Vins() {
             </div>
           </div>
 
-          {/* Colonne droite : image */}
-          <aside className="mt-8 md:mt-0 md:self-start md:shrink-0">
+          {/* Colonne droite : image (≥ lg) */}
+          <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
             <div className="rounded-2xl overflow-hidden mx-auto w-full max-w-[425px] aspect-[425/520] md:w-[425px] md:h-[520px] md:aspect-auto">
               <Image
                 src="/img/vins.jpg"
@@ -98,10 +118,10 @@ export default function Vins() {
                 height={520}
                 priority
                 className="w-full h-full object-cover"
-                sizes="(min-width: 768px) 425px, 92vw"
+                sizes="(min-width: 1024px) 425px, 0px"
               />
             </div>
-          </aside>
+          </div>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export default function Mixologie() {
                 </h2>
 
                 {/* Illustration mobile (à droite du titre) */}
-                <div className="flex md:hidden md:mt-0 md:self-start md:shrink-0">
+                <div className="flex md:hidden">
                   <div className="mx-auto w-full max-w-[75px]">
                     <Image
                       src="/img/fleur.svg"
@@ -80,12 +80,10 @@ export default function Mixologie() {
                                 {item.name}
                               </div>
 
-                              {/* Tiret visible uniquement s'il y a des notes */}
                               {hasDescriptors && (
                                 <span className="shrink-0" aria-hidden="true">-</span>
                               )}
 
-                              {/* Notes (regular) juste après le tiret */}
                               {hasDescriptors && (
                                 <div className="text-16 font-normal italic min-w-0 break-words">
                                   {descriptors}
@@ -99,7 +97,7 @@ export default function Mixologie() {
                             </div>
                           </div>
 
-                          {/* Ligne 2 : ingrédients (sous Nom+Notes) */}
+                          {/* Ligne 2 : ingrédients */}
                           {ingredients && (
                             <div className="text-16 font-medium text-o-sand/90 break-words mt-1">
                               {ingredients}
@@ -119,8 +117,8 @@ export default function Mixologie() {
             </div>
           </div>
 
-          {/* Colonne droite : image (md+) */}
-          <div className="hidden md:flex md:mt-0 md:self-start md:shrink-0">
+          {/* Colonne droite : image (≥ lg) */}
+          <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
             <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
               <Image
                 src="/img/fleur.svg"
@@ -129,7 +127,7 @@ export default function Mixologie() {
                 height={497}
                 priority
                 className="w-full h-full object-contain"
-                sizes="(min-width: 768px) 425px, 92vw"
+                sizes="(min-width: 1024px) 425px, 0px"
               />
             </div>
           </div>
