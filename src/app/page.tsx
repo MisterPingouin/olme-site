@@ -319,7 +319,7 @@ export default function Home() {
             <div
               className="relative"
               style={{
-                marginTop: "100px",
+                marginTop: "95px",
                 maxWidth: "420px",
               }}
             >
@@ -337,28 +337,19 @@ export default function Home() {
                   draggable={false}
                 />
               </div>
-
               {/* Intro */}
               <div className="mt-6 text-o-sand" style={{ width: frameW }}>
                 <h3 className="font-b leading-[1.5] text-[18px]">
                   Olmé, bar à cocktails à Lyon
                 </h3>
                 <p className="mt-2 font-l leading-[1.6] text-[12px]">
-                  Un lieu de vie moderne dédié à la mixologie, au vin et à la
-                  bière craft.
+                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft.
                 </p>
-                <p className="font-l leading-[1.6] text-[12px]">
-                  Un lieu où chaque cocktail évoque un souvenir, un voyage :
-                  d’abord le nez, puis le goût — le sel, le feu, le kick.
+                <p className="font-l leading-[1.6] text-[12px] mt-1">
+Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.
                 </p>
-                <p className="font-l leading-[1.6] text-[12px]">
-                  Ici, pas besoin de réservation pour boire un bon cocktail.{" "}
-                  <br />
-                  Nous servons à manger jusqu’à 23h !
-                </p>
-                <p className="mt-2 leading-[1.6] text-[12px]">
-                  <span className="font-b">Le + :</span> producteurs engagés et
-                  fait maison, du bar aux assiettes.
+                <p className="font-l leading-[1.6] text-[12px] mt-1">
+                  Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place. 
                 </p>
               </div>
 
