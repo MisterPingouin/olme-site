@@ -8,7 +8,7 @@ export default function Food() {
     <section
       id="food"
       aria-labelledby="food-title"
-      className="anchor bg-[#F4E4C7] text-o-green overflow-x-hidden"
+      className="anchor bg-[#F1D6A5] text-o-green overflow-x-hidden"
     >
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
         {/* Wrapper principal : gauche (titre+texte+liste) | droite (image) */}

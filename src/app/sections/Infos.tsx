@@ -18,7 +18,21 @@ export default function Infos() {
         </h2>
 
         {/* Règle pointillée sous le titre */}
-
+        {/* <hr className="mt-6 border-0 border-b-2 border-dotted border-o-green/60" /> */}
+       <div className="mt-12 md:flex md:gap-10 text-o-green/90">
+                 <div className="flex-1 min-w-0">
+            <div className="font-b mb-1">Réservation</div>
+            <p className="break-words">{INFOS.reservation}</p>
+          </div>
+          <div className="flex-1 min-w-0 mt-8 md:mt-0">
+            <div className="font-b mb-1">Groupes & privatisation</div>
+            <p className="break-words">{INFOS.groups}</p>
+          </div>
+          <div className="flex-1 min-w-0 mt-8 md:mt-0">
+            <div className="font-b mb-1">Terrasses</div>
+            <p className="break-words">{INFOS.terraces}</p>
+          </div>
+        </div>
         {/* 3 blocs : Adresse | Ouverture | Contact */}
         <div className="mt-8 md:flex md:gap-10">
           {/* Adresse */}
@@ -59,16 +73,6 @@ export default function Infos() {
         </div>
 
         {/* Bas de page : deux encarts */}
-        <div className="mt-12 md:flex md:gap-10 text-o-green/90">
-          <div className="flex-1 min-w-0">
-            <div className="font-b mb-1">Groupes & privatisation</div>
-            <p className="break-words">{INFOS.groups}</p>
-          </div>
-          <div className="flex-1 min-w-0 mt-8 md:mt-0">
-            <div className="font-b mb-1">Terrasses</div>
-            <p className="break-words">{INFOS.terraces}</p>
-          </div>
-        </div>
       </div>
     </section>
  <div className="lg:hidden">

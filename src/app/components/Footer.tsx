@@ -35,7 +35,7 @@ export default function Footer() {
             {/* Navigation */}
             <nav className="border-t border-dotted border-current pt-4 md:text-right">
               <ul className="space-y-1 text-[12px] md:text-[14px]">
-                <li><Link href="#mixologie" className="hover:underline">Mixologie</Link></li>
+                <li><Link href="#mixologie" className="hover:underline">Cocktails</Link></li>
                 <li><Link href="#vins" className="hover:underline">Vins &amp; softs</Link></li>
                 <li><Link href="#food" className="hover:underline">Brut Food</Link></li>
                 <li><Link href="/mentions-legales" className="hover:underline">Mentions légales</Link></li>

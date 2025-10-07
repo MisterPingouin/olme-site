@@ -25,7 +25,7 @@ export default function Mixologie() {
           <div className="flex-1 min-w-0">
             {/* Header: titre | texte */}
             <div className="md:flex md:items-center md:justify-between md:gap-10">
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center md:block">
                 <h2
                   id="mixologie-title"
                   className="font-b leading-[1.1] break-words text-[clamp(40px,10vw,90px)]"
@@ -100,7 +100,7 @@ export default function Mixologie() {
 
                           {/* Ligne 2 : ingrédients */}
                           {ingredients && (
-                            <div className="text-16 font-medium text-o-sand/90 break-words mt-1">
+                            <div className="text-16 font-medium text-o-sand/90 break-words mt-1 mb-2">
                               {ingredients}
                             </div>
                           )}

@@ -94,6 +94,7 @@ opening: ["Lundi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
 contact: ["contact@olmebar.com", "06 00 00 00 00"],
 groups: "Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, ...). Privatisation possible sur demande.",
 terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur.",
+reservation: "La réservation n’est pas obligatoire mais conseillée pour les groupes de 6 personnes et plus.",
 };
 
 

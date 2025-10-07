@@ -59,7 +59,7 @@ function InlineTabs({
     () => ({
       mixologie: "bg-o-red",
       vins: "bg-[#DE9E53]",
-      food: "bg-[#F4E4C7]",
+      food: "bg-[#F1D6A5]",
       infos: "bg-o-blue",
     }),
     []
