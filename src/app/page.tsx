@@ -38,7 +38,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, AVEC chiffres) -----
+// ----- Onglets (design maquette, chiffres + anim clip pour i>0) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,14 +46,22 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 30;   // chevauchement pour masquer tout interstice
-  const TAB_H = 60;     // hauteur des onglets
+  const OVERLAP = 30;   // chevauchement pour masquer tout interstice / chiffres
+  const REVEAL = 26;    // largeur « évidée » à gauche quand actif (i>0)
+  const DUR = 0.26;     // très légèrement plus lent
 
-  const bgById: Record<string, string> = {
-    mixologie: "bg-o-red text-o-sand",
-    vins: "bg-[#DE9E53] text-o-green",
-    food: "bg-[#F4E4C7] text-o-green",
-    infos: "bg-o-blue text-o-green",
+  // Couleurs (fond séparé du texte)
+  const surfaceBgById: Record<string, string> = {
+    mixologie: "bg-o-red",
+    vins: "bg-[#DE9E53]",
+    food: "bg-[#F4E4C7]",
+    infos: "bg-o-blue",
+  };
+  const textById: Record<string, string> = {
+    mixologie: "text-o-sand",
+    vins: "text-o-green",
+    food: "text-o-green",
+    infos: "text-o-green",
   };
 
   // Libellés formatés (sauts de ligne forcés)
@@ -64,18 +72,17 @@ function InlineTabs({
     infos: "Infos\npratiques",
   };
 
-  const getBg = (id: string) => bgById[id] ?? "";
-
   return (
     <nav aria-label="Sections" className="w-full">
       <div className="flex w-full overflow-hidden">
         {TABS.map((t, i) => {
           const active = t.id === activeId;
+          const animateThis = active && i > 0; // pas d’anim pour Mixologie (01)
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
           const num = String(i + 1).padStart(2, "0");
 
           return (
-            <button
+            <motion.button
               key={t.id}
               type="button"
               onClick={() => onSelect(t.id)}
@@ -83,37 +90,64 @@ function InlineTabs({
               className={[
                 "relative shrink-0 grow-0",
                 "h-[60px]",
+                textById[t.id],
                 "rounded-tr-[20px] ring-0 border-0",
-                // radius TL uniquement pour les onglets 2→4 (jamais Mixologie)
                 i > 0 ? "rounded-tl-[20px]" : "",
-                "flex items-center px-3",
-                getBg(t.id),
+                "px-3",
+                "flex items-center",
+                "overflow-hidden", // important: pour le clip-path
               ].join(" ")}
               style={{
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
                 marginLeft: i > 0 ? -OVERLAP : 0,
                 zIndex: active ? 200 : 100 - i * 10,
               }}
+              initial={false}
+              animate={{
+                // ⬇️ on clippe le BOUTON lui-même => la zone évidée n'est plus cliquable par cet onglet
+                clipPath: animateThis
+                  ? `inset(0px 0px 0px ${REVEAL}px)`
+                  : "inset(0px 0px 0px 0px)",
+              }}
+              transition={{ type: "tween", duration: DUR, ease: "easeInOut" }}
             >
-              {/* Patch couleur à gauche (onglets 2→4) pour éviter tout fond visible */}
+              {/* Fond coloré plein (sera lui aussi coupé par le clip du bouton) */}
+              <div
+                aria-hidden
+                className={[
+                  "absolute inset-0",
+                  surfaceBgById[t.id],
+                  "rounded-tr-[20px]",
+                  i > 0 ? "rounded-tl-[20px]" : "",
+                ].join(" ")}
+                style={{ zIndex: 0 }}
+              />
+
+              {/* Patch couleur à gauche (onglets 2→4) quand INACTIF pour éviter toute fuite de fond */}
               {i > 0 && !active && (
                 <span
                   aria-hidden
-                  className={["absolute top-0 h-full", getBg(prevId)].join(" ")}
+                  className={["absolute top-0 h-full", surfaceBgById[prevId]].join(" ")}
                   style={{ left: -OVERLAP, width: OVERLAP, zIndex: 0 }}
                 />
               )}
 
-              {/* Numéro à gauche + libellé à droite — Figtree 700 / 14px / 106% */}
+              {/* Contenu : numéro à gauche / label à droite (label TOUJOURS visible, chiffre s’efface) */}
               <div className="relative z-10 flex w-full items-center justify-between gap-2">
-                <span className="font-b text-[14px] leading-[1.06] tracking-[0]">
+                <motion.span
+                  className="font-b text-[14px] leading-[1.06] tracking-[0]"
+                  initial={false}
+                  animate={{ opacity: animateThis ? 0 : 1 }} // le chiffre disparaît quand actif (02–04)
+                  transition={{ type: "tween", duration: DUR, ease: "easeInOut" }}
+                >
                   {num}
-                </span>
+                </motion.span>
+
                 <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
                   {labelById[t.id] ?? t.label}
                 </span>
               </div>
-            </button>
+            </motion.button>
           );
         })}
       </div>
@@ -191,16 +225,14 @@ export default function Home() {
             className="mx-auto w-full px-5 sm:px-6"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
-              // on ne touche PAS aux onglets => paddingBottom identique
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; LÉGÈREMENT remonté via calc(clamp(...) - 8px) */}
+            {/* Bloc global aligné GAUCHE ; offset léger conservé */}
             <div
               className="relative"
               style={{
-                /* OFFSET léger vers le haut */
-                marginTop: "calc(clamp(56px, 23vh, 132px) - 8px)",
+                marginTop: "calc(clamp(56px, 23vh, 132px) - 10px)",
                 maxWidth: "420px",
               }}
             >
@@ -214,7 +246,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* Intro (alignée à gauche, largeur maquette) */}
+              {/* Intro */}
               <div className="mt-6 text-o-sand" style={{ width: frameW }}>
                 <h3 className="font-b leading-[1.5] text-[18px]">
                   Olmé, bar à cocktails à Lyon
@@ -332,7 +364,7 @@ export default function Home() {
           animate={{ y: sheetOpen ? 0 : Math.max(vh - 60, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
         >
-          {/* Les onglets dans la zone scrollable => disparaissent quand on scrolle */}
+          {/* Les onglets dans la zone scrollable => disparaissent au scroll */}
           <div className="flex-1 overflow-y-auto">
             <InlineTabs activeId={active} onSelect={handleSelect} />
             {active === "mixologie" && <Mixologie />}
