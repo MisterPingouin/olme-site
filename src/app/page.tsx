@@ -319,7 +319,7 @@ export default function Home() {
             <div
               className="relative"
               style={{
-                marginTop: "calc(clamp(56px, 23vh, 132px) - 10px)",
+                marginTop: "100px",
                 maxWidth: "420px",
               }}
             >
