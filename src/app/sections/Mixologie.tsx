@@ -10,17 +10,31 @@ export default function Mixologie() {
     >
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
         {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
-        <div className="md:flex md:items-start md:gap-10">
+        <div className="flex items-start gap-10">
           {/* Colonne gauche */}
           <div className="flex-1 min-w-0">
             {/* Header: titre | texte */}
             <div className="md:flex md:items-center md:justify-between md:gap-10">
+              <div className="flex justify-between items-center">
               <h2
                 id="mixologie-title"
                 className="font-b leading-[1.1] break-words text-[clamp(40px,10vw,90px)]"
               >
                 Mixologie
               </h2>
+                                              <div className="flex md:hidden lg:hidden md:mt-0 md:self-start md:shrink-0">
+            <div className="mx-auto w-full max-w-[75px]">
+              <Image
+                src="/img/fleur.svg"
+                alt="Illustration botanique"
+                width={55}
+                height={75}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          </div>
 
               <p className="max-w-[520px] text-o-sand/90 mt-4 md:mt-0 md:self-center">
                 Un menu cocktail signature. Nez gourmand ou épicé, bouche acidulée au
@@ -73,7 +87,7 @@ export default function Mixologie() {
           </div>
 
           {/* Colonne droite : image (responsive) */}
-          <div className="mt-8 md:mt-0 md:self-start md:shrink-0">
+          <div className="hidden md:flex md:mt-0 md:self-start md:shrink-0">
             <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
               <Image
                 src="/img/fleur.svg"
