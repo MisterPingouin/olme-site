@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { TABS } from "./data/content";
 import OverlapTabs from "./ui/OverlapTabs";
 
@@ -38,7 +39,7 @@ function useViewportH() {
   return vh;
 }
 
-// ----- Onglets (design maquette, chiffres + anim clip pour i>0) -----
+// ----- Onglets (design maquette, anim clip pour i>0, SANS chiffres) -----
 function InlineTabs({
   activeId,
   onSelect,
@@ -46,11 +47,10 @@ function InlineTabs({
   activeId: string;
   onSelect: (id: string) => void;
 }) {
-  const OVERLAP = 30;   // chevauchement pour masquer tout interstice / chiffres
-  const REVEAL = 26;    // largeur évidée à gauche quand actif (i>0)
-  const DUR = 0.26;     // durée du clip
+  const OVERLAP = 30;
+  const REVEAL = 26;
+  const DUR = 0.26;
 
-  // Couleurs (fond séparé du texte)
   const surfaceBgById: Record<string, string> = {
     mixologie: "bg-o-red",
     vins: "bg-[#DE9E53]",
@@ -64,7 +64,6 @@ function InlineTabs({
     infos: "text-o-green",
   };
 
-  // Libellés formatés (sauts de ligne forcés)
   const labelById: Record<string, string> = {
     mixologie: "Mixologie",
     vins: "Vins,\nbières\n& softs",
@@ -77,9 +76,8 @@ function InlineTabs({
       <div className="flex w-full overflow-hidden">
         {TABS.map((t, i) => {
           const active = t.id === activeId;
-          const animateThis = active && i > 0; // pas d’anim spéciale pour Mixologie (01)
+          const animateThis = active && i > 0; // on garde le clip pour 02–04
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
-          const num = String(i + 1).padStart(2, "0");
 
           return (
             <motion.button
@@ -88,13 +86,10 @@ function InlineTabs({
               onClick={() => onSelect(t.id)}
               aria-current={active ? "page" : undefined}
               className={[
-                "relative shrink-0 grow-0",
-                "h-[60px]",
+                "relative shrink-0 grow-0 h-[60px]",
                 textById[t.id],
-                "rounded-tr-[20px] ring-0 border-0",
-                "px-3",
-                "flex items-center",
-                "overflow-hidden", // important: pour le clip-path et le hit-test
+                "rounded-tr-[20px] ring-0 border-0 px-3",
+                "flex items-center overflow-hidden",
               ].join(" ")}
               style={{
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
@@ -103,12 +98,11 @@ function InlineTabs({
               }}
               initial={false}
               animate={{
-                // on CLIPPE le bouton lui-même pour libérer le clic à gauche
                 clipPath: animateThis
                   ? [
-                      "inset(0px 0px 0px 0px)",                                       // départ
-                      `inset(0px 0px 0px ${REVEAL}px)`,                                // clippage
-                      `inset(0px 0px 0px ${REVEAL}px round 20px 0px 0px 0px)`,         // arrondi TL à la fin
+                      "inset(0px 0px 0px 0px)",
+                      `inset(0px 0px 0px ${REVEAL}px)`,
+                      `inset(0px 0px 0px ${REVEAL}px round 20px 0px 0px 0px)`,
                     ]
                   : "inset(0px 0px 0px 0px)",
               }}
@@ -118,38 +112,31 @@ function InlineTabs({
                   : { duration: DUR / 2, ease: "easeInOut" },
               }}
             >
-              {/* Fond coloré (coupé par le clip du bouton) */}
+              {/* Fond coloré coupé par le clip */}
               <div
                 aria-hidden
                 className={[
                   "absolute inset-0",
                   surfaceBgById[t.id],
-                  "rounded-tr-[20px]", // TR toujours rond
+                  "rounded-tr-[20px]",
                 ].join(" ")}
                 style={{ zIndex: 0 }}
               />
 
-              {/* Patch couleur à gauche pour 2→4 INACTIF (évite les fuites de fond, pas d'arrondi ici) */}
+              {/* Patch couleur à gauche pour 2→4 inactif */}
               {i > 0 && !active && (
                 <span
                   aria-hidden
-                  className={["absolute top-0 h-full", surfaceBgById[prevId]].join(" ")}
+                  className={["absolute top-0 h-full", surfaceBgById[prevId]].join(
+                    " "
+                  )}
                   style={{ left: -OVERLAP, width: OVERLAP, zIndex: 0 }}
                 />
               )}
 
-              {/* Contenu : chiffre à gauche (disparaît quand actif 02–04) / label à droite (toujours visible) */}
-              <div className="relative z-10 flex w-full items-center justify-between gap-2">
-                <motion.span
-                  className="font-b text-[14px] leading-[1.06] tracking-[0]"
-                  initial={false}
-                  animate={{ opacity: animateThis ? 0 : 1 }}
-                  transition={{ duration: DUR * 0.85, ease: "easeInOut" }}
-                >
-                  {num}
-                </motion.span>
-
-                <span className="font-b text-[14px] leading-[1.06] tracking-[0] whitespace-pre-line text-right">
+              {/* SEUL le label (droite) – plus de chiffres */}
+              <div className="relative z-10 flex w-full items-center justify-end">
+                <span className="font-b text-[14px] leading-[1.06] whitespace-pre-line text-right">
                   {labelById[t.id] ?? t.label}
                 </span>
               </div>
@@ -167,11 +154,42 @@ export default function Home() {
   // --- Mobile ---
   const isSmall = useIsBelowLG();
   const vh = useViewportH();
-  const sheetRef = useRef<HTMLDivElement | null>(null);
 
-  // "Sheet" unique (onglets + section) pour animations perfs
   const TABS_H = 60;
   const [sheetOpen, setSheetOpen] = useState(false);
+
+  // Header (barre) + logo
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(false);
+  const [logoAtTop, setLogoAtTop] = useState(true);
+
+  // zone scrollable
+  const sheetRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+  if (!isSmall || !sheetOpen) return;
+  const el = sheetRef.current;
+  if (!el) return;
+
+  let raf = 0;
+  const THRESH = 6; // marge anti-jitter (px)
+
+  const onScroll = () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      setLogoAtTop(el.scrollTop <= THRESH);
+    });
+  };
+
+  // init + écoute
+  setLogoAtTop(el.scrollTop <= THRESH);
+  el.addEventListener("scroll", onScroll, { passive: true });
+
+  return () => {
+    el.removeEventListener("scroll", onScroll);
+    if (raf) cancelAnimationFrame(raf);
+  };
+}, [isSmall, sheetOpen]);
+
 
   // --- Desktop ---
   const panelTopRef = useRef<HTMLDivElement | null>(null);
@@ -183,13 +201,15 @@ export default function Home() {
 
     if (isSmall) {
       if (!sheetOpen) {
+        // Ouverture : header réservé, logo masqué jusqu’à fin d’anim
         setActive(id);
+        setHeaderVisible(true);
+        setLogoVisible(false);
         setSheetOpen(true);
         requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
       } else {
-        if (id === active) {
-          setSheetOpen(false); // retour accueil
-        } else {
+        // NE PLUS FERMER si on clique l’onglet actif
+        if (id !== active) {
           setActive(id);
           sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -202,7 +222,16 @@ export default function Home() {
     goToPanelTop();
   };
 
-  // ouverture si hash au chargement
+  const handleLogoHome = () => {
+    setSheetOpen(false);
+    setLogoVisible(false);
+    setActive("mixologie");
+    if (typeof window !== "undefined") {
+      history.replaceState(null, "", window.location.pathname);
+    }
+  };
+
+  // ouverture via hash au chargement
   useEffect(() => {
     const hash =
       typeof window !== "undefined" ? window.location.hash.slice(1) : "";
@@ -210,6 +239,8 @@ export default function Home() {
 
     setActive(hash);
     if (isSmall) {
+      setHeaderVisible(true);
+      setLogoVisible(false);
       setSheetOpen(true);
       setTimeout(() => sheetRef.current?.scrollTo(0, 0), 0);
     } else {
@@ -217,7 +248,7 @@ export default function Home() {
     }
   }, [isSmall]);
 
-  // Largeurs responsives (fidèles à la maquette)
+  // Largeurs responsives (maquette)
   const frameW = "min(351px, calc(100vw - 40px))";
   const contactW = "min(350px, calc(100vw - 40px))";
 
@@ -234,7 +265,7 @@ export default function Home() {
               paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${TABS_H + 24}px)`,
             }}
           >
-            {/* Bloc global aligné GAUCHE ; offset léger conservé */}
+            {/* Bloc global aligné GAUCHE */}
             <div
               className="relative"
               style={{
@@ -242,7 +273,7 @@ export default function Home() {
                 maxWidth: "420px",
               }}
             >
-              {/* Logo à gauche */}
+              {/* Logo principal homepage */}
               <div className="flex">
                 <img
                   src="/logo/logo-olme.svg"
@@ -276,7 +307,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Adresse / Ouverture */}
+              {/* Adresse / Ouverture / Contact */}
               <div className="mt-8 text-o-sand" style={{ width: frameW }}>
                 <div className="dash-row w-full">
                   <div className="pr-4">
@@ -294,7 +325,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Contact */}
                 <div
                   className="mt-6 dash-row w-full justify-center"
                   style={{ width: contactW }}
@@ -360,18 +390,55 @@ export default function Home() {
       {/* Ancre haut de panneau desktop */}
       <div ref={panelTopRef} />
 
-      {/* --- MOBILE : SHEET (onglets + section) performant --- */}
+      {/* --- MOBILE : SHEET (header sticky + onglets + section) --- */}
       {isSmall && (
         <motion.div
-          ref={sheetRef}
           className="fixed inset-0 z-[60] lg:hidden flex flex-col bg-transparent"
           style={{ pointerEvents: "auto", willChange: "transform" }}
           initial={false}
-          animate={{ y: sheetOpen ? 0 : Math.max(vh - 60, 0) }}
+          animate={{ y: sheetOpen ? 0 : Math.max(vh - TABS_H, 0) }}
           transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
+          onAnimationComplete={() => {
+            if (sheetOpen) {
+              setLogoVisible(true); // le logo n’apparaît qu’après l’animation de montée
+            } else {
+              setHeaderVisible(false); // on retire la barre après la descente
+            }
+          }}
         >
-          {/* Les onglets dans la zone scrollable => disparaissent au scroll */}
-          <div className="flex-1 overflow-y-auto">
+          {/* Zone scrollable (le header est STICKY dedans) */}
+          <div ref={sheetRef} className="flex-1 overflow-y-auto">
+            {/* HEADER STICKY tout en haut pendant le scroll */}
+            {headerVisible && (
+              <div
+                className="sticky top-0 z-50 flex items-center gap-3 px-4 h-14"
+                style={{ top: "env(safe-area-inset-top, 0px)" }}
+              >
+                <button
+                  onClick={() => {
+                    handleLogoHome();
+                  }}
+className={[
+  "inline-flex items-center gap-2 transition-opacity duration-200",
+  logoVisible && logoAtTop
+    ? "opacity-100 pointer-events-auto"
+    : "opacity-0 pointer-events-none",
+].join(" ")}
+                  aria-label="Revenir à l’accueil"
+                >
+                  <Image
+                    src="/logo/logo-olme.svg"
+                    alt="Olmé"
+                    width={88}
+                    height={28}
+                    priority
+                    className="h-6 w-auto"
+                  />
+                </button>
+              </div>
+            )}
+
+            {/* Onglets puis contenu */}
             <InlineTabs activeId={active} onSelect={handleSelect} />
             {active === "mixologie" && <Mixologie />}
             {active === "vins" && <Vins />}

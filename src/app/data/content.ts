@@ -45,7 +45,7 @@ items: [
 title: "Cocktails Omakase",
 subtitle: "( Sur mesure )",
 items: [
-{ name: "→ Cocktail sur mesure", notes: " Sans alcool —  bla bla bla", price: 8 },
+{ name: "→ Mocktail sur mesure", notes: " Sans alcool —  bla bla bla", price: 8 },
 { name: "→ Cocktail sur mesure", notes: " Avec alcool —  bla bla bla", price: 15 },
 ],
 },
