@@ -18,7 +18,6 @@ export default function Infos() {
         </h2>
 
         {/* Règle pointillée sous le titre */}
-        <hr className="mt-6 border-0 border-b-2 border-dotted border-o-green/60" />
 
         {/* 3 blocs : Adresse | Ouverture | Contact */}
         <div className="mt-8 md:flex md:gap-10">

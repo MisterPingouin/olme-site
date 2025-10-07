@@ -250,8 +250,6 @@ export default function Home() {
 
   // Largeurs responsives (maquette)
   const frameW = "min(351px, calc(100vw - 40px))";
-  const contactW = "min(350px, calc(100vw - 40px))";
-
   return (
     <>
       {/* HERO */}
@@ -278,7 +276,7 @@ export default function Home() {
                 <img
                   src="/logo/logo-olme.svg"
                   alt="Olmé"
-                  className="w-[280px] h-auto select-none"
+                  className="w-[280px] h-auto mt-12 select-none"
                   draggable={false}
                 />
               </div>
@@ -321,22 +319,6 @@ export default function Home() {
                     <div className="font-l lh-160 text-[12px]">
                       Lundi – Mercredi → 18h – 00h <br />
                       Jeudi – Samedi → 18h – 01h
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="mt-6 dash-row w-full justify-center"
-                  style={{ width: contactW }}
-                >
-                  <div className="text-center px-4">
-                    <div className="font-b text-[18px]">Contact</div>
-                    <div className="font-l lh-160 text-[12px]">
-                      <a href="mailto:contact@olmebar.com" className="underline">
-                        contact@olmebar.com
-                      </a>
-                      <br />
-                      06 00 00 00 00
                     </div>
                   </div>
                 </div>
