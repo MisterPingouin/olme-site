@@ -340,17 +340,18 @@ export default function Home() {
               {/* Intro */}
               <div className="mt-6 text-o-sand" style={{ width: frameW }}>
                 <h3 className="font-b leading-[1.5] text-[18px]">
-                  Olmé, bar à cocktails à Lyon
+Bar à cocktails et vins engagés à Lyon
                 </h3>
                 <p className="mt-2 font-l leading-[1.6] text-[12px]">
-                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft.
+                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.                   Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place. 
+
                 </p>
-                <p className="font-l leading-[1.6] text-[12px] mt-1">
+                {/* <p className="font-l leading-[1.6] text-[12px] mt-1">
 Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.
                 </p>
                 <p className="font-l leading-[1.6] text-[12px] mt-1">
                   Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place. 
-                </p>
+                </p> */}
               </div>
 
               {/* Adresse / Ouverture / Contact */}
