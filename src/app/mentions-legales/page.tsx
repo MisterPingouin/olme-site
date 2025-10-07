@@ -47,6 +47,7 @@ export default function MentionsLegales() {
                 Éditeur du site
               </h2>
               <div className="space-y-1">
+                <p>SAS LINAM</p>
                 <p>Olmé — Bar à cocktails</p>
                 <p>15 rue Montesquieu, 69007 Lyon — France</p>
                 <p>SIREN : <span className="opacity-80">991626672</span></p>
@@ -72,10 +73,10 @@ export default function MentionsLegales() {
                   <span className="opacity-80">Vercel</span>
                 </p>
                 <p>
-                  <span className="opacity-80">[Adresse de l’hébergeur]</span>
+                  <span className="opacity-80">Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA.</span>
                 </p>
                 <p>
-                  <span className="opacity-80">[Site web / Téléphone]</span>
+                  <span className="opacity-80">https://vercel.com</span>
                 </p>
               </div>
             </section>
@@ -114,24 +115,15 @@ export default function MentionsLegales() {
               </p>
             </section>
 
-            <section aria-labelledby="mediation">
-              <h2 id="mediation" className="font-b text-24 mb-2">
-                Médiation de la consommation
-              </h2>
-              <p className="opacity-90">
-                Conformément à l’article L.612-1 du Code de la consommation, vous pouvez recourir
-                gratuitement à un médiateur de la consommation en cas de litige. Médiateur :{" "}
-                <span className="opacity-80">[à compléter : nom/coordonnées du médiateur]</span>.
-              </p>
-            </section>
-
             <section aria-labelledby="credits">
               <h2 id="credits" className="font-b text-24 mb-2">
                 Crédits
               </h2>
               <p className="opacity-90">
-                Design & développement : Olmé. Photographies :{" "}
-                <span className="opacity-80">[crédits photo le cas échéant]</span>.
+                Design & développement : Charles Lambert / Anthony Pham
+                
+                {/* Photographies :{" "}
+                <span className="opacity-80">[crédits photo le cas échéant]</span>. */}
               </p>
             </section>
           </div>

@@ -83,7 +83,6 @@ export default function Footer() {
                     contact@olmebar.com
                   </a>
                 </div>
-                <div>06 00 00 00 00</div>
              <div><Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link></div>
               </div>
               <nav className="border-t border-dotted border-current pt-4 md:text-right">
