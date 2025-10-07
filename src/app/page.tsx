@@ -47,8 +47,8 @@ function InlineTabs({
   onSelect: (id: string) => void;
 }) {
   const OVERLAP = 30;   // chevauchement pour masquer tout interstice / chiffres
-  const REVEAL = 26;    // largeur « évidée » à gauche quand actif (i>0)
-  const DUR = 0.26;     // très légèrement plus lent
+  const REVEAL = 26;    // largeur évidée à gauche quand actif (i>0)
+  const DUR = 0.26;     // durée du clip
 
   // Couleurs (fond séparé du texte)
   const surfaceBgById: Record<string, string> = {
@@ -77,7 +77,7 @@ function InlineTabs({
       <div className="flex w-full overflow-hidden">
         {TABS.map((t, i) => {
           const active = t.id === activeId;
-          const animateThis = active && i > 0; // pas d’anim pour Mixologie (01)
+          const animateThis = active && i > 0; // pas d’anim spéciale pour Mixologie (01)
           const prevId = i > 0 ? TABS[i - 1].id : t.id;
           const num = String(i + 1).padStart(2, "0");
 
@@ -92,10 +92,9 @@ function InlineTabs({
                 "h-[60px]",
                 textById[t.id],
                 "rounded-tr-[20px] ring-0 border-0",
-                i > 0 ? "rounded-tl-[20px]" : "",
                 "px-3",
                 "flex items-center",
-                "overflow-hidden", // important: pour le clip-path
+                "overflow-hidden", // important: pour le clip-path et le hit-test
               ].join(" ")}
               style={{
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
@@ -104,26 +103,33 @@ function InlineTabs({
               }}
               initial={false}
               animate={{
-                // ⬇️ on clippe le BOUTON lui-même => la zone évidée n'est plus cliquable par cet onglet
+                // on CLIPPE le bouton lui-même pour libérer le clic à gauche
                 clipPath: animateThis
-                  ? `inset(0px 0px 0px ${REVEAL}px)`
+                  ? [
+                      "inset(0px 0px 0px 0px)",                                       // départ
+                      `inset(0px 0px 0px ${REVEAL}px)`,                                // clippage
+                      `inset(0px 0px 0px ${REVEAL}px round 20px 0px 0px 0px)`,         // arrondi TL à la fin
+                    ]
                   : "inset(0px 0px 0px 0px)",
               }}
-              transition={{ type: "tween", duration: DUR, ease: "easeInOut" }}
+              transition={{
+                clipPath: animateThis
+                  ? { duration: DUR, times: [0, 0.85, 1], ease: "easeInOut" }
+                  : { duration: DUR / 2, ease: "easeInOut" },
+              }}
             >
-              {/* Fond coloré plein (sera lui aussi coupé par le clip du bouton) */}
+              {/* Fond coloré (coupé par le clip du bouton) */}
               <div
                 aria-hidden
                 className={[
                   "absolute inset-0",
                   surfaceBgById[t.id],
-                  "rounded-tr-[20px]",
-                  i > 0 ? "rounded-tl-[20px]" : "",
+                  "rounded-tr-[20px]", // TR toujours rond
                 ].join(" ")}
                 style={{ zIndex: 0 }}
               />
 
-              {/* Patch couleur à gauche (onglets 2→4) quand INACTIF pour éviter toute fuite de fond */}
+              {/* Patch couleur à gauche pour 2→4 INACTIF (évite les fuites de fond, pas d'arrondi ici) */}
               {i > 0 && !active && (
                 <span
                   aria-hidden
@@ -132,13 +138,13 @@ function InlineTabs({
                 />
               )}
 
-              {/* Contenu : numéro à gauche / label à droite (label TOUJOURS visible, chiffre s’efface) */}
+              {/* Contenu : chiffre à gauche (disparaît quand actif 02–04) / label à droite (toujours visible) */}
               <div className="relative z-10 flex w-full items-center justify-between gap-2">
                 <motion.span
                   className="font-b text-[14px] leading-[1.06] tracking-[0]"
                   initial={false}
-                  animate={{ opacity: animateThis ? 0 : 1 }} // le chiffre disparaît quand actif (02–04)
-                  transition={{ type: "tween", duration: DUR, ease: "easeInOut" }}
+                  animate={{ opacity: animateThis ? 0 : 1 }}
+                  transition={{ duration: DUR * 0.85, ease: "easeInOut" }}
                 >
                   {num}
                 </motion.span>
