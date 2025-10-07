@@ -528,8 +528,7 @@ export default function Home() {
       </section>
 
       {/* Ancre haut de panneau desktop */}
-      <div ref={panelTopRef} />
-
+<div ref={panelTopRef} className="lg:scroll-mt-[65px]" />
       {/* --- MOBILE : SHEET (header sticky + onglets + section) --- */}
       {isSmall && (
         <motion.div

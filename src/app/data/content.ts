@@ -45,8 +45,8 @@ items: [
 title: "Cocktails Omakase",
 subtitle: "( Sur mesure )",
 items: [
-{ name: "→ Mocktail sur mesure", notes: " Sans alcool —  bla bla bla", price: 8 },
-{ name: "→ Cocktail sur mesure", notes: " Avec alcool —  bla bla bla", price: 15 },
+{ name: "→ Mocktail sur mesure", notes: " Sans alcool —  Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison", price: 8 },
+{ name: "→ Cocktail sur mesure", notes: " Avec alcool —  Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison", price: 15 },
 ],
 },
 ];
@@ -68,6 +68,10 @@ export const WINES: WineSection[] = [
 { name: "→ L’envol du milan noir", region: "Coteaux-du-lyonnais — 100% gamaret, dom. Prapin", byGlass: 8, bottle: 40 },
 { name: "→ Espoir d’y rin", region: "Coteaux-du-lyonnais — 100% syrah, dom. Prapin", byGlass: 8, bottle: 40 },
 { name: "→ Compagnie des papillons", region: "Ariège — Carignan, syrah, grenache, Clot de l’Oum", byGlass: 8, bottle: 40 },
+]},
+{ title: "Pétillant", items: [
+{ name: "→ Prosseco Artianale", region: "", byGlass: 8, bottle: 40 },
+{ name: "→ Seconde réf", region: "", byGlass: 8, bottle: 40 },
 ]},
 ];
 
