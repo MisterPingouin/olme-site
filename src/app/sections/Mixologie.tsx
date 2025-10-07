@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MIXO_SECTIONS } from "../data/content";
+import Footer from "../components/Footer";
 
 /** Coupe "notes — ingrédients" sur le tiret cadratin (—) */
 function splitNotes(notes: string) {
@@ -11,6 +12,7 @@ function splitNotes(notes: string) {
 
 export default function Mixologie() {
   return (
+    <>
     <section
       id="mixologie"
       aria-labelledby="mixologie-title"
@@ -47,8 +49,7 @@ export default function Mixologie() {
               </div>
 
               <p className="max-w-[520px] text-o-sand/90 mt-4 md:mt-0 md:self-center">
-                Un menu cocktail signature. Nez gourmand ou épicé, bouche
-                acidulée au sucré-salé, la créativité n’a pas de limites.
+                Ici chaque cocktail évoque un souvenir, un voyage. Nez gourmand ou épicé, bouche acidulée ou sucrée-salée, la créativité n’a pas de limites.
               </p>
             </div>
 
@@ -134,5 +135,7 @@ export default function Mixologie() {
         </div>
       </div>
     </section>
+ <div className="lg:hidden">
+    <Footer /></div></>
   );
 }

@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://www.olmebar.com"; // remplace par ton domaine
   return [
-    { url: "https://www.olmebar.com/", lastModified: new Date() },
-    // on ajoutera les autres sections/pages quand elles existent
+    { url: `${base}/`, lastModified: new Date() },
+    { url: `${base}/mentions-legales`, lastModified: new Date() },
   ];
 }

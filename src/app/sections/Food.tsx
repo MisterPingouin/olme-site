@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { BRUT_FOOD } from "../data/content";
+import Footer from "../components/Footer";
 
 export default function Food() {
   return (
+    <>
     <section
       id="food"
       aria-labelledby="food-title"
@@ -39,8 +41,7 @@ export default function Food() {
               </div>
 
               <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
-                Simple et soigné, pensé pour accompagner le verre. De la nourriture brute…
-              </p>
+Simple et soigné, pensé pour accompagner le verre. De la nourriture brute de producteurs engagés et du fait-maison.              </p>
             </div>
 
             {/* Règle pointillée */}
@@ -80,8 +81,12 @@ export default function Food() {
               />
             </div>
           </div>
+          
         </div>
+              
       </div>
     </section>
+ <div className="lg:hidden">
+    <Footer /></div></>
   );
 }

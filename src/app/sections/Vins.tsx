@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { WINES } from "../data/content";
+import Footer from "../components/Footer";
 
 export default function Vins() {
   return (
+    <>
     <section
       id="vins"
       aria-labelledby="vins-title"
@@ -39,10 +41,7 @@ export default function Vins() {
               </div>
 
               <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
-                Carte courte et vivante. Du verre à la bouteille : classiques,
-                biodynamie, nature — des jus bien faits et des belles trouvailles
-                de vignerons. Bière craft et Soda sauvage. Sélection de bières
-                artisanales et sodas maison pour changer des habitudes.
+                Du verre à la bouteille, en passant par la canette : craft, bio, biodynamie, demeter, nature -  des jus bien faits par des producteur.ices engagé.es. 
               </p>
             </div>
 
@@ -125,5 +124,7 @@ export default function Vins() {
         </div>
       </div>
     </section>
+    <div className="lg:hidden">
+    <Footer /></div></>
   );
 }

@@ -1,7 +1,9 @@
 import { INFOS } from "../data/content";
+import Footer from "../components/Footer";
 
 export default function Infos() {
   return (
+    <>
     <section
       id="infos"
       aria-labelledby="infos-title"
@@ -70,5 +72,7 @@ export default function Infos() {
         </div>
       </div>
     </section>
+ <div className="lg:hidden">
+    <Footer /></div></>
   );
 }
