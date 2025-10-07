@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Olmé — Cocktail Bar",
   description: "Bar à cocktails à Lyon 7, signatures & classiques revisités.",
-  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+  icons: { icon: "/favicon.ico"},
   openGraph: {
     title: "Olmé — Cocktail Bar",
     description: "Signatures, classiques et produits de saison à Lyon 7.",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Olmé — Cocktail Bar",
-    description: "Signatures, classiques et produits de saison à Lyon 7.",
+    description: "Cocktails, classiques et produits de saison à Lyon 7.",
     images: ["/og/og.jpg"],
   },
 };
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const figtree = Figtree({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
-  variable: "--ff",        // relie à --font-sans du thème
+  variable: "--ff",      
   display: "swap",
 });
 
