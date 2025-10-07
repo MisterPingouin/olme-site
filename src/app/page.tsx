@@ -187,6 +187,77 @@ export default function Home() {
   // zone scrollable
   const sheetRef = useRef<HTMLDivElement | null>(null);
 
+  // --- SWIPE (mobile) ---
+  // seuils swipe
+  const SWIPE_MIN_DIST = 60; // px
+  const SWIPE_MAX_DURATION_OPEN = 350; // ms (pour ouvrir)
+  const SWIPE_MAX_DURATION_CLOSE = 500; // ms (pour fermer)
+  const touchStartY = useRef<number>(0);
+  const touchStartT = useRef<number>(0);
+  const canCloseFromTop = useRef<boolean>(false);
+  const hasMoved = useRef<boolean>(false);
+
+  const onTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isSmall) return;
+    const t = e.touches[0];
+    touchStartY.current = t.clientY;
+    touchStartT.current = Date.now();
+    hasMoved.current = false;
+
+    // Autoriser la fermeture via swipe uniquement si on est en haut du scroll
+    if (sheetOpen && sheetRef.current) {
+      canCloseFromTop.current = sheetRef.current.scrollTop <= 2;
+    } else {
+      canCloseFromTop.current = false;
+    }
+  }, [isSmall, sheetOpen]);
+
+  const onTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isSmall) return;
+    if (!touchStartT.current) return;
+    const dy = e.touches[0].clientY - touchStartY.current;
+    // Quand sheet est fermé et qu'on switche vers le haut, on empêche le scroll page
+    if (!sheetOpen && dy < -8) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    hasMoved.current = true;
+  }, [isSmall, sheetOpen]);
+
+  const onTouchEnd = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isSmall) return;
+    if (!touchStartT.current) return;
+    const dt = Date.now() - touchStartT.current;
+    const touch = e.changedTouches[0];
+    const dy = touch.clientY - touchStartY.current;
+
+    // SWIPE UP -> ouvrir (depuis l'état fermé)
+    if (!sheetOpen && dy <= -SWIPE_MIN_DIST && dt <= SWIPE_MAX_DURATION_OPEN) {
+      setHeaderVisible(true);
+      setLogoVisible(false);
+      setSheetOpen(true);
+      setSheetMasked(false);
+      requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
+      return;
+    }
+
+    // SWIPE DOWN -> fermer (si contenu au top, pour éviter les conflits avec le scroll)
+    if (
+      sheetOpen &&
+      canCloseFromTop.current &&
+      dy >= SWIPE_MIN_DIST &&
+      dt <= SWIPE_MAX_DURATION_CLOSE
+    ) {
+      setSheetOpen(false);
+      setLogoVisible(false);
+      setSheetMasked(false);
+      setHeaderVisible(false);
+      if (typeof window !== "undefined") {
+        history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  }, [isSmall, sheetOpen]);
+
   // FIX: no-scroll when sheet closed (mobile only)
   useEffect(() => {
     if (!isSmall) return;
@@ -250,6 +321,8 @@ export default function Home() {
     history.replaceState(null, "", `#${id}`);
 
     if (isSmall) {
+      // --- MOBILE ---
+      // 1) si fermé -> ouvrir + activer la section
       if (!sheetOpen) {
         setActive(id);
         setHeaderVisible(true);
@@ -257,16 +330,30 @@ export default function Home() {
         setSheetOpen(true);
         setSheetMasked(false); // MASK_BG: on attend la fin d’anim
         requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
-      } else {
-        if (id !== active) {
-          setActive(id);
-          // on garde le masque si déjà actif
-          sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      // 2) si ouvert et on reclique l'actif -> fermer
+      if (sheetOpen && id === active) {
+        setSheetOpen(false);
+        setLogoVisible(false);
+        setSheetMasked(false);
+        setHeaderVisible(false);
+        if (typeof window !== "undefined") {
+          history.replaceState(null, "", window.location.pathname);
         }
+        return;
+      }
+
+      // 3) si ouvert et on clique un autre onglet -> switch + scroll top
+      if (id !== active) {
+        setActive(id);
+        sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
       }
       return;
     }
 
+    // --- DESKTOP ---
     setActive(id);
     goToPanelTop();
   }, [active, goToPanelTop, isSmall, sheetOpen]);
@@ -340,18 +427,11 @@ export default function Home() {
               {/* Intro */}
               <div className="mt-6 text-o-sand" style={{ width: frameW }}>
                 <h3 className="font-b leading-[1.5] text-[18px]">
-Bar à cocktails et vins engagés à Lyon
+                  Bar à cocktails et vins engagés à Lyon
                 </h3>
                 <p className="mt-2 font-l leading-[1.6] text-[12px]">
-                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.                   Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place. 
-
+                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes. Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place.
                 </p>
-                {/* <p className="font-l leading-[1.6] text-[12px] mt-1">
-Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.
-                </p>
-                <p className="font-l leading-[1.6] text-[12px] mt-1">
-                  Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place. 
-                </p> */}
               </div>
 
               {/* Adresse / Ouverture / Contact */}
@@ -472,6 +552,10 @@ Ici on travaille avec des producteurs engagés et on fait maison, du bar aux ass
               setSheetMasked(false); // en descente, on retire le masque
             }
           }}
+          // === SWIPE HANDLERS (mobile only) ===
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {/* Zone scrollable (le header est STICKY dedans) */}
           <div

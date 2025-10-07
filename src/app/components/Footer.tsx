@@ -26,6 +26,9 @@ export default function Footer() {
                 </a>
                 <br />
                 06 00 00 00 00
+                <br />
+             <Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link>
+
               </div>
             </div>
 
@@ -36,6 +39,7 @@ export default function Footer() {
                 <li><Link href="#vins" className="hover:underline">Vins &amp; softs</Link></li>
                 <li><Link href="#food" className="hover:underline">Brut Food</Link></li>
                 <li><Link href="/mentions-legales" className="hover:underline">Mentions légales</Link></li>
+                
               </ul>
             </nav>
           </div>
@@ -80,6 +84,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>06 00 00 00 00</div>
+             <div><Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link></div>
               </div>
               <nav className="border-t border-dotted border-current pt-4 md:text-right">
                 <ul className="space-y-1">
