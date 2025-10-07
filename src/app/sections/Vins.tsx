@@ -16,8 +16,8 @@ export default function Vins() {
           {/* Colonne gauche */}
           <div className="flex-1 min-w-0">
             {/* Header: titre | sous-texte */}
-            <div className="md:flex md:items-center md:justify-between md:gap-10">
-              <div className="flex justify-between items-center">
+            <div className="md:flex md:items-center md:justify-between md:gap-10 lg:block lg:space-y-3">
+              <div className="flex justify-between items-center md:block">
                 <h2
                   id="vins-title"
                   className="font-b leading-[1.1] break-words text-[clamp(40px,9.5vw,90px)]"
