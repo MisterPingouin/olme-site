@@ -100,7 +100,7 @@ function InlineTabs({
                 "relative shrink-0 grow-0 h-[60px]",
                 textById[t.id],
                 "rounded-tr-[20px] ring-0 border-0 px-3",
-                "flex items-center overflow-hidden",
+                "flex items-center overflow-hidden select-none", // évite les drags
               ].join(" ")}
               style={{
                 width: `calc((100% + ${OVERLAP * 3}px) / 4)`,
@@ -176,6 +176,31 @@ export default function Home() {
 
   // zone scrollable
   const sheetRef = useRef<HTMLDivElement | null>(null);
+
+  // FIX: no-scroll when sheet closed (mobile only)
+  useEffect(() => {
+    if (!isSmall) return;
+    const el = sheetRef.current;
+    if (!el) return;
+
+    const blockScroll = (e: Event) => {
+      if (!sheetOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    // Important: passive:false pour pouvoir preventDefault sur iOS Safari
+    el.addEventListener("touchmove", blockScroll, { passive: false });
+    el.addEventListener("wheel", blockScroll, { passive: false });
+
+    return () => {
+      el.removeEventListener("touchmove", blockScroll as EventListener);
+      el.removeEventListener("wheel", blockScroll as EventListener);
+    };
+  }, [isSmall, sheetOpen]);
+
+  // Logo au top en fonction du scroll INTERNE du sheet (uniquement quand ouvert)
   useEffect(() => {
     if (!isSmall || !sheetOpen) return;
     const el = sheetRef.current;
@@ -436,7 +461,19 @@ export default function Home() {
           }}
         >
           {/* Zone scrollable (le header est STICKY dedans) */}
-          <div ref={sheetRef} className="flex-1 overflow-y-auto">
+          <div
+            ref={sheetRef}
+            className={[
+              "flex-1",
+              sheetOpen ? "overflow-y-auto overscroll-contain" : "overflow-hidden overscroll-none", // FIX: coupe la scroll-area quand fermé
+              sheetOpen ? "touch-auto" : "touch-none", // FIX: bloque les gestes tactiles sur iOS/Android
+              "select-none", // évite les drags involontaires
+            ].join(" ")}
+            style={{
+              // Redondance defensive au cas où les utilitaires Tailwind seraient purgés
+              touchAction: sheetOpen ? "auto" : "none", // FIX
+            }}
+          >
             {/* HEADER STICKY tout en haut pendant le scroll */}
             {headerVisible && (
               <div
