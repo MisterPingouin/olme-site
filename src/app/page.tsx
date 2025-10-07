@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { TABS } from "./data/content";
-import OverlapTabs from "./ui/OverlapTabs";
 
-// Sections
-import Mixologie from "./sections/Mixologie";
-import Vins from "./sections/Vins";
-import Food from "./sections/Food";
-import Infos from "./sections/Infos";
-import Footer from "./components/Footer";
+// Code-splitting des composants lourds non critiques LCP
+const OverlapTabs = dynamic(() => import("./ui/OverlapTabs"), { ssr: true });
+const Mixologie = dynamic(() => import("./sections/Mixologie"), { ssr: true });
+const Vins = dynamic(() => import("./sections/Vins"), { ssr: true });
+const Food = dynamic(() => import("./sections/Food"), { ssr: true });
+const Infos = dynamic(() => import("./sections/Infos"), { ssr: true });
+const Footer = dynamic(() => import("./components/Footer"), { ssr: true });
 
 /** true si viewport < lg (1024px) */
 function useIsBelowLG() {
@@ -51,25 +52,35 @@ function InlineTabs({
   const REVEAL = 26;
   const DUR = 0.26;
 
-  const surfaceBgById: Record<string, string> = {
-    mixologie: "bg-o-red",
-    vins: "bg-[#DE9E53]",
-    food: "bg-[#F4E4C7]",
-    infos: "bg-o-blue",
-  };
-  const textById: Record<string, string> = {
-    mixologie: "text-o-sand",
-    vins: "text-o-green",
-    food: "text-o-green",
-    infos: "text-o-green",
-  };
+  const surfaceBgById = useMemo<Record<string, string>>(
+    () => ({
+      mixologie: "bg-o-red",
+      vins: "bg-[#DE9E53]",
+      food: "bg-[#F4E4C7]",
+      infos: "bg-o-blue",
+    }),
+    []
+  );
 
-  const labelById: Record<string, string> = {
-    mixologie: "Mixologie",
-    vins: "Vins,\nbières\n& softs",
-    food: "Brut\nFood",
-    infos: "Infos\npratiques",
-  };
+  const textById = useMemo<Record<string, string>>(
+    () => ({
+      mixologie: "text-o-sand",
+      vins: "text-o-green",
+      food: "text-o-green",
+      infos: "text-o-green",
+    }),
+    []
+  );
+
+  const labelById = useMemo<Record<string, string>>(
+    () => ({
+      mixologie: "Mixologie",
+      vins: "Vins,\nbières\n& softs",
+      food: "Brut\nFood",
+      infos: "Infos\npratiques",
+    }),
+    []
+  );
 
   return (
     <nav aria-label="Sections" className="w-full">
@@ -166,49 +177,48 @@ export default function Home() {
   // zone scrollable
   const sheetRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-  if (!isSmall || !sheetOpen) return;
-  const el = sheetRef.current;
-  if (!el) return;
+    if (!isSmall || !sheetOpen) return;
+    const el = sheetRef.current;
+    if (!el) return;
 
-  let raf = 0;
-  const THRESH = 6; // marge anti-jitter (px)
+    let raf = 0;
+    const THRESH = 6; // marge anti-jitter (px)
 
-  const onScroll = () => {
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      setLogoAtTop(el.scrollTop <= THRESH);
-    });
-  };
+    const onScroll = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        setLogoAtTop(el.scrollTop <= THRESH);
+      });
+    };
 
-  // init + écoute
-  setLogoAtTop(el.scrollTop <= THRESH);
-  el.addEventListener("scroll", onScroll, { passive: true });
+    // init + écoute
+    setLogoAtTop(el.scrollTop <= THRESH);
+    el.addEventListener("scroll", onScroll, { passive: true });
 
-  return () => {
-    el.removeEventListener("scroll", onScroll);
-    if (raf) cancelAnimationFrame(raf);
-  };
-}, [isSmall, sheetOpen]);
-
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [isSmall, sheetOpen]);
 
   // --- Desktop ---
   const panelTopRef = useRef<HTMLDivElement | null>(null);
-  const goToPanelTop = () =>
-    panelTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const goToPanelTop = useCallback(
+    () => panelTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+    []
+  );
 
-  const handleSelect = (id: string) => {
+  const handleSelect = useCallback((id: string) => {
     history.replaceState(null, "", `#${id}`);
 
     if (isSmall) {
       if (!sheetOpen) {
-        // Ouverture : header réservé, logo masqué jusqu’à fin d’anim
         setActive(id);
         setHeaderVisible(true);
         setLogoVisible(false);
         setSheetOpen(true);
         requestAnimationFrame(() => sheetRef.current?.scrollTo(0, 0));
       } else {
-        // NE PLUS FERMER si on clique l’onglet actif
         if (id !== active) {
           setActive(id);
           sheetRef.current?.scrollTo({ top: 0, behavior: "smooth" });
@@ -217,19 +227,18 @@ export default function Home() {
       return;
     }
 
-    // Desktop (inchangé)
     setActive(id);
     goToPanelTop();
-  };
+  }, [active, goToPanelTop, isSmall, sheetOpen]);
 
-  const handleLogoHome = () => {
+  const handleLogoHome = useCallback(() => {
     setSheetOpen(false);
     setLogoVisible(false);
     setActive("mixologie");
     if (typeof window !== "undefined") {
       history.replaceState(null, "", window.location.pathname);
     }
-  };
+  }, []);
 
   // ouverture via hash au chargement
   useEffect(() => {
@@ -246,10 +255,11 @@ export default function Home() {
     } else {
       setTimeout(() => goToPanelTop(), 0);
     }
-  }, [isSmall]);
+  }, [isSmall, goToPanelTop]);
 
   // Largeurs responsives (maquette)
   const frameW = "min(351px, calc(100vw - 40px))";
+
   return (
     <>
       {/* HERO */}
@@ -271,11 +281,16 @@ export default function Home() {
                 maxWidth: "420px",
               }}
             >
-              {/* Logo principal homepage */}
+              {/* Logo principal homepage — LCP mobile (priority + fetchPriority) */}
               <div className="flex">
-                <img
+                <Image
                   src="/logo/logo-olme.svg"
                   alt="Olmé"
+                  width={656}
+                  height={210}
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 1023px) 280px, 656px"
                   className="w-[280px] h-auto mt-12 select-none"
                   draggable={false}
                 />
@@ -305,7 +320,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Adresse / Ouverture / Contact */}
+              {/* Adresse / Ouverture / Contact (inchangé visuellement) */}
               <div className="mt-8 text-o-sand" style={{ width: frameW }}>
                 <div className="dash-row w-full">
                   <div className="pr-4">
@@ -328,11 +343,40 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- DESKTOP (≥ lg) : inchangé --- */}
+        {/* --- DESKTOP (≥ lg) : inchangé visuellement, optimisé perf --- */}
         <div className="hidden lg:block">
           <div className="frame">
-            <img src="/logo/logo-olme.svg" alt="Olmé" className="p-logo select-none" draggable={false} />
-            <img src="/ornaments/ornament-botanic.svg" alt="" aria-hidden="true" className="p-orn select-none" draggable={false} />
+            {/* LCP desktop : Image Next avec priority */}
+            <Image
+              src="/logo/logo-olme.svg"
+              alt="Olmé"
+              width={656}
+              height={210}
+              priority
+              fetchPriority="high"
+              sizes="656px"
+              className="p-logo select-none"
+              draggable={false}
+            />
+
+            {/* Ornement lourd : ne se charge QUE si media ≥ 1024px */}
+            <picture>
+              <source
+                media="(min-width:1024px)"
+                srcSet="/ornaments/ornament-botanic.svg"
+              />
+              {/* Fallback 1×1 transparent pour empêcher le téléchargement hors media */}
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                alt=""
+                aria-hidden="true"
+                className="p-orn select-none"
+                draggable={false}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+
             <div className="p-text text-o-sand">
               <h3 className="text-16 font-b lh-160">Olmé, bar à cocktails à Lyon</h3>
               <p className="mt-2 text-16 font-l lh-160">Un lieu de vie moderne dédié à la mixologie, au vin et à la bière craft.</p>
@@ -340,6 +384,7 @@ export default function Home() {
               <p className="text-16 font-l lh-160">Ici, pas besoin de réservation pour boire un bon cocktail. <br /> Nous servons à manger jusqu’à 23h !</p>
               <p className="mt-2 text-16 lh-160"><span className="font-b">Le + :</span> producteurs engagés et fait maison, du bar aux assiettes.</p>
             </div>
+
             <div className="p-info">
               <div className="dash-row text-16">
                 <div>
@@ -352,7 +397,9 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="font-b text-24">Contact</div>
-                  <div className="mb-2 font-l lh-160"><a href="mailto:contact@olmebar.com" className="underline">contact@olmebar.com</a><br /> 06 00 00 00 00</div>
+                  <div className="mb-2 font-l lh-160">
+                    <a href="mailto:contact@olmebar.com" className="underline">contact@olmebar.com</a><br /> 06 00 00 00 00
+                  </div>
                 </div>
               </div>
             </div>
@@ -397,15 +444,13 @@ export default function Home() {
                 style={{ top: "env(safe-area-inset-top, 0px)" }}
               >
                 <button
-                  onClick={() => {
-                    handleLogoHome();
-                  }}
-className={[
-  "inline-flex items-center gap-2 transition-opacity duration-200",
-  logoVisible && logoAtTop
-    ? "opacity-100 pointer-events-auto"
-    : "opacity-0 pointer-events-none",
-].join(" ")}
+                  onClick={handleLogoHome}
+                  className={[
+                    "inline-flex items-center gap-2 transition-opacity duration-200",
+                    logoVisible && logoAtTop
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none",
+                  ].join(" ")}
                   aria-label="Revenir à l’accueil"
                 >
                   <Image
@@ -413,7 +458,8 @@ className={[
                     alt="Olmé"
                     width={88}
                     height={28}
-                    priority
+                    sizes="88px"
+                    loading="lazy"
                     className="h-6 w-auto"
                   />
                 </button>

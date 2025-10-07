@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="mx-auto max-w-[1280px] px-6 py-14">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-start">
             {/* Logo rouge à gauche */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 mt-6">
               <img
                 src="/logo/logo-olme.svg"
                 alt="Olmé"
@@ -83,7 +83,7 @@ export default function Footer() {
               </div>
               <nav className="border-t border-dotted border-current pt-4 md:text-right">
                 <ul className="space-y-1">
-                  <li><Link href="#mixologie">Mixologie</Link></li>
+                  <li><Link href="#mixologie">Cocktails</Link></li>
                   <li><Link href="#vins">Vins & softs</Link></li>
                   <li><Link href="#food">Brut Food</Link></li>
                   <li><Link href="/mentions-legales">Mentions légales</Link></li>
