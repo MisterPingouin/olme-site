@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico"
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   themeColor: "#0E1E1A", // ton vert profond Olmé si tu veux
   openGraph: {
