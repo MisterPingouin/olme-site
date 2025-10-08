@@ -36,7 +36,7 @@ export default function Infos() {
         {/* 3 blocs : Adresse | Ouverture | Contact */}
         <div className="mt-8 md:flex md:gap-10">
           {/* Adresse */}
-          <div className="flex-1 min-w-0 pt-4 border-t-2 border-dotted border-o-green/50">
+          <div className="lg:hidden flex-1 min-w-0 pt-4 border-t-2 border-dotted border-o-green/50">
             <div className="font-b text-24 mb-2">Adresse</div>
             <div className="space-y-1">
               {INFOS.address.map((l) => (
@@ -48,7 +48,7 @@ export default function Infos() {
           </div>
 
           {/* Ouverture */}
-          <div className="flex-1 min-w-0 pt-4 mt-8 md:mt-0 border-t-2 border-dotted border-o-green/50">
+          <div className="lg:hidden flex-1 min-w-0 pt-4 mt-8 md:mt-0 border-t-2 border-dotted border-o-green/50">
             <div className="font-b text-24 mb-2">Ouverture</div>
             <div className="space-y-1">
               {INFOS.opening.map((l) => (
@@ -60,7 +60,7 @@ export default function Infos() {
           </div>
 
           {/* Contact */}
-          <div className="flex-1 min-w-0 pt-4 mt-8 md:mt-0 border-t-2 border-dotted border-o-green/50">
+          <div className="hidden flex-1 min-w-0 pt-4 mt-8 md:mt-0 border-t-2 border-dotted border-o-green/50">
             <div className="font-b text-24 mb-2">Contact</div>
             <div className="space-y-1">
               {INFOS.contact.map((l) => (

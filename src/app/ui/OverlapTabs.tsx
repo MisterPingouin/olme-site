@@ -42,7 +42,7 @@ export default function OverlapTabs({
               onSelect(t.id);
             }}
             className={cn(
-              "relative inline-flex select-none transition-transform focus:outline-none",
+              "relative inline-flex select-none cursor-pointer transition-transform focus:outline-none",
               i === 0 ? "" : ml,
               isActive ? "drop-shadow" : "hover:translate-y-[-1px]"
             )}

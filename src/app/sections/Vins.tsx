@@ -24,20 +24,6 @@ export default function Vins() {
                   >
                     Vins, bières & softs
                   </h2>
-
-                  {/* Petite illustration mobile à droite du titre */}
-                  <div className="flex md:hidden">
-                    <div className="mx-auto w-full max-w-[75px]">
-                      <Image
-                        src="/img/fleur.svg"
-                        alt="Illustration"
-                        width={55}
-                        height={75}
-                        priority
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
                 </div>
 
                 <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
@@ -63,7 +49,7 @@ export default function Vins() {
                       {sec.items.map((item) => (
                         <div
                           key={item.name}
-                          className="flex items-baseline justify-between gap-4 sm:gap-6"
+                          className="grid grid-cols-[1fr_auto] items-center md:flex md:items-baseline md:justify-between gap-x-4 sm:gap-x-6 gap-y-1"
                         >
                           {/* Nom + région */}
                           <div className="min-w-0">
@@ -71,14 +57,14 @@ export default function Vins() {
                               {item.name}
                             </div>
                             {item.region && (
-                              <div className="text-16 text-o-green/80 break-words">
+                              <div className="text-16 text-o-green/80 break-words mt-2">
                                 {item.region}
                               </div>
                             )}
                           </div>
 
                           {/* Prix : verre + bouteille */}
-                          <div className="shrink-0 w-auto md:w-[220px] text-right">
+                          <div className="justify-self-end self-center md:self-auto shrink-0 w-auto md:w-[220px] text-right">
                             <div className="md:flex md:items-baseline md:justify-end md:gap-10">
                               {item.byGlass && (
                                 <div className="whitespace-nowrap">
@@ -87,7 +73,7 @@ export default function Vins() {
                                 </div>
                               )}
                               {item.bottle && (
-                                <div className="whitespace-nowrap">
+                                <div className="whitespace-nowrap mt-2 md:mt-0">
                                   <span className="font-b">{item.bottle} €</span>
                                   <span className="opacity-80"> — 75 cl</span>
                                 </div>
@@ -115,7 +101,7 @@ export default function Vins() {
                   {BEERS.map((b) => (
                     <div
                       key={b.name}
-                      className="flex items-baseline justify-between gap-4 sm:gap-6"
+                      className="grid grid-cols-[1fr_auto] items-center md:flex md:items-baseline md:justify-between gap-x-4 sm:gap-x-6 gap-y-1"
                     >
                       <div className="min-w-0">
                         <div className="font-b li-arrow break-words">
@@ -127,7 +113,7 @@ export default function Vins() {
                           </div>
                         )}
                       </div>
-                      <div className="shrink-0 w-auto md:w-[220px] text-right">
+                      <div className="justify-self-end self-center md:self-auto shrink-0 w-auto md:w-[220px] text-right">
                         <div className="whitespace-nowrap">
                           <span className="font-b">{b.price} €</span>
                           <span className="opacity-80"> — {b.sizeCl} cl</span>
@@ -147,7 +133,7 @@ export default function Vins() {
                   {SOFTS.map((s) => (
                     <div
                       key={s.name}
-                      className="flex items-baseline justify-between gap-4 sm:gap-6"
+                      className="grid grid-cols-[1fr_auto] items-center md:flex md:items-baseline md:justify-between gap-x-4 sm:gap-x-6 gap-y-1"
                     >
                       <div className="min-w-0">
                         <div className="font-b li-arrow break-words">
@@ -159,7 +145,7 @@ export default function Vins() {
                           </div>
                         )}
                       </div>
-                      <div className="shrink-0 w-auto md:w-[220px] text-right">
+                      <div className="justify-self-end self-center md:self-auto shrink-0 w-auto md:w-[220px] text-right">
                         <div className="whitespace-nowrap">
                           <span className="font-b">{s.price} €</span>
                           <span className="opacity-80"> — {s.sizeCl} cl</span>
@@ -177,7 +163,7 @@ export default function Vins() {
             </div>
 
             {/* Colonne droite : image (≥ lg) */}
-            <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
+            {/* <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
               <div className="rounded-2xl overflow-hidden mx-auto w-full max-w-[425px] aspect-[425/520] md:w-[425px] md:h-[520px] md:aspect-auto">
                 <Image
                   src="/img/vins.jpg"
@@ -189,7 +175,7 @@ export default function Vins() {
                   sizes="(min-width: 1024px) 425px, 0px"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

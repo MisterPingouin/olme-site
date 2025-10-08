@@ -440,7 +440,7 @@ export default function Home() {
                   <div className="pr-4">
                     <div className="font-b text-[18px]">Adresse</div>
                     <div className="font-l lh-160 text-[12px]">
-                      15 rue montesquieu <br /> 69007 LYON
+                      15 rue Montesquieu <br /> 69007 LYON
                     </div>
                   </div>
                   <div className="pl-4">
@@ -490,10 +490,9 @@ export default function Home() {
 
             <div className="p-text text-o-sand">
               <h3 className="text-16 font-b lh-160">Olmé, bar à cocktails à Lyon</h3>
-              <p className="mt-2 text-16 font-l lh-160">Un lieu de vie moderne dédié à la mixologie, au vin et à la bière craft.</p>
-              <p className="text-16 font-l lh-160">Un lieu où chaque cocktail évoque un souvenir, un voyage : d’abord le nez, puis le goût — le sel, le feu, le kick.</p>
-              <p className="text-16 font-l lh-160">Ici, pas besoin de réservation pour boire un bon cocktail. <br /> Nous servons à manger jusqu’à 23h !</p>
-              <p className="mt-2 text-16 lh-160"><span className="font-b">Le + :</span> producteurs engagés et fait maison, du bar aux assiettes.</p>
+                            <p className="mt-8 font-l leading-[1.6] text-16">
+                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes. Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place.
+                </p>
             </div>
 
             <div className="p-info">
