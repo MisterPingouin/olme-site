@@ -1,23 +1,35 @@
-// app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Figtree } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const siteUrl = "https://olmebar.com";
-const siteName = "Olmé — Cocktail Bar";
+const siteName = "Olmé";
 const siteDesc =
-  "Bar à cocktails à Lyon 7 : signatures de saison, classiques revisités, vins engagés, bière craft et options sans alcool.";
+  "Olmé — bar à cocktails à Lyon 7 (Guillotière). Cocktails signatures de saison, classiques revisités, avec et sans alcool, vins engagés, bières craft et petites assiettes maison.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
+    default: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
     template: "%s · Olmé",
   },
   description: siteDesc,
+  keywords: [
+    "bar à cocktails Lyon",
+    "bar à cocktails Lyon 7",
+    "bar Guillotière",
+    "cocktails signatures Lyon",
+    "mocktails Lyon",
+    "vins nature Lyon",
+    "bière craft Lyon",
+    "Olmé bar",
+  ],
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
+    languages: {
+      "fr-FR": "/",
+    },
   },
   robots: {
     index: true,
@@ -31,35 +43,60 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  referrer: "strict-origin-when-cross-origin",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-  themeColor: "#0E1E1A", // ton vert profond Olmé si tu veux
+  // Couleurs adaptées aux thèmes pour les navigateurs
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0E1E1A" },
+    { media: "(prefers-color-scheme: dark)", color: "#0E1E1A" },
+  ],
   openGraph: {
-    title: siteName,
-    description: "Signatures, classiques et produits de saison à Lyon 7.",
+    title: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
+    description:
+      "Signatures, classiques, avec ou sans alcool et produits de saison à Lyon 7. 15 rue Montesquieu, 69007 Lyon.",
     url: siteUrl,
     siteName: "Olmé",
-    images: [{ url: "/og/og.jpg", width: 1200, height: 630, alt: "Olmé Cocktail Bar" }],
+    images: [
+      {
+        url: "/og/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Olmé — Bar à cocktails à Lyon 7",
+      },
+    ],
     locale: "fr_FR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
-    description: "Cocktails, classiques et produits de saison à Lyon 7.",
+    title: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
+    description:
+      "Cocktails signatures, avec ou sans alcool, vins engagés, bières craft. Ouverture le 7 nov. 2025.",
     images: ["/og/og.jpg"],
-    // creator: "@tonhandle", // ajoute quand tu auras le handle
+    // site: "@olme.bar", // à ajouter si handle X/Twitter
   },
   verification: {
-    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // GSC (à coller)
+    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // code GSC
   },
+  formatDetection: { telephone: false, address: false, email: false },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Olmé",
+  },
+  manifest: "/site.webmanifest",
   category: "Bar",
   applicationName: "Olmé",
-  other: {
-    "format-detection": "telephone=no, address=no, email=no",
-  },
+  creator: "Olmé",
+  publisher: "Olmé",
+  // facultatif: authors: [{ name: "Olmé", url: siteUrl }],
 };
 
 export const viewport: Viewport = {
@@ -77,7 +114,7 @@ const figtree = Figtree({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // JSON-LD LocalBusiness (BarOrPub)
+  // JSON-LD LocalBusiness (BarOrPub) — coordonnées approx. de la rue Montesquieu (Guillotière)
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
@@ -86,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     image: `${siteUrl}/og/og.jpg`,
     description: siteDesc,
     priceRange: "€€",
-    servesCuisine: ["Cocktails", "Vins nature", "Tapas maison"],
+    servesCuisine: ["Cocktails", "Vins engagés", "Bières craft", "Petites assiettes maison"],
     address: {
       "@type": "PostalAddress",
       streetAddress: "15 rue Montesquieu",
@@ -94,20 +131,83 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       postalCode: "69007",
       addressCountry: "FR",
     },
-    // "telephone": "+33 ...", // ajoute-le quand tu veux
-    // Ajoute ton Instagram quand il sera défini :
-    sameAs: [
-     "https://www.instagram.com/olme.bar/",
-      // "https://www.facebook.com/...",
-      // "https://g.page/r/PLACE_ID", // après création Fiche Google
-    ],
-    // Menu & réservations (mets tes URL réelles si besoin)
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 45.749654,
+      longitude: 4.847879,
+    },
+    areaServed: ["Lyon 7e", "Guillotière", "Lyon"],
+    // "telephone": "+33 ", // à compléter
+    sameAs: ["https://www.instagram.com/olme.bar/"],
     hasMenu: `${siteUrl}/#mixologie`,
     acceptsReservations: true,
     openingDate: "2025-11-07",
-    // OpeningHoursSpecification : ajuste quand tes horaires sont fixés
     openingHoursSpecification: [
-      // { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday","Saturday"], opens: "18:00", closes: "01:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "18:00", closes: "01:00" },
+    ],
+  };
+
+  // JSON-LD Organization (pour les signaux d'entité / E-E-A-T)
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Olmé",
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/og/og.jpg`,
+      width: 1200,
+      height: 630,
+    },
+    sameAs: ["https://www.instagram.com/olme.bar/"],
+  };
+
+  // JSON-LD FAQPage (capter les People Also Ask sur “bar cocktail lyon 7 / mocktails / résa”)
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Faut-il réserver chez Olmé ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "La réservation est conseillée le week-end et pour les groupes. Les autres soirs, nous gardons toujours quelques places au comptoir.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Proposez-vous des cocktails sans alcool (mocktails) ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Oui. Notre carte inclut des créations sans alcool au même niveau d’exigence que nos signatures.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Où se situe Olmé à Lyon 7 ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Au 15 rue Montesquieu, dans le quartier de la Guillotière (Lyon 7). À quelques minutes à pied de la place Saint-Louis.",
+        },
+      },
+    ],
+  };
+
+  // JSON-LD BreadcrumbList (simple mais utile pour la compréhension du site)
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: siteUrl,
+      },
     ],
   };
 
@@ -132,6 +232,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* JSON-LD Local SEO */}
         <Script id="ld-localbusiness" type="application/ld+json" strategy="beforeInteractive">
           {JSON.stringify(localBusiness)}
+        </Script>
+        <Script id="ld-organization" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(organization)}
+        </Script>
+        <Script id="ld-faq" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(faq)}
+        </Script>
+        <Script id="ld-breadcrumbs" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(breadcrumbs)}
         </Script>
 
         {children}
