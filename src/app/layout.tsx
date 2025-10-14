@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
     description:
-      "Signatures, classiques, avec ou sans alcool et produits de saison à Lyon 7. 15 rue Montesquieu, 69007 Lyon.",
+      "Bar à cocktails et vin à Lyon 7 : cocktails signatures, créations sur mesure, avec ou sans alcool. Des vins de vignerons engagés, avec de la nourriture soigneusement sélectionnée. Le tout servi dans une ambiance détendue, avec un service attentif au 15 rue Montesquieu, Guillotière. Au printemps, deux terrasses ensoleillées vous attendent. ",
     url: siteUrl,
     siteName: "Olmé",
     images: [
