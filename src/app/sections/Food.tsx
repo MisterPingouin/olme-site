@@ -26,18 +26,18 @@ export default function Food() {
                 </h2>
 
                 {/* Petite illustration mobile à droite du titre */}
-                {/* <div className="flex md:hidden">
+                <div className="flex md:hidden">
                   <div className="mx-auto w-full max-w-[75px]">
                     <Image
-                      src="/img/fleur.svg"
-                      alt="Illustration"
+                      src="/img/Food.svg"
+                      alt="Illustration food"
                       width={55}
                       height={75}
                       priority
                       className="w-full h-full object-contain"
                     />
                   </div>
-                </div> */}
+                </div>
               </div>
 
               <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
@@ -68,19 +68,19 @@ Simple et soigné, pensé pour accompagner le verre. De la nourriture brute de p
           </div>
 
           {/* Colonne droite : image (≥ lg) */}
-          {/* <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
-            <div className="rounded-2xl overflow-hidden mx-auto w-full max-w-[425px] aspect-[425/520] md:w-[425px] md:h-[520px] md:aspect-auto">
-              <Image
-                src="/img/food.jpg"
-                alt="Assiette"
-                width={425}
-                height={520}
-                priority
-                className="w-full h-full object-cover"
-                sizes="(min-width: 1024px) 425px, 0px"
-              />
+            <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
+              <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
+                <Image
+                  src="/img/Food.svg"
+                  alt="Illustration Food"
+                  width={425}
+                  height={497}
+                  priority
+                  className="w-full h-full object-contain"
+                  sizes="(min-width: 1024px) 425px, 0px"
+                />
+              </div>
             </div>
-          </div> */}
           
         </div>
               

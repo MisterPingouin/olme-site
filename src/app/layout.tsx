@@ -86,10 +86,6 @@ export const metadata: Metadata = {
     images: ["/og/og.jpg"],
   },
 
-  verification: {
-    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  },
-
   formatDetection: { telephone: false, address: false, email: false },
 
   appleWebApp: {

@@ -24,6 +24,20 @@ export default function Vins() {
                   >
                     Vins, bières & softs
                   </h2>
+
+                                    {/* Illustration mobile (à droite du titre) */}
+                                    <div className="flex md:hidden">
+                                      <div className="mx-auto w-full max-w-[75px]">
+                                        <Image
+                                          src="/img/Vin.svg"
+                                          alt="Illustration Vins"
+                                          width={55}
+                                          height={75}
+                                          priority
+                                          className="w-full h-full object-contain"
+                                        />
+                                      </div>
+                                    </div>
                 </div>
 
                 <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
@@ -163,19 +177,19 @@ export default function Vins() {
             </div>
 
             {/* Colonne droite : image (≥ lg) */}
-            {/* <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
-              <div className="rounded-2xl overflow-hidden mx-auto w-full max-w-[425px] aspect-[425/520] md:w-[425px] md:h-[520px] md:aspect-auto">
+            <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
+              <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
                 <Image
-                  src="/img/vins.jpg"
-                  alt="Verre de vin"
+                  src="/img/Vin.svg"
+                  alt="Illustration Vins"
                   width={425}
-                  height={520}
+                  height={497}
                   priority
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   sizes="(min-width: 1024px) 425px, 0px"
                 />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>

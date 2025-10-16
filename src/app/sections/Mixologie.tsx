@@ -37,8 +37,8 @@ export default function Mixologie() {
                   <div className="flex md:hidden">
                     <div className="mx-auto w-full max-w-[75px]">
                       <Image
-                        src="/img/fleur.svg"
-                        alt="Illustration botanique"
+                        src="/img/Mixologie.svg"
+                        alt="Illustration Cocktails"
                         width={55}
                         height={75}
                         priority
@@ -124,7 +124,7 @@ export default function Mixologie() {
             <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
               <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
                 <Image
-                  src="/img/fleur.svg"
+                  src="/img/Mixologie.svg"
                   alt="Illustration botanique"
                   width={425}
                   height={497}
