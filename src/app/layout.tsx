@@ -6,12 +6,12 @@ import "./globals.css";
 const siteUrl = "https://olmebar.com";
 const siteName = "Olmé";
 const siteDesc =
-  "Olmé — bar à cocktails à Lyon 7 (Guillotière). Cocktails signatures de saison, classiques revisités, avec et sans alcool, vins engagés, bières craft et petites assiettes maison.";
+  "Olmé — bar à cocktails à Lyon 7. Cocktails signatures de saison, classiques revisités, avec et sans alcool, vins engagés, bières craft et petites assiettes maison.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
+    default: "Olmé — Bar à cocktails à Lyon 7",
     template: "%s · Olmé",
   },
   description: siteDesc,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#0E1E1A" },
   ],
   openGraph: {
-    title: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
+    title: "Olmé — Bar à cocktails à Lyon 7",
     description:
       "Bar à cocktails et vin à Lyon 7 : cocktails signatures, créations sur mesure, avec ou sans alcool. Des vins de vignerons engagés, avec de la nourriture soigneusement sélectionnée. Le tout servi dans une ambiance détendue, avec un service attentif au 15 rue Montesquieu, Guillotière. Au printemps, deux terrasses ensoleillées vous attendent. ",
     url: siteUrl,
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Olmé — Bar à cocktails à Lyon 7 (Guillotière)",
+    title: "Olmé — Bar à cocktails à Lyon 7",
     description:
       "Cocktails signatures, avec ou sans alcool, vins engagés, bières craft. Ouverture le 7 nov. 2025.",
     images: ["/og/og.jpg"],
@@ -114,7 +114,7 @@ const figtree = Figtree({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // JSON-LD LocalBusiness (BarOrPub) — coordonnées approx. de la rue Montesquieu (Guillotière)
+  // JSON-LD LocalBusiness (BarOrPub) — coordonnées approx. de la rue Montesquieu
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
