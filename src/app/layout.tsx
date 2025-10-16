@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: siteUrl,
-    languages: {
-      "fr-FR": "/",
-    },
+    languages: { "fr-FR": "/" },
   },
   robots: {
     index: true,
@@ -44,25 +42,30 @@ export const metadata: Metadata = {
     },
   },
   referrer: "strict-origin-when-cross-origin",
+
+  // Icônes : tout ce qui est cité doit exister dans /public
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-  // Couleurs adaptées aux thèmes pour les navigateurs
+
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#0E1E1A" },
     { media: "(prefers-color-scheme: dark)", color: "#0E1E1A" },
   ],
+
   openGraph: {
     title: "Olmé — Bar à cocktails à Lyon 7",
     description:
       "Bar à cocktails et vin à Lyon 7 : cocktails signatures, créations sur mesure, avec ou sans alcool. Des vins de vignerons engagés, avec de la nourriture soigneusement sélectionnée. Le tout servi dans une ambiance détendue, avec un service attentif au 15 rue Montesquieu, Guillotière. Au printemps, deux terrasses ensoleillées vous attendent. ",
     url: siteUrl,
-    siteName: "Olmé",
+    siteName: siteName,
     images: [
       {
         url: "/og/og.jpg",
@@ -74,24 +77,29 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Olmé — Bar à cocktails à Lyon 7",
     description:
       "Cocktails signatures, avec ou sans alcool, vins engagés, bières craft. Ouverture le 7 nov. 2025.",
     images: ["/og/og.jpg"],
-    // site: "@olme.bar", // à ajouter si handle X/Twitter
   },
+
   verification: {
-    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // code GSC
+    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   },
+
   formatDetection: { telephone: false, address: false, email: false },
+
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Olmé",
   },
+
   manifest: "/site.webmanifest",
+
   category: "Bar",
   applicationName: "Olmé",
   creator: "Olmé",
@@ -137,7 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       longitude: 4.847879,
     },
     areaServed: ["Lyon 7e", "Guillotière", "Lyon"],
-    // "telephone": "+33 ", // à compléter
+    // "telephone": "+33 ",
     sameAs: ["https://www.instagram.com/olme.bar/"],
     hasMenu: `${siteUrl}/#mixologie`,
     acceptsReservations: true,
@@ -147,7 +155,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
   };
 
-  // JSON-LD Organization (pour les signaux d'entité / E-E-A-T)
+  // JSON-LD Organization (E-E-A-T)
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -162,7 +170,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     sameAs: ["https://www.instagram.com/olme.bar/"],
   };
 
-  // JSON-LD FAQPage (capter les People Also Ask sur “bar cocktail lyon 7 / mocktails / résa”)
+  // JSON-LD FAQPage
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -197,17 +205,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
   };
 
-  // JSON-LD BreadcrumbList (simple mais utile pour la compréhension du site)
+  // JSON-LD BreadcrumbList
   const breadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Accueil",
-        item: siteUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
     ],
   };
 
