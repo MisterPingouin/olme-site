@@ -16,14 +16,15 @@ export const metadata: Metadata = {
   },
   description: siteDesc,
   keywords: [
+    "Olmé bar",
+    "Olme bar",
     "bar à cocktails Lyon",
     "bar à cocktails Lyon 7",
     "bar Guillotière",
     "cocktails signatures Lyon",
     "mocktails Lyon",
     "vins nature Lyon",
-    "bière craft Lyon",
-    "Olmé bar",
+    "bière craft Lyon"
   ],
   alternates: {
     canonical: siteUrl,
