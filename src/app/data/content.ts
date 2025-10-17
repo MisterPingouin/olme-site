@@ -292,18 +292,18 @@ export const WINES: WineSection[] = [
 // ================================================
 
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
-title: "Brut Food",
-items: [
-{ name: "→ Olives italiennes", price: 5 },
-{ name: "→ Artichauts à l’huile", price: 6 },
-{ name: "→ Crème de betterave, feta et huile de sésame", price: 8 },
-{ name: "→ Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
-{ name: "→ Grilled cheese au pesto verde", price: 10 },
-{ name: "→ Brillat savarin & noix", price: 8 },
-{ name: "→ Fromage de brebis AOP Ossau Iraty", price: 8 },
-{ name: "→ Chorizo ibérique 110 grs", price: 8 },
-{ name: "→ Jambon Ibérico Cebo de Campo 110 grs", price: 14 },
-],
+  title: "🔥Brut Food",
+  items: [
+    { name: "Olives Bella Di Cerignola", price: 5 },
+    { name: "Artichauts alla Romana", price: 6 },
+    { name: "Crème de betterave, feta et huile de sésame", price: 8 },
+    { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
+    { name: "Grilled cheese au pesto verde", price: 10 },
+    { name: "Brillat savarin & noix", price: 8 },
+    { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
+    { name: "Chorizo Ibérique 110 grs", price: 8 },
+    { name: "Jambon Ibérique Cebo de Campo 110 grs", price: 14 },
+  ],
 };
 
 
