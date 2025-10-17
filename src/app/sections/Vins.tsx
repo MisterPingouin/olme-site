@@ -2,6 +2,15 @@ import Image from "next/image";
 import { WINES, BEERS, SOFTS } from "../data/content";
 import Footer from "../components/Footer";
 
+function formatPrice(value: number) {
+  // affiche 6,5 au lieu de 6.5 en fr-FR
+  const needsDecimal = Math.round(value * 10) % 10 !== 0;
+  return value.toLocaleString("fr-FR", {
+    minimumFractionDigits: needsDecimal ? 1 : 0,
+    maximumFractionDigits: 2,
+  });
+}
+
 export default function Vins() {
   return (
     <>
@@ -25,19 +34,19 @@ export default function Vins() {
                     Vins, bières & softs
                   </h2>
 
-                                    {/* Illustration mobile (à droite du titre) */}
-                                    <div className="flex md:hidden">
-                                      <div className="mx-auto w-full max-w-[75px]">
-                                        <Image
-                                          src="/img/Vin.svg"
-                                          alt="Illustration Vins"
-                                          width={55}
-                                          height={75}
-                                          priority
-                                          className="w-full h-full object-contain"
-                                        />
-                                      </div>
-                                    </div>
+                  {/* Illustration mobile (à droite du titre) */}
+                  <div className="flex md:hidden">
+                    <div className="mx-auto w-full max-w-[75px]">
+                      <Image
+                        src="/img/Vin.svg"
+                        alt="Illustration Vins"
+                        width={55}
+                        height={75}
+                        priority
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
@@ -59,43 +68,77 @@ export default function Vins() {
                       {sec.title}
                     </h3>
 
-                    <div className="space-y-3">
-                      {sec.items.map((item) => (
-                        <div
-                          key={item.name}
-                          className="flex items-center md:items-baseline justify-between gap-4 sm:gap-6"
-                        >
-                          {/* Nom + région */}
-                          <div className="min-w-0">
-                            <div className="font-b li-arrow break-words">
-                              {item.name}
-                            </div>
-                            {item.region && (
-                              <div className="text-16 text-o-green/80 break-words mt-2">
-                                {item.region}
-                              </div>
-                            )}
-                          </div>
+                    <div className="space-y-4">
+                      {sec.items.map((item) => {
+                        // Ordonner les prix : le premier (verre OU bouteille) doit s’aligner avec le nom
+                        const prices: Array<
+                          { kind: "glass" | "bottle"; value: number; cl?: number }
+                        > = [];
+                        if (typeof item.byGlass === "number") {
+                          prices.push({ kind: "glass", value: item.byGlass, cl: item.glassCl ?? 12 });
+                        }
+                        if (typeof item.bottle === "number") {
+                          // si pas de byGlass, la bouteille devient le "premier prix"
+                          prices.push({ kind: "bottle", value: item.bottle, cl: item.bottleCl ?? 75 });
+                        }
 
-                          {/* Prix : verre + bouteille */}
-                          <div className="shrink-0 w-auto md:w-[220px] text-right">
-                            <div className="md:flex md:items-baseline md:justify-end md:gap-10">
-                              {item.byGlass && (
-                                <div className="whitespace-nowrap">
-                                  <span className="font-b">{item.byGlass} €</span>
-                                  <span className="opacity-80"> — 15 cl</span>
+                        return (
+                          <div
+                            key={item.name}
+                            className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 sm:gap-6 items-start"
+                          >
+                            {/* Colonne gauche : nom + domaine (ligne 1), région + cépage (ligne 2), notes (ligne 3) */}
+                            <div className="min-w-0">
+                              <div className="font-b li-arrow break-words">
+                                {item.name}
+                                {item.domain && (
+                                  <span className="font-normal">
+                                    <span className="opacity-70">, </span>
+                                    {item.domain}
+                                  </span>
+                                )}
+                              </div>
+
+                              {(item.region || item.grapes) && (
+                                <div className="text-16 text-o-green/80 break-words mt-1">
+                                  {item.region}
+                                  {item.grapes && <> {item.grapes}</>}
                                 </div>
                               )}
-                              {item.bottle && (
-                                <div className="whitespace-nowrap mt-2 md:mt-0">
-                                  <span className="font-b">{item.bottle} €</span>
-                                  <span className="opacity-80"> — 75 cl</span>
+
+                              {item.notes && (
+                                <div className="text-16 text-o-green/80 break-words mt-1">
+                                  {item.notes}
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Colonne droite : prix (1er prix aligné en haut sur la ligne du nom) */}
+                            <div className="shrink-0 w-auto text-right">
+                              {prices.length > 0 && (
+                                <div className="whitespace-nowrap">
+                                  <span className="font-b">
+                                    {formatPrice(prices[0].value)} €
+                                  </span>
+                                  {prices[0].cl && (
+                                    <span className="opacity-80"> — {prices[0].cl} cl</span>
+                                  )}
+                                </div>
+                              )}
+                              {prices.length > 1 && (
+                                <div className="whitespace-nowrap mt-1">
+                                  <span className="font-b">
+                                    {formatPrice(prices[1].value)} €
+                                  </span>
+                                  {prices[1].cl && (
+                                    <span className="opacity-80"> — {prices[1].cl} cl</span>
+                                  )}
                                 </div>
                               )}
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
 
                     {/* Séparateur entre sections */}

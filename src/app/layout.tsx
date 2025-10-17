@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "cocktails signatures Lyon",
     "mocktails Lyon",
     "vins nature Lyon",
-    "bière craft Lyon"
+    "bière craft Lyon",
   ],
   alternates: {
     canonical: siteUrl,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   referrer: "strict-origin-when-cross-origin",
 
-  // Icônes : tout ce qui est cité doit exister dans /public
+  // Icônes : toutes doivent exister dans /public
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
@@ -55,11 +55,6 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0E1E1A" },
-    { media: "(prefers-color-scheme: dark)", color: "#0E1E1A" },
-  ],
 
   openGraph: {
     title: "Olmé — Bar à cocktails à Lyon 7",
@@ -109,6 +104,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0E1E1A" },
+    { media: "(prefers-color-scheme: dark)", color: "#0E1E1A" },
+  ],
 };
 
 const figtree = Figtree({
@@ -148,7 +147,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     acceptsReservations: true,
     openingDate: "2025-11-07",
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "18:00", closes: "01:00" },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "18:00",
+        closes: "01:00",
+      },
     ],
   };
 
@@ -206,9 +210,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const breadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
-    ],
+    itemListElement: [{ "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl }],
   };
 
   return (
