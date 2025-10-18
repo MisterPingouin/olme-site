@@ -214,7 +214,7 @@ export default function Vins() {
 
                 {/* Mention cocktails NA */}
                 <p className="mt-4 text-16 text-o-green/80">
-                  Cocktails sans alcool — voir page mixologie (8 €)
+                  Cocktails sans alcool — voir page mixologie
                 </p>
               </section>
             </div>
