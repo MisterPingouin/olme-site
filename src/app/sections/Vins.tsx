@@ -50,7 +50,7 @@ export default function Vins() {
                 </div>
 
                 <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
-                  Du verre à la bouteille, en passant par la canette : craft, bio, biodynamie, demeter, nature — des jus bien faits par des producteur·ices engagé·es.
+                  Du verre à la bouteille, en passant par la canette : craft, bio, biodynamie, demeter, nature - des jus bien faits par des producteur·ices engagé·es.
                 </p>
               </div>
 

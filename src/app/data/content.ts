@@ -127,38 +127,38 @@ items: [
 // DRAFT - Affichage public provisoire
 export const MIXO_SECTIONS: CocktailSection[] = [
   {
-    title: "Low ABV",
+    title: "Léger",
     subtitle: "( 2 à 3 cl d’alcool )",
     items: [
       { name: "→ Carte en création", notes: "Les cocktails low ABV arrivent très bientôt.", price: 0 }
     ],
   },
   {
-    title: "Regular ABV",
+    title: "Modéré",
     subtitle: "( 4 à 5 cl d’alcool )",
     items: [
       { name: "→ Carte en création", notes: "Nos signatures Regular ABV seront dévoilées à l’ouverture.", price: 0 }
     ],
   },
   {
-    title: "High ABV",
-    subtitle: "( 5 à 7 cl d’alcool )",
+    title: "Puissant",
+    subtitle: "( 6 à 7 cl d’alcool )",
     items: [
       { name: "→ Carte en création", notes: "Sélection High ABV en cours de finalisation.", price: 0 }
     ],
   },
   {
-    title: "No ABV",
-    subtitle: "( 0 cl d’alcool )",
+    title: "Sans alcool",
+    subtitle: "",
     items: [
       { name: "→ Carte en création", notes: "Mocktails travaillés, sans alcool : bientôt en ligne.", price: 0 }
     ],
   },
   {
-    title: "Cocktails Omakase",
+    title: "Omakase",
     subtitle: "( Sur mesure )",
     items: [
-      { name: "→ Omakase bientôt dispo", notes: "Créations personnalisées à la demande dès l’ouverture.", price: 0 }
+      { name: "→ Omakase", notes: "Créations personnalisées à la demande.", price: 0 }
     ],
   },
 ];
