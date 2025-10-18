@@ -190,7 +190,7 @@ export default function Vins() {
                   {SOFTS.map((s) => (
                     <div
                       key={s.name}
-                      className="flex items-center md:items-baseline justify-between gap-4 sm:gap-6"
+                      className="flex md:items-baseline justify-between gap-4 sm:gap-6"
                     >
                       <div className="min-w-0">
                         <div className="font-b li-arrow break-words">
