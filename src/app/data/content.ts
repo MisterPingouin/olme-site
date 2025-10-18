@@ -51,25 +51,22 @@ export const SOFTS: SoftItem[] = [
 // BEERS
 // ================================================
 
-/* ===== Ancien contenu (à réactiver à l’ouverture) =====
 export const BEERS: BeerItem[] = [
-  { name: "→ Hopline Pale",        style: "Pale Ale houblonnée (Citra/Simcoe)", price: 6.5, sizeCl: 33 },
-  { name: "→ Guill’ IPA",          style: "India Pale Ale",                     price: 9,   sizeCl: 44 },
-  { name: "→ Monts & Mousse Pils", style: "Pils croquante",                     price: 6,   sizeCl: 33 },
-  { name: "→ Soierie Session",     style: "Session IPA",                        price: 6.5, sizeCl: 33 },
-  { name: "→ Confluence Stout",    style: "Stout torréfié",                     price: 5.5, sizeCl: 25 },
+  { name: "45 days organic Pils",        style: "To Øl - 4,7%", price: 5.5, sizeCl: 33 },
+  { name: "Soundwaves IPA",          style: "Siren - 5,6%", price: 7,   sizeCl: 33 },
+  { name: "Nitro Broken Dream", style: "Siren - 6,5%", price: 7,   sizeCl: 33 },
 ];
-*/
 
-// DRAFT - Affichage public provisoire
-export const BEERS: BeerItem[] = [
-  {
-    name: "→ Carte en création",
-    style: "La sélection de bières craft arrive très bientôt.",
-    price: 0,
-    sizeCl: 0
-  }
-];
+
+// // DRAFT - Affichage public provisoire
+// export const BEERS: BeerItem[] = [
+//   {
+//     name: "→ Carte en création",
+//     style: "La sélection de bières craft arrive très bientôt.",
+//     price: 0,
+//     sizeCl: 0
+//   }
+// ];
 
 
 // ================================================
