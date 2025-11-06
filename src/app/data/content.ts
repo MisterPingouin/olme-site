@@ -152,12 +152,6 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Rhum dark, rooibos glacé, citron & menthe fraîche – long drink boisé et désaltérant.",
         price: 8,
       },
-      {
-        name: "Marie-Antoinette",
-        notes:
-          "Vodka, sirop hibiscus & épices, teinture de girofle & verveine glacée – floral, épicé et très frais.",
-        price: 11,
-      },
     ],
   },
   {
