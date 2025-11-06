@@ -182,6 +182,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Gin Lapsang, Cynar, pamplemousse & citron – agrumes fumés, amers & salins, garnis d’olives.",
         price: 13,
       },
+            {
+        name: "Tramonto a Capris",
+        notes:
+          "Grappa, Citron, Sucre.",
+        price: 14,
+      },
     ],
   },
   {
