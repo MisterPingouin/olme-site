@@ -52,10 +52,26 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  { name: "45 days organic Pils",        style: "To Øl - 4,7%", price: 5.5, sizeCl: 33 },
-  { name: "Soundwaves IPA",          style: "Siren - 5,6%", price: 7,   sizeCl: 33 },
-  { name: "Nitro Broken Dream", style: "Siren - 6,5%", price: 7,   sizeCl: 33 },
+  {
+    name: "Douce France",
+    style: "Fauve - Lager",
+    price: 8.5,
+    sizeCl: 44,
+  },
+  {
+    name: "Temps du Bonheur",
+    style: "Fauve - Session NEIPA",
+    price: 7,
+    sizeCl: 33,
+  },
+  {
+    name: "Pic Flamboyant",
+    style: "Fauve - Berliner Weisse fruits tropicaux",
+    price: 8,
+    sizeCl: 33,
+  },
 ];
+
 
 
 // // DRAFT - Affichage public provisoire
@@ -124,41 +140,82 @@ items: [
 ];
 */
 
-// DRAFT - Affichage public provisoire
+// // Affichage public – Carte mixologie
 export const MIXO_SECTIONS: CocktailSection[] = [
   {
     title: "Léger",
     subtitle: "( 2 à 3 cl d’alcool )",
     items: [
-      { name: "→ Carte en création", notes: "Les cocktails low ABV arrivent très bientôt.", price: 0 }
+      {
+        name: "Été perdu",
+        notes:
+          "Rhum dark, rooibos glacé, citron & menthe fraîche – long drink boisé et désaltérant.",
+        price: 8,
+      },
+      {
+        name: "Marie-Antoinette",
+        notes:
+          "Vodka, sirop hibiscus & épices, teinture de girofle & verveine glacée – floral, épicé et très frais.",
+        price: 11,
+      },
     ],
   },
   {
     title: "Modéré",
     subtitle: "( 4 à 5 cl d’alcool )",
     items: [
-      { name: "→ Carte en création", notes: "Nos signatures Regular ABV seront dévoilées à l’ouverture.", price: 0 }
+      {
+        name: "Haïku",
+        notes:
+          "Vin de prune, Cuir lointain, citron, sucre & eau gazeuse – acidulé, floral et délicatement tannique.",
+        price: 12,
+      },
+      {
+        name: "Épine verte",
+        notes:
+          "Mezcal au poivron vert, liqueur de cacahuète, lime, sweet & salt & Jamaican jerk – fumé, végétal et légèrement pimenté.",
+        price: 13,
+      },
+      {
+        name: "Fumée d’Amalfi",
+        notes:
+          "Gin Lapsang, Cynar, pamplemousse & citron – agrumes fumés, amers & salins, garnis d’olives.",
+        price: 13,
+      },
     ],
   },
   {
     title: "Puissant",
     subtitle: "( 6 à 7 cl d’alcool )",
     items: [
-      { name: "→ Carte en création", notes: "Sélection High ABV en cours de finalisation.", price: 0 }
+      {
+        name: "Grain sauvage",
+        notes:
+          "Whisky & rye, sirop de sarrasin torréfié & curry, Abbott bitters – spirit-forward, sec et très céréales.",
+        price: 15,
+      },
     ],
   },
   {
     title: "Sans alcool",
     subtitle: "",
     items: [
-      { name: "→ Carte en création", notes: "Mocktails travaillés, sans alcool : bientôt en ligne.", price: 0 }
+      {
+        name: "→ Carte en création",
+        notes: "Mocktails travaillés, sans alcool : bientôt en ligne.",
+        price: 0,
+      },
     ],
   },
   {
     title: "Omakase",
     subtitle: "( Sur mesure )",
     items: [
-      { name: "→ Omakase", notes: "Créations personnalisées à la demande.", price: 0 }
+      {
+        name: "→ Omakase",
+        notes: "Créations personnalisées à la demande, selon vos envies & notre inspiration.",
+        price: 0,
+      },
     ],
   },
 ];
@@ -264,11 +321,10 @@ export const WINES: WineSection[] = [
     title: "Pétillant",
     items: [
       {
-        name: "Prosecco Artigianale",
+        name: "Prosecco Fiol Extra Brut",
         region: "Italie",
-        grapes: "100% xxx", // à compléter si tu veux que je corrige
-        byGlass: 8, glassCl: 12,
-        bottle: 40, bottleCl: 75,
+        byGlass: 7, glassCl: 12,
+        bottle: 35, bottleCl: 75,
       },
       {
         name: "Extra brut",
