@@ -53,21 +53,21 @@ export const SOFTS: SoftItem[] = [
 
 export const BEERS: BeerItem[] = [
   {
-    name: "Douce France",
-    style: "Fauve - Lager",
-    price: 8.5,
+    name: "Fauve - Douce France",
+    style: "Lager",
+    price: 8,
     sizeCl: 44,
   },
   {
-    name: "Temps du Bonheur",
-    style: "Fauve - Session NEIPA",
-    price: 7,
+    name: "Fauve - Temps du Bonheur",
+    style: "Session NEIPA",
+    price: 7.5,
     sizeCl: 33,
   },
   {
-    name: "Pic Flamboyant",
-    style: "Fauve - Berliner Weisse fruits tropicaux",
-    price: 8,
+    name: "Fauve -Pic Flamboyant",
+    style: "Berliner Weisse fruits tropicaux",
+    price: 7.5,
     sizeCl: 33,
   },
 ];
@@ -347,11 +347,11 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    { name: "Olives Bella Di Cerignola", price: 5 },
+    // { name: "Olives Bella Di Cerignola", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
-    { name: "Crème de betterave, feta et huile de sésame", price: 8 },
+    // { name: "Crème de betterave, feta et huile de sésame", price: 8 },
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
-    { name: "Grilled cheese au pesto verde", price: 10 },
+    { name: "Crispy Choux-fleur", price: 10 },
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
     { name: "Chorizo Ibérique 110 grs", price: 8 },
