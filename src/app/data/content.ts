@@ -65,11 +65,17 @@ export const BEERS: BeerItem[] = [
     sizeCl: 33,
   },
   {
-    name: "Fauve -Pic Flamboyant",
+    name: "Fauve - Pic Flamboyant",
     style: "Berliner Weisse fruits tropicaux",
     price: 7.5,
     sizeCl: 33,
   },
+    {
+    name: "Fauve - Océan Indien",
+    style: "IPA Moderne",
+    price: 8,
+    sizeCl: 33,
+  }, 
 ];
 
 
@@ -149,8 +155,14 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Été perdu",
         notes:
-          "Rhum dark, rooibos glacé, citron & menthe fraîche – long drink boisé et désaltérant.",
-        price: 8,
+          "Frais, exotique — Rhum ambré, thé glacé, fruit de la passion & poivre de Jamaïque.",
+        price: 9,
+      },
+      {
+        name: "Haïku",
+        notes:
+          "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
+        price: 10,
       },
     ],
   },
@@ -159,51 +171,46 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     subtitle: "( 4 à 5 cl d’alcool )",
     items: [
       {
-        name: "Haïku",
-        notes:
-          "Vin de prune, Cuir lointain, citron, sucre & eau gazeuse – acidulé, floral et délicatement tannique.",
-        price: 12,
-      },
-      {
         name: "Épine verte",
         notes:
-          "Mezcal au poivron vert, liqueur de cacahuète, lime, sweet & salt & Jamaican jerk – fumé, végétal et légèrement pimenté.",
+          "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & Jamaican jerk.",
         price: 13,
       },
       {
         name: "Fumée d’Amalfi",
         notes:
-          "Gin Lapsang, Cynar, pamplemousse & citron – agrumes fumés, amers & salins, garnis d’olives.",
+          "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
+        price: 12,
+      },
+      {
+        name: "Tramonto a Capri",
+        notes:
+          "Onctueux, floral — Grappa, citron, sucre de canne & émulsifiant.",
         price: 13,
       },
-            {
-        name: "Tramonto a Capris",
+      {
+        name: "Marie-Antoinette",
         notes:
-          "Grappa, Citron, Sucre.",
-        price: 14,
+          "Doux, réconfortant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
+        price: 12,
       },
     ],
   },
   {
     title: "Puissant",
-    subtitle: "( 6 à 7 cl d’alcool )",
+    subtitle: "( 5 à 7 cl d’alcool )",
     items: [
+      {
+        name: "Vent des Caraïbes",
+        notes:
+          "Exotique, acidulé — Rhum ananas, rhum des Caraïbes, citron vert, sucre de canne & sel.",
+        price: 14,
+      },
       {
         name: "Grain sauvage",
         notes:
-          "Whisky & rye, sirop de sarrasin torréfié & curry, Abbott bitters – spirit-forward, sec et très céréales.",
-        price: 15,
-      },
-    ],
-  },
-  {
-    title: "Sans alcool",
-    subtitle: "",
-    items: [
-      {
-        name: "→ Carte en création",
-        notes: "Mocktails travaillés, sans alcool : bientôt en ligne.",
-        price: 0,
+          "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Aphrodite bitters.",
+        price: 13,
       },
     ],
   },
@@ -212,13 +219,15 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     subtitle: "( Sur mesure )",
     items: [
       {
-        name: "→ Omakase",
-        notes: "Créations personnalisées à la demande, selon vos envies & notre inspiration.",
-        price: 0,
+        name: "Omakase",
+        notes:
+          "Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison.",
+        price: 15,
       },
     ],
   },
 ];
+
 
 // ================================================
 // WINES
@@ -347,17 +356,17 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    // { name: "Olives Bella Di Cerignola", price: 5 },
+    { name: "Olives Bella Di Cerignola", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
-    // { name: "Crème de betterave, feta et huile de sésame", price: 8 },
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
-    { name: "Crispy Choux-fleur", price: 10 },
+    { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
-    { name: "Chorizo Ibérique 110 grs", price: 8 },
-    { name: "Jambon Ibérique Cebo de Campo 110 grs", price: 14 },
+    { name: "Chorizo Ibérique", price: 10 },
+    { name: "Jambon Ibérique Cebo de Campo", price: 14 },
   ],
 };
+
 
 
 

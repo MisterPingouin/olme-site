@@ -78,7 +78,7 @@ export default function Mixologie() {
                             {/* Ligne 1 : [Nom - Notes] .......... [Prix] */}
                             <div className="flex flex-wrap items-baseline gap-y-1">
                               {/* Groupe gauche : Nom - Notes */}
-<div className="flex min-w-0 items-baseline gap-2 flex-1 pr-6">
+<div className="flex min-w-0 items-baseline gap-2 flex-1 pr-4">
                                 <div className="font-b li-arrow shrink-0 break-words">
                                   {item.name}
                                 </div>
