@@ -226,6 +226,28 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       },
     ],
   },
+  {
+  title: "Sans alcool",
+  subtitle: "( 0 cl d’alcool )",
+  items: [
+    {
+      name: "Aube Italienne",
+      notes: "Amer, fruité — Pamplemousse, citron, amer sans alcool",
+      price: 8,
+    },
+    {
+      name: "Paprika Tonic",
+      notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
+      price: 8,
+    },
+    {
+      name: "Éclat d’Automne",
+      notes: "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
+      price: 8,
+    },
+  ],
+},
+
 ];
 
 
