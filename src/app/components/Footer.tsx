@@ -25,7 +25,7 @@ export default function Footer() {
                   contact@olmebar.com
                 </a>
                 <br />
-                06 00 00 00 00
+                07 50 95 25 35
                 <br />
              <Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link>
 

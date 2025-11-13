@@ -508,7 +508,7 @@ export default function Home() {
                 <div>
                   <div className="font-b text-24">Contact</div>
                   <div className="mb-2 font-l lh-160">
-                    <a href="mailto:contact@olmebar.com" className="underline">contact@olmebar.com</a><br /> 06 00 00 00 00
+                    <a href="mailto:contact@olmebar.com" className="underline">contact@olmebar.com</a><br />07 50 95 25 35
                   </div>
                 </div>
               </div>
