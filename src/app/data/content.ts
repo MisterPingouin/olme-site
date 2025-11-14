@@ -31,7 +31,7 @@ export const SOFTS: SoftItem[] = [
     name: "Rooibos glacé",
     notes: "fruit de la passion, fève de tonka, baie de Jamaïque",
     price: 5,
-    sizeCl: 40,
+    sizeCl: 30,
   },
   { name: "Ninkasi Ginger Ale bio", price: 5, sizeCl: 25 },
   { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
@@ -52,12 +52,18 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  {
-    name: "Fauve - Douce France",
-    style: "Lager",
-    price: 8,
-    sizeCl: 44,
-  },
+  // {
+  //   name: "Fauve - Douce France",
+  //   style: "Lager",
+  //   price: 8,
+  //   sizeCl: 44,
+  // },
+{
+  name: "To Øl - 45 Days Organic Pilsner",
+  style: "Pilsner bio",
+  price: 6,
+  sizeCl: 33,
+},
   {
     name: "Fauve - Temps du Bonheur",
     style: "Session NEIPA",
