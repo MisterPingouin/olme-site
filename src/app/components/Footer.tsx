@@ -73,7 +73,7 @@ export default function Footer() {
               </div>
               <div className="border-t border-dotted border-current pt-4">
                 <div className="font-b text-24 mb-2">Ouverture</div>
-                <div>Lundi – Mercredi → 18h – 00h</div>
+                <div>Mardi – Mercredi → 18h – 00h</div>
                 <div>Jeudi – Samedi → 18h – 01h</div>
               </div>
               <div className="border-t border-dotted border-current pt-4">

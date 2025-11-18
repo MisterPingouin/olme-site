@@ -446,7 +446,7 @@ export default function Home() {
                   <div className="pl-4">
                     <div className="font-b text-[18px]">Ouverture</div>
                     <div className="font-l lh-160 text-[12px]">
-                      Lundi – Mercredi → 18h – 00h <br />
+                      Mardi – Mercredi → 18h – 00h <br />
                       Jeudi – Samedi → 18h – 01h
                     </div>
                   </div>
@@ -503,7 +503,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="font-b text-24">Ouverture</div>
-                  <div className="font-l lh-160">Lundi – Mercredi → 18h – 00h <br /> Jeudi – Samedi → 18h – 01h</div>
+                  <div className="font-l lh-160">Mardi – Mercredi → 18h – 00h <br /> Jeudi – Samedi → 18h – 01h</div>
                 </div>
                 <div>
                   <div className="font-b text-24">Contact</div>
