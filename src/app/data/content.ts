@@ -28,7 +28,7 @@ export type SoftItem = {
 
 export const SOFTS: SoftItem[] = [
   {
-    name: "Rooibos glacé",
+    name: "Rooibos Bio glacé",
     notes: "fruit de la passion, fève de tonka, baie de Jamaïque",
     price: 5,
     sizeCl: 30,
@@ -41,13 +41,13 @@ export const SOFTS: SoftItem[] = [
   },
   { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
   {
-    name: "JNPR Tonic",
+    name: "JNPR Tonic Bio",
     notes: "sans sucres, sans édulcorant",
     price: 6,
     sizeCl: 33,
   },
-  { name: "Archipel Kombucha Framboise", price: 6.5, sizeCl: 33 },
-  { name: "Archipel Kombucha Pomelo - Gingembre", price: 6.5, sizeCl: 33 },
+  { name: "Archipel Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
+  { name: "Archipel Kombucha Pomelo - Gingembre Bio", price: 6.5, sizeCl: 33 },
 ];
 
 
