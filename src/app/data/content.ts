@@ -393,6 +393,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
     { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
+    { name: "Saucisse laotienne à la citronnelle", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
