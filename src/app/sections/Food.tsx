@@ -30,7 +30,7 @@ export default function Food() {
                   <div className="mx-auto w-full max-w-[75px]">
                     <Image
                       src="/img/Food.svg"
-                      alt="Illustration food"
+                      alt="Illustration food olmé"
                       width={55}
                       height={75}
                       priority

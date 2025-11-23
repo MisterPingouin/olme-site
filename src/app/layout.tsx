@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: siteDesc,
   keywords: [
     "Olmé bar",
+    "olmé bar",
     "Olme bar",
     "bar à cocktails Lyon",
     "bar à cocktails Lyon 7",
