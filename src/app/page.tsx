@@ -479,7 +479,7 @@ export default function Home() {
               />
               <img
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                alt=""
+                alt="Illustration olmé"
                 aria-hidden="true"
                 className="p-orn select-none"
                 draggable={false}
