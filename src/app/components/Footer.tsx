@@ -25,8 +25,16 @@ export default function Footer() {
                   contact@olmebar.com
                 </a>
                 <br />
-                07 50 95 25 35
-                <br />
+        <a href="mailto:contact@olmebar.com" className="underline">
+          contact@olmebar.com
+        </a>
+        <br />
+        <a
+          href="tel:+33750952535"
+          className="underline"
+        >
+          07 50 95 25 35
+        </a>                <br />
              <Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link>
 
               </div>
