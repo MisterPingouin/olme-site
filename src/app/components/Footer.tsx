@@ -30,7 +30,7 @@ export default function Footer() {
           href="tel:+33750952535"
         >
           07 50 95 25 35
-        </a>                <br />
+        </a>
              <Link href="https://www.instagram.com/olme.bar/" className="hover:underline">@olme.bar</Link>
 
               </div>
