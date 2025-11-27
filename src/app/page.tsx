@@ -514,7 +514,6 @@ export default function Home() {
         <br />
         <a
           href="tel:+33750952535"
-          className="underline"
         >
           07 50 95 25 35
         </a>                  </div>
