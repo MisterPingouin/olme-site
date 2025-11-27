@@ -28,7 +28,7 @@ export type SoftItem = {
 
 export const SOFTS: SoftItem[] = [
   {
-    name: "Rooibos Bio glacé",
+    name: "Rooibos Bio glacé maison",
     notes: "fruit de la passion, fève de tonka, baie de Jamaïque",
     price: 5,
     sizeCl: 30,
@@ -194,12 +194,6 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 12,
       },
       {
-        name: "Tramonto a Capri",
-        notes:
-          "Onctueux, floral — Grappa, citron, sucre de canne & émulsifiant.",
-        price: 13,
-      },
-      {
         name: "Marie-Antoinette",
         notes:
           "Doux, réconfortant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
@@ -211,6 +205,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     title: "Puissant",
     subtitle: "( 5 à 7 cl d’alcool )",
     items: [
+            {
+        name: "Tramonto a Capri",
+        notes:
+          "Onctueux, floral — Grappa, citron, sucre de canne & émulsifiant.",
+        price: 14,
+      },
       {
         name: "Vent des Caraïbes",
         notes:
