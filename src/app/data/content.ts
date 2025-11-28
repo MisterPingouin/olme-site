@@ -34,7 +34,8 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 30,
   },
       {
-    name: "Limonade citron/gingembre maison",
+    name: "Limonade maison",
+        notes: "Gingembre, citron, menthe",
     price: 4.5,
     sizeCl: 30,
   },
