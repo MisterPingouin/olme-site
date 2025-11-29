@@ -87,12 +87,12 @@ export const BEERS: BeerItem[] = [
     price: 7.5,
     sizeCl: 33,
   },
-    {
-    name: "Fauve - Océan Indien",
-    style: "IPA Moderne",
-    price: 8,
-    sizeCl: 33,
-  }, 
+  //   {
+  //   name: "Fauve - Océan Indien",
+  //   style: "IPA Moderne",
+  //   price: 8,
+  //   sizeCl: 33,
+  // }, 
 ];
 
 
