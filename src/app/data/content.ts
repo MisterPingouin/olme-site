@@ -77,7 +77,7 @@ export const BEERS: BeerItem[] = [
 },
   {
     name: "Fauve - Temps du Bonheur",
-    style: "Session NEIPA",
+    style: "Session IPA",
     price: 7.5,
     sizeCl: 33,
   },
@@ -197,7 +197,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         name: "Fumée d’Amalfi",
         notes:
           "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
-        price: 12,
+        price: 13,
       },
       {
         name: "Marie-Antoinette",
@@ -404,6 +404,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
     { name: "Jambon Ibérique Cebo de Campo", price: 14 },
+    { name: "Succulent au chocolat", price: 6 },
   ],
 };
 
