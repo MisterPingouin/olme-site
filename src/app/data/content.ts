@@ -63,12 +63,12 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  // {
-  //   name: "Fauve - Douce France",
-  //   style: "Lager",
-  //   price: 8,
-  //   sizeCl: 44,
-  // },
+  {
+    name: "Fauve - Douce France",
+    style: "Lager",
+    price: 8,
+    sizeCl: 44,
+  },
 {
   name: "To Øl - 45 Days Organic Pilsner",
   style: "Pilsner bio",
