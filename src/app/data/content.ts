@@ -81,6 +81,12 @@ export const BEERS: BeerItem[] = [
     price: 7.5,
     sizeCl: 33,
   },
+    {
+    name: "Sirens - Soundwaves",
+    style: "IPA",
+    price: 7.5,
+    sizeCl: 33,
+  },
   {
     name: "Fauve - Pic Flamboyant",
     style: "Berliner Weisse fruits tropicaux",
