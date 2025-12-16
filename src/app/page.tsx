@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { TABS } from "./data/content";
+import SitePopup from "./components/SitePopup";
 
 // Code-splitting des composants lourds non critiques LCP
 const OverlapTabs = dynamic(() => import("./ui/OverlapTabs"), { ssr: true });
@@ -391,6 +392,7 @@ export default function Home() {
 
   return (
     <>
+    <SitePopup />
       {/* HERO */}
       <section className="hero relative min-h-dvh bg-olme overflow-hidden">
         {/* --- MOBILE : homepage --- */}
