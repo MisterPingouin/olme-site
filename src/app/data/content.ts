@@ -410,7 +410,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
     { name: "Jambon Ibérique Cebo de Campo", price: 14 },
-    { name: "Succulent au chocolat", price: 6 },
+    // { name: "Succulent au chocolat", price: 6 },
   ],
 };
 
