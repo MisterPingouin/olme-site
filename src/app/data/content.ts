@@ -401,7 +401,7 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    { name: "Olives de Kalamata", price: 5 },
+    { name: "Olives vertes italiennes", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
     { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
@@ -425,7 +425,7 @@ export const INFOS = {
   heading: "Infos pratiques",
   address: ["15 rue montesquieu", "69007 LYON"],
   opening: ["Lundi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
-  contact: ["contact@olmebar.com", "06 00 00 00 00"],
+  contact: ["contact@olmebar.com", "07 50 95 25 35"],
   groups: "Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, ...). Privatisation possible sur demande.",
   terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur.",
   reservation: "La réservation n’est pas obligatoire mais conseillée pour les groupes de 4 personnes et plus sur contact@olmebar.com.",

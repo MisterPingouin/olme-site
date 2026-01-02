@@ -493,7 +493,7 @@ export default function Home() {
             <div className="p-text text-o-sand mt-8">
               <h1 className="text-16 font-b lh-160">Olmé, bar à cocktails à Lyon</h1>
                             <p className="mt-8 font-l leading-[1.6] text-16">
-                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes. Réservation à partir de 4 personnes, si vous êtes moins, on vous trouvera toujours une place.
+                  Un lieu de vie moderne et cosy dédié à la mixologie, au vin de vignerons et la bière craft. Ici on travaille avec des producteurs engagés et on fait maison, du bar aux assiettes.
                 </p>
             </div>
 
