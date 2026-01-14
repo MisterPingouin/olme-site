@@ -255,7 +255,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   items: [
         {
       name: "Latitude Gingembre",
-      notes: "Vif, épicé — Curry, Gingembre, citron, eau pétillante",
+      notes: "Exotique, épicé - Gingembre, curry de Madras, fruit de la passion, citron, eau pétillante, sel",
       price: 8,
     },
     {
