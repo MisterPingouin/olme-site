@@ -253,6 +253,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   title: "Sans alcool",
   subtitle: "( 0 cl d’alcool )",
   items: [
+        {
+      name: "Latitude Gingembre",
+      notes: "Vif, épicé — Curry, Gingembre, citron, eau pétillante",
+      price: 8,
+    },
     {
       name: "Aube Italienne",
       notes: "Amer, fruité — Pamplemousse, citron, amer sans alcool",
@@ -406,7 +411,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
     { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Saucisse laotienne à la citronnelle", price: 9 },
-    { name: "Brillat savarin & noix", price: 8 },
+    // { name: "Brillat savarin & noix", price: 8 },
     { name: "Fromage de brebis Azkorria Ossau Iraty", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
     { name: "Jambon Ibérique Cebo de Campo", price: 14 },
