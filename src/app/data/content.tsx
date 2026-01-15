@@ -441,13 +441,13 @@ export type InfosContent = {
 };
 
 export const INFOS: InfosContent = {
-  heading: "Infos, réservations",
+  heading: "Infos, réservation",
   address: ["15 rue montesquieu", "69007 LYON"],
   opening: ["Lundi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
   contact: ["contact@olmebar.com", "07 50 95 25 35"],
  groups: (
   <>
-    Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, ...). Privatisation
+    Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ,vernissage ...). Privatisation
     possible sur demande par mail sur{" "}
     <a
       href="mailto:contact@olmebar.com"
@@ -462,7 +462,7 @@ export const INFOS: InfosContent = {
   terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur.",
   reservation: (
       <>
-    La réservation n’est pas obligatoire mais conseillée pour les groupes de 4 personnes et plus{" "}
+    La réservation n’est pas obligatoire, mais recommandée par{" "}
     <a
       href="https://reservation.laddition.com/booking/olm%C3%A9#/date"
       target="_blank"
