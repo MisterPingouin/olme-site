@@ -484,5 +484,5 @@ export const TABS = [
   { id: "mixologie", idx: 1, label: "Mixologie", color: "red" as const },
   { id: "vins", idx: 2, label: "Vins, bières & softs", color: "sand" as const },
   { id: "food", idx: 3, label: "Brut Food", color: "cream" as const },
-  { id: "infos", idx: 4, label: "Infos, réservations", color: "blue" as const },
+  { id: "infos", idx: 4, label: "Infos, Réserver", color: "blue" as const },
 ];
