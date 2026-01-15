@@ -435,39 +435,44 @@ export type InfosContent = {
   address: string[];
   opening: string[];
   contact: string[];
-  groups: string;
+  groups: ReactNode;
   terraces: string;
   reservation: ReactNode;
 };
 
 export const INFOS: InfosContent = {
-  heading: "Infos pratiques",
+  heading: "Infos, réservations",
   address: ["15 rue montesquieu", "69007 LYON"],
   opening: ["Lundi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
   contact: ["contact@olmebar.com", "07 50 95 25 35"],
-  groups:
-    "Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, ...). Privatisation possible sur demande.",
+ groups: (
+  <>
+    Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, ...). Privatisation
+    possible sur demande par mail sur{" "}
+    <a
+      href="mailto:contact@olmebar.com"
+      className="underline underline-offset-4 decoration-o-green/40 hover:decoration-o-green"
+    >
+      contact@olmebar.com
+    </a>
+    .
+  </>
+),
+
   terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur.",
   reservation: (
-    <>
-      La réservation n’est pas obligatoire mais conseillée pour les groupes de 4 personnes et plus{" "}
-      <a
-        href="https://reservation.laddition.com/booking/olm%C3%A9#/date"
-        target="_blank"
-        rel="noreferrer"
-        className="underline underline-offset-4 decoration-o-green/40 hover:decoration-o-green"
-      >
-        sur notre plateforme de réservation
-      </a>{" "}
-      ou par mail sur{" "}
-      <a
-        href="mailto:contact@olmebar.com"
-        className="underline underline-offset-4 decoration-o-green/40 hover:decoration-o-green"
-      >
-        contact@olmebar.com
-      </a>
-      .
-    </>
+      <>
+    La réservation n’est pas obligatoire mais conseillée pour les groupes de 4 personnes et plus{" "}
+    <a
+      href="https://reservation.laddition.com/booking/olm%C3%A9#/date"
+      target="_blank"
+      rel="noreferrer"
+      className="underline underline-offset-4 decoration-o-green/40 hover:decoration-o-green"
+    >
+      <strong>ici</strong>
+    </a>
+    .
+  </>
   ),
 };
 
@@ -479,5 +484,5 @@ export const TABS = [
   { id: "mixologie", idx: 1, label: "Mixologie", color: "red" as const },
   { id: "vins", idx: 2, label: "Vins, bières & softs", color: "sand" as const },
   { id: "food", idx: 3, label: "Brut Food", color: "cream" as const },
-  { id: "infos", idx: 4, label: "Infos pratiques", color: "blue" as const },
+  { id: "infos", idx: 4, label: "Infos, réservations", color: "blue" as const },
 ];

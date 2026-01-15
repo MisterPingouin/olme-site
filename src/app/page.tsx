@@ -81,7 +81,7 @@ function InlineTabs({
       mixologie: "Mixologie",
       vins: "Vins,\nbières\n& softs",
       food: "Brut\nFood",
-      infos: "Infos\npratiques",
+      infos: "Infos,\nréservations",
     }),
     []
   );
