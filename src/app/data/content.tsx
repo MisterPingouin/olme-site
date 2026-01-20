@@ -443,7 +443,7 @@ export type InfosContent = {
 export const INFOS: InfosContent = {
   heading: "Infos, réservation",
   address: ["15 rue montesquieu", "69007 LYON"],
-  opening: ["Lundi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
+  opening: ["Mardi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
   contact: ["contact@olmebar.com", "07 50 95 25 35"],
  groups: (
   <>
