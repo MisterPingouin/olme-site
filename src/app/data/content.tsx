@@ -363,6 +363,17 @@ export const WINES: WineSection[] = [
         bottleCl: 75,
       },
       {
+  name: "Les Coulaires",
+  domain: "Domaine Vendome",
+  region: "Crozes-Hermitage",
+  grapes: "100% syrah",
+  notes: "Frais et épicé : mûre, violette, poivre noir",
+  byGlass: 8.5,
+  glassCl: 12,
+  bottle: 52,
+  bottleCl: 75,
+},
+      {
         name: "Espoir d’y vin",
         domain: "dom. Prapin",
         region: "Coteaux-du-Lyonnais - VDF",
