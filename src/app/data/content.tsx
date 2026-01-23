@@ -229,6 +229,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Aphrodite bitters.",
         price: 13,
       },
+      {
+        name: "L’Ombre du Noyer",
+        notes: "Boisé, oxydatif — Whisky, whisky tourbé, vermouth, amontillado, liqueur Denoix.",
+        price: 16,
+      },
     ],
   },
   {
