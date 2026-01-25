@@ -203,7 +203,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Marie-Antoinette",
         notes:
-          "Doux, réconfortant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
+          "Doux, enveloppant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
         price: 12,
       },
     ],
