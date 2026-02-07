@@ -226,7 +226,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Grain sauvage",
         notes:
-          "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Aphrodite bitters.",
+          "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Abbotts bitters.",
         price: 13,
       },
       {
