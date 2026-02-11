@@ -42,6 +42,12 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 30,
   },
   { name: "Ninkasi Ginger Ale bio", price: 5, sizeCl: 25 },
+    { 
+  name: "ChariTea - Mate",
+  notes: "Maté pétillant bio (citron & orange)",
+  price: 5.5,
+  sizeCl: 33,
+},
   {
     name: "Ginger Beer Uma",
     price: 6,
@@ -56,6 +62,7 @@ export const SOFTS: SoftItem[] = [
   },
   { name: "Archipel Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
   { name: "Archipel Kombucha Pomelo - Gingembre Bio", price: 6.5, sizeCl: 33 },
+
 ];
 
 // ================================================
@@ -63,36 +70,43 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  // {
-  //   name: "To Øl - 45 Days Organic Pilsner",
-  //   style: "Pilsner bio",
-  //   price: 6,
-  //   sizeCl: 33,
-  // },
+  {
+    name: "To Øl - 45 Days Organic Pilsner",
+    style: "Pilsner bio — 4,7%",
+    price: 6,
+    sizeCl: 33,
+  },
   {
     name: "Fauve - Douce France",
-    style: "Lager",
+    style: "Lager — 5%",
     price: 8,
     sizeCl: 44,
   },
   {
     name: "Fauve - Temps du Bonheur",
-    style: "Session IPA",
+    style: "Session IPA — 4%",
     price: 7.5,
     sizeCl: 33,
   },
   {
     name: "Sirens - Soundwaves",
-    style: "IPA",
+    style: "IPA — 5,6%",
     price: 7.5,
     sizeCl: 33,
   },
   {
+  name: "Williams Bros - Tin Man Tropical IPA",
+  style: "Tropical IPA (hazy, non filtrée) — 5,5%",
+  price: 8,
+  sizeCl: 50,
+},
+  {
     name: "Fauve - Pic Flamboyant",
-    style: "Berliner Weisse fruits tropicaux",
+    style: "Berliner Weisse fruits tropicaux — 5%",
     price: 7.5,
     sizeCl: 33,
   },
+  
   //   {
   //   name: "Fauve - Océan Indien",
   //   style: "IPA Moderne",
