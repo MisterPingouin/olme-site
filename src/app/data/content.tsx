@@ -233,7 +233,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
 },
       {
         name: "Tramonto a Capri",
-        notes: "Onctueux, floral — Grappa, citron, sucre de canne & émulsifiant.",
+        notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
         price: 14,
       },
       {
