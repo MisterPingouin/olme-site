@@ -228,7 +228,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     items: [
       {
   name: "Ame Negroni",
-  notes: "Fumé, torréfié, amer — Mezcal infusé à la marre de café, vermouth rouge & campari.",
+  notes: "Fumé, torréfié, amer — Mezcal infusé au café, vermouth rouge & campari.",
   price: 13,
 },
       {
