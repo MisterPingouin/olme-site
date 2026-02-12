@@ -227,6 +227,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     subtitle: "( 5 à 7 cl d’alcool )",
     items: [
       {
+  name: "Ame Negroni",
+  notes: "Fumé, torréfié, amer — Mezcal infusé à la marre de café, vermouth rouge & campari.",
+  price: 13,
+},
+      {
         name: "Tramonto a Capri",
         notes: "Onctueux, floral — Grappa, citron, sucre de canne & émulsifiant.",
         price: 14,
