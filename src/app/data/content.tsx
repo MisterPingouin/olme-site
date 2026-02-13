@@ -192,11 +192,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Frais, exotique — Rhum ambré, thé glacé, fruit de la passion & poivre de Jamaïque.",
         price: 9,
       },
-      {
-        name: "Haïku",
-        notes: "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
-        price: 10,
-      },
+      // {
+      //   name: "Haïku",
+      //   notes: "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
+      //   price: 10,
+      // },
     ],
   },
   {
@@ -231,11 +231,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   notes: "Fumé, torréfié, amer — Mezcal infusé au café, vermouth rouge & campari.",
   price: 13,
 },
-      {
-        name: "Tramonto a Capri",
-        notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
-        price: 14,
-      },
+      // {
+      //   name: "Tramonto a Capri",
+      //   notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
+      //   price: 14,
+      // },
       {
         name: "Vent des Caraïbes",
         notes:
@@ -282,11 +282,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Amer, fruité — Pamplemousse, citron, amer sans alcool",
         price: 8,
       },
-      {
-        name: "Paprika Tonic",
-        notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
-        price: 8,
-      },
+      // {
+      //   name: "Paprika Tonic",
+      //   notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
+      //   price: 8,
+      // },
       {
         name: "Éclat d’Automne",
         notes:
