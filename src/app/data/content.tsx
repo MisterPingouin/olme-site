@@ -231,11 +231,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   notes: "Fumé, torréfié, amer — Mezcal infusé au café, vermouth rouge & campari.",
   price: 13,
 },
-      // {
-      //   name: "Tramonto a Capri",
-      //   notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
-      //   price: 14,
-      // },
+      {
+        name: "Tramonto a Capri",
+        notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
+        price: 14,
+      },
       {
         name: "Vent des Caraïbes",
         notes:
