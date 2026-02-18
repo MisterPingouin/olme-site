@@ -94,12 +94,12 @@ export const BEERS: BeerItem[] = [
     price: 7.5,
     sizeCl: 33,
   },
-  {
-  name: "Williams Bros - Tin Man Tropical IPA",
-  style: "Tropical IPA (hazy, non filtrée) — 5,5%",
-  price: 8,
-  sizeCl: 50,
-},
+//   {
+//   name: "Williams Bros - Tin Man Tropical IPA",
+//   style: "Tropical IPA (hazy, non filtrée) — 5,5%",
+//   price: 8,
+//   sizeCl: 50,
+// },
   {
     name: "Fauve - Pic Flamboyant",
     style: "Berliner Weisse fruits tropicaux — 5%",
