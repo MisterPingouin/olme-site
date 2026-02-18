@@ -192,11 +192,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Frais, exotique — Rhum ambré, thé glacé, fruit de la passion & poivre de Jamaïque.",
         price: 9,
       },
-      // {
-      //   name: "Haïku",
-      //   notes: "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
-      //   price: 10,
-      // },
+      {
+        name: "Haïku",
+        notes: "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
+        price: 10,
+      },
     ],
   },
   {
