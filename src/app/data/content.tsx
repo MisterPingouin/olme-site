@@ -454,10 +454,10 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Saucisse laotienne à la citronnelle", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
-    { name: "Cayolar Basque - fromage de vache et brebis", price: 8 },
+    { name: "Tomme de brebis basque", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
     { name: "Jambon Ibérique Cebo de Campo", price: 14 },
-    // { name: "Succulent au chocolat", price: 6 },
+    { name: "Succulent au chocolat", price: 6 },
   ],
 };
 
