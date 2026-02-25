@@ -70,12 +70,12 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  {
-    name: "To Øl - 45 Days Organic Pilsner",
-    style: "Pilsner bio — 4,7%",
-    price: 6,
-    sizeCl: 33,
-  },
+  // {
+  //   name: "To Øl - 45 Days Organic Pilsner",
+  //   style: "Pilsner bio — 4,7%",
+  //   price: 6,
+  //   sizeCl: 33,
+  // },
   {
     name: "Fauve - Douce France",
     style: "Lager — 5%",
@@ -189,12 +189,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Été perdu",
         notes:
-          "Frais, exotique — Rhum ambré, thé glacé, fruit de la passion & poivre de Jamaïque.",
+          "Frais, exotique — Rhum ambré, Rooibos glacé, fruit de la passion & poivre de Jamaïque.",
         price: 9,
       },
       {
         name: "Haïku",
-        notes: "Doux, floral — Umeshu, liqueur de rooibos, citron & eau pétillante.",
+        notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
         price: 10,
       },
     ],
@@ -206,7 +206,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Épine verte",
         notes:
-          "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & Jamaican jerk.",
+          "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
         price: 13,
       },
       {
@@ -228,7 +228,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     items: [
       {
   name: "Ame Negroni",
-  notes: "Fumé, torréfié, amer — Mezcal infusé au café, vermouth rouge & campari.",
+  notes: "Fumé, amer — Mezcal au café, vermouth rouge & campari.",
   price: 13,
 },
       {
@@ -282,11 +282,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Amer, fruité — Pamplemousse, citron, amer sans alcool",
         price: 8,
       },
-      // {
-      //   name: "Paprika Tonic",
-      //   notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
-      //   price: 8,
-      // },
+      {
+        name: "Paprika Tonic",
+        notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
+        price: 8,
+      },
       {
         name: "Éclat d’Automne",
         notes:
