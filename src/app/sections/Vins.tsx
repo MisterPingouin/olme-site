@@ -50,7 +50,9 @@ export default function Vins() {
                 </div>
 
                 <p className="mt-3 max-w-[640px] text-o-green/80 md:mt-0 md:self-center">
-                  Du verre à la bouteille, en passant par la canette : craft, bio, biodynamie, demeter, nature - des jus bien faits par des producteur·ices engagé·es.
+                  Du verre à la bouteille, en passant par la canette : craft, bio,
+                  biodynamie, demeter, nature - des jus bien faits par des
+                  producteur·ices engagé·es.
                 </p>
               </div>
 
@@ -71,15 +73,25 @@ export default function Vins() {
                     <div className="space-y-4">
                       {sec.items.map((item) => {
                         // Ordonner les prix : le premier (verre OU bouteille) doit s’aligner avec le nom
-                        const prices: Array<
-                          { kind: "glass" | "bottle"; value: number; cl?: number }
-                        > = [];
+                        const prices: Array<{
+                          kind: "glass" | "bottle";
+                          value: number;
+                          cl?: number;
+                        }> = [];
                         if (typeof item.byGlass === "number") {
-                          prices.push({ kind: "glass", value: item.byGlass, cl: item.glassCl ?? 12 });
+                          prices.push({
+                            kind: "glass",
+                            value: item.byGlass,
+                            cl: item.glassCl ?? 12,
+                          });
                         }
                         if (typeof item.bottle === "number") {
                           // si pas de byGlass, la bouteille devient le "premier prix"
-                          prices.push({ kind: "bottle", value: item.bottle, cl: item.bottleCl ?? 75 });
+                          prices.push({
+                            kind: "bottle",
+                            value: item.bottle,
+                            cl: item.bottleCl ?? 75,
+                          });
                         }
 
                         return (
@@ -121,7 +133,10 @@ export default function Vins() {
                                     {formatPrice(prices[0].value)} €
                                   </span>
                                   {prices[0].cl && (
-                                    <span className="opacity-80"> — {prices[0].cl} cl</span>
+                                    <span className="opacity-80">
+                                      {" "}
+                                      — {prices[0].cl} cl
+                                    </span>
                                   )}
                                 </div>
                               )}
@@ -131,7 +146,10 @@ export default function Vins() {
                                     {formatPrice(prices[1].value)} €
                                   </span>
                                   {prices[1].cl && (
-                                    <span className="opacity-80"> — {prices[1].cl} cl</span>
+                                    <span className="opacity-80">
+                                      {" "}
+                                      — {prices[1].cl} cl
+                                    </span>
                                   )}
                                 </div>
                               )}
@@ -150,34 +168,71 @@ export default function Vins() {
               </div>
 
               {/* === Bière craft === */}
+                           {/* === Bière craft === */}
               <section aria-labelledby="w-beer" className="mt-12">
                 <h3 id="w-beer" className="font-b text-24 mb-4 tracking-tight">
                   Bière craft
                 </h3>
+
                 <div className="space-y-3">
-                  {BEERS.map((b) => (
-                    <div
-                      key={b.name}
-                      className="flex md:items-baseline justify-between gap-4 sm:gap-6"
-                    >
-                      <div className="min-w-0">
-                        <div className="font-b li-arrow break-words">
-                          {b.name}
+                  {BEERS.map((b, i) => {
+                    const hasPression =
+                      typeof b.byGlass === "number" || typeof b.pint === "number";
+
+                    const hasCanette =
+                      typeof b.price === "number" || typeof b.sizeCl === "number";
+
+                    return (
+                      <div
+                        key={`${b.name}-${i}`}
+                        className="flex md:items-baseline justify-between gap-4 sm:gap-6"
+                      >
+                        <div className="min-w-0">
+                          <div className="font-b li-arrow break-words">{b.name}</div>
+                          {b.style && (
+                            <div className="text-16 text-o-green/80 break-words">
+                              {b.style}
+                            </div>
+                          )}
                         </div>
-                        {b.style && (
-                          <div className="text-16 text-o-green/80 break-words">
-                            {b.style}
-                          </div>
-                        )}
-                      </div>
-                      <div className="shrink-0 w-auto md:w-[220px] text-right">
-                        <div className="whitespace-nowrap">
-                          <span className="font-b">{b.price} €</span>
-                          <span className="opacity-80"> — {b.sizeCl} cl</span>
+
+                        <div className="shrink-0 w-auto md:w-[220px] text-right">
+                          {hasPression ? (
+                            <>
+                              {typeof b.byGlass === "number" && (
+                                <div className="whitespace-nowrap">
+                                  <span className="font-b">{formatPrice(b.byGlass)} €</span>
+                                  <span className="opacity-80">
+                                    {" "}
+                                    — {b.glassCl ?? 25} cl
+                                  </span>
+                                </div>
+                              )}
+
+                              {typeof b.pint === "number" && (
+                                <div className="whitespace-nowrap mt-1">
+                                  <span className="font-b">{formatPrice(b.pint)} €</span>
+                                  <span className="opacity-80">
+                                    {" "}
+                                    — {b.pintCl ?? 50} cl
+                                  </span>
+                                </div>
+                              )}
+                            </>
+                          ) : hasCanette && typeof b.price === "number" ? (
+                            <div className="whitespace-nowrap">
+                              <span className="font-b">{formatPrice(b.price)} €</span>
+                              {typeof b.sizeCl === "number" && (
+                                <span className="opacity-80"> — {b.sizeCl} cl</span>
+                              )}
+                            </div>
+                          ) : (
+                            <div className="whitespace-nowrap opacity-70">—</div>
+                          )}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
@@ -204,7 +259,9 @@ export default function Vins() {
                       </div>
                       <div className="shrink-0 w-auto md:w-[220px] text-right">
                         <div className="whitespace-nowrap">
-                          <span className="font-b">{s.price} €</span>
+                          <span className="font-b">
+                            {formatPrice(s.price)} €
+                          </span>
                           <span className="opacity-80"> — {s.sizeCl} cl</span>
                         </div>
                       </div>

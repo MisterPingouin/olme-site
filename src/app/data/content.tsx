@@ -13,8 +13,16 @@ export type CocktailSection = { title: string; subtitle?: string; items: Cocktai
 export type BeerItem = {
   name: string;
   style?: string;
-  price: number;
-  sizeCl: number;
+
+  // format "canette" (1 ligne)
+  price?: number;
+  sizeCl?: number;
+
+  // format "pression" (2 lignes)
+  byGlass?: number;   // ex: 25 cl
+  glassCl?: number;  // ex: 25
+  pint?: number;      // ex: 50 cl
+  pintCl?: number;    // ex: 50
 };
 
 export type SoftItem = {
@@ -70,49 +78,37 @@ export const SOFTS: SoftItem[] = [
 // ================================================
 
 export const BEERS: BeerItem[] = [
-  // {
-  //   name: "To Øl - 45 Days Organic Pilsner",
-  //   style: "Pilsner bio — 4,7%",
-  //   price: 6,
-  //   sizeCl: 33,
-  // },
+  // === PRESSION (2 lignes) ===
   {
-    name: "Fauve - Douce France",
-    style: "Lager — 5%",
-    price: 8,
-    sizeCl: 44,
+    name: "Azimut - Premium Pils",
+    style: "Premium Pils — 5%",
+    byGlass: 4,
+    glassCl: 25,
+    pint: 7.5,
+    pintCl: 50,
   },
   {
-    name: "Fauve - Temps du Bonheur",
+    name: "Fauve - Session IPA",
     style: "Session IPA — 4%",
-    price: 7.5,
-    sizeCl: 33,
+    byGlass: 4.5,
+    glassCl: 25,
+    pint: 8,
+    pintCl: 50,
   },
+
+  // === CANETTE (1 ligne) ===
   {
-    name: "Sirens - Soundwaves",
-    style: "IPA — 5,6%",
-    price: 7.5,
-    sizeCl: 33,
-  },
-//   {
-//   name: "Williams Bros - Tin Man Tropical IPA",
-//   style: "Tropical IPA (hazy, non filtrée) — 5,5%",
-//   price: 8,
-//   sizeCl: 50,
-// },
-  {
-    name: "Fauve - Pic Flamboyant",
+    name: "Fauve - Pic Flamboyant (canette)",
     style: "Berliner Weisse fruits tropicaux — 5%",
     price: 7.5,
     sizeCl: 33,
   },
-  
-  //   {
-  //   name: "Fauve - Océan Indien",
-  //   style: "IPA Moderne",
-  //   price: 8,
-  //   sizeCl: 33,
-  // },
+  {
+    name: "Fauve - Douce France (canette)",
+    style: "Lager — 5%",
+    price: 8,
+    sizeCl: 44,
+  },
 ];
 
 // // DRAFT - Affichage public provisoire
@@ -457,7 +453,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Tomme de brebis basque", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
     { name: "Jambon Ibérique Cebo de Campo", price: 14 },
-    { name: "Succulent au chocolat", price: 6 },
+    // { name: "Succulent au chocolat", price: 6 },
   ],
 };
 
