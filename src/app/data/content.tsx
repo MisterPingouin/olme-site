@@ -360,6 +360,17 @@ export const WINES: WineSection[] = [
   {
     title: "Rouge engagés",
     items: [
+            {
+        name: "L’envol du milan noir",
+        domain: "dom. Prapin",
+        region: "Coteaux-du-Lyonnais - VDF",
+        grapes: "100% gamaret",
+        notes: "Velouté et fruité : cassis, verveine",
+        byGlass: 6.5,
+        glassCl: 12,
+        bottle: 33,
+        bottleCl: 75,
+      },
       {
         name: "Aux vergers",
         domain: "Cosima Bassouls",
@@ -369,17 +380,6 @@ export const WINES: WineSection[] = [
         byGlass: 8,
         glassCl: 12,
         bottle: 42,
-        bottleCl: 75,
-      },
-      {
-        name: "L’envol du milan noir",
-        domain: "dom. Prapin",
-        region: "Coteaux-du-Lyonnais - VDF",
-        grapes: "100% gamaret",
-        notes: "Velouté et fruité : cassis, verveine",
-        byGlass: 6.5,
-        glassCl: 12,
-        bottle: 33,
         bottleCl: 75,
       },
 //       {
