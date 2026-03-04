@@ -37,12 +37,12 @@ export type SoftItem = {
 // ================================================
 
 export const SOFTS: SoftItem[] = [
-  {
-    name: "Rooibos Bio glacé maison",
-    notes: "fruit de la passion, fève de tonka, baie de Jamaïque",
-    price: 5,
-    sizeCl: 30,
-  },
+  // {
+  //   name: "Rooibos Bio glacé maison",
+  //   notes: "fruit de la passion, fève de tonka, baie de Jamaïque",
+  //   price: 5,
+  //   sizeCl: 30,
+  // },
   {
     name: "Limonade maison",
     notes: "Gingembre, citron, menthe",
