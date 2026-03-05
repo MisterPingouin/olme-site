@@ -452,7 +452,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Tomme de brebis basque", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
-    { name: "Jambon Ibérique Cebo de Campo", price: 14 },
+    // { name: "Jambon Ibérique Cebo de Campo", price: 14 },
     // { name: "Succulent au chocolat", price: 6 },
   ],
 };
