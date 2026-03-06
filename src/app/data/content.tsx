@@ -317,6 +317,17 @@ export const WINES: WineSection[] = [
     items: [
       {
         name: "Entre ciel et terre",
+        domain: "Les Pierres Dorées",
+        region: "Beaujolais",
+        grapes: "100% chardonnay",
+        notes: "Solaire, végétal : agrumes, poire",
+        byGlass: 6,
+        glassCl: 12,
+        bottle: 30,
+        bottleCl: 75,
+      },
+      {
+        name: "Entre ciel et terre",
         domain: "dom. Prapin",
         region: "Coteaux-du-Lyonnais - VDF",
         grapes: "100% chardonnay",
@@ -335,6 +346,15 @@ export const WINES: WineSection[] = [
         byGlass: 7.5,
         glassCl: 12,
         bottle: 39,
+        bottleCl: 75,
+      },
+      {
+        name: "4 Faïsses",
+        domain: "dom. Accoles",
+        region: "Rhône",
+        grapes: "100% chardonnay",
+        notes: "Frais et généreux : Poire, notes florales",
+        bottle: 36,
         bottleCl: 75,
       },
       {
@@ -444,7 +464,7 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    { name: "Olives vertes italiennes", price: 5 },
+    { name: "Olives de Kalamata & d’Italie", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Houmous de petits pois et amandes, betteraves multicolores", price: 8 },
     { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
@@ -452,7 +472,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Tomme de brebis basque", price: 8 },
     { name: "Chorizo Ibérique", price: 10 },
-    // { name: "Jambon Ibérique Cebo de Campo", price: 14 },
+    { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Succulent au chocolat", price: 6 },
   ],
 };
