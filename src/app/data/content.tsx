@@ -92,7 +92,7 @@ export const BEERS: BeerItem[] = [
     style: "Session IPA — 4%",
     byGlass: 4.5,
     glassCl: 25,
-    pint: 8,
+    pint: 8.5,
     pintCl: 50,
   },
 
