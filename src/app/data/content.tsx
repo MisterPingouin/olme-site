@@ -50,6 +50,7 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 30,
   },
   { name: "Ninkasi Ginger Ale bio", price: 5, sizeCl: 25 },
+    { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
     { 
   name: "ChariTea - Mate",
   notes: "Maté pétillant bio (citron & orange)",
@@ -61,7 +62,6 @@ export const SOFTS: SoftItem[] = [
     price: 6,
     sizeCl: 33,
   },
-  { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
   {
     name: "JNPR Tonic Bio",
     notes: "sans sucres, sans édulcorant",
@@ -316,8 +316,8 @@ export const WINES: WineSection[] = [
     title: "Blanc engagés",
     items: [
       {
-        name: "Entre ciel et terre",
-        domain: "Les Pierres Dorées",
+        name: "Les Pierres Dorées",
+        domain: "Domaine des Prévelières",
         region: "Beaujolais",
         grapes: "100% chardonnay",
         notes: "Solaire, végétal : agrumes, poire",
@@ -353,7 +353,7 @@ export const WINES: WineSection[] = [
         domain: "dom. Accoles",
         region: "Rhône",
         grapes: "100% chardonnay",
-        notes: "Frais et généreux : Poire, notes florales",
+        notes: "Frais et généreux : Poire, fleurs blanches",
         bottle: 36,
         bottleCl: 75,
       },
