@@ -166,7 +166,7 @@ export default function Vins() {
                   </section>
                 ))}
               </div>
-
+<hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
               {/* === Bière craft === */}
                            {/* === Bière craft === */}
               <section aria-labelledby="w-beer" className="mt-12">
@@ -235,7 +235,7 @@ export default function Vins() {
                   })}
                 </div>
               </section>
-
+<hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
               {/* === Boissons sans alcool === */}
               <section aria-labelledby="w-softs" className="mt-12">
                 <h3 id="w-softs" className="font-b text-24 mb-4 tracking-tight">
