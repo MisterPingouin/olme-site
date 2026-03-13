@@ -7,13 +7,12 @@ export const SITE_POPUP = {
   version: "terrasse-2026",
   showOnce: true,
 
-  title: "On inaugure la terrasse ☀️",
-  mobileTitle: "Terrasse d’Olmé ☀️",
-  mobileSubtitle: "Jeudi 21 mars dès 12h",
+  title: "Inauguration de la terrasse ☀️",
+  mobileTitle: "Inauguration de la terrasse ☀️",
+  mobileSubtitle: "Samedi 21 mars 12h-00h",
 
-  message: `Le 21 mars, Olmé inaugure enfin sa terrasse.
-
-Au programme dès 12h : huîtres, food, cocktails éphémères, nouveaux vins et DJ sets l’après-midi et le soir.
+  message: `
+Au programme : huîtres, food, carte de cocktails éphémères, nouveaux vins et DJ sets l’après-midi et le soir.
 
 🍷 Viens trinquer avec nous`,
 
