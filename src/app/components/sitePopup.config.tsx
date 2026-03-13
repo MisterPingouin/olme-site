@@ -14,8 +14,6 @@ export const SITE_POPUP = {
   message: `Le 21 mars, Olmé inaugure enfin sa terrasse.
 
 Au programme dès 12h : huîtres, food, cocktails éphémères, nouveaux vins et DJ sets l’après-midi et le soir.
-
-📍 Lyon 7
 🍷 Viens trinquer avec nous`,
 
   ctaPrimary: {
