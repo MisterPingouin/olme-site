@@ -196,12 +196,12 @@ export default function SitePopup() {
                     <span className="sr-only">{SITE_POPUP.title}</span>
                   </div>
 
-                  <p
-                    id={descId}
-                    className="mt-2 font-l text-[13px] lg:text-[14px] leading-[1.65] text-o-sand/90"
-                  >
-                    {SITE_POPUP.message}
-                  </p>
+<p
+  id={descId}
+  className="mt-2 font-l text-[13px] lg:text-[14px] leading-[1.65] text-o-sand/90 whitespace-pre-line"
+>
+  {SITE_POPUP.message}
+</p>
                 </div>
 
                 <button

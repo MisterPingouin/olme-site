@@ -1,22 +1,22 @@
 export const SITE_POPUP = {
   enabled: true,
 
-  // ✅ Fenêtre d’activation (format ISO avec fuseau conseillé)
-  activeFrom: "2025-12-15T10:00:00+01:00",
-  activeUntil: "2026-01-01T03:00:00+01:00",
+  activeFrom: "2026-03-13T10:00:00+01:00",
+  activeUntil: "2026-03-22T03:00:00+01:00",
 
-  // ✅ Afficher une seule fois par visiteur (par "version")
-  version: "nye-2025",
+  version: "terrasse-2026",
   showOnce: true,
 
-  // ✅ Titres (desktop vs mobile)
-  title: "Nouvel An — Ouvert le 31 décembre",
-  mobileTitle: "Nouvel an",
-  mobileSubtitle: "Ouvert le 31 décembre",
+  title: "On inaugure la terrasse ☀️",
+  mobileTitle: "Terrasse d’Olmé ☀️",
+  mobileSubtitle: "Jeudi 21 mars dès 12h",
 
-  // ✅ Contenu
-  message:
-    "Ambiance comme à la maison avec des cocktails et des cotillons ! 🔥",
+  message: `Le 21 mars, Olmé inaugure enfin sa terrasse.
+
+Au programme dès 12h : huîtres, food, cocktails éphémères, nouveaux vins et DJ sets l’après-midi et le soir.
+
+📍 Lyon 7
+🍷 Viens trinquer avec nous`,
 
   ctaPrimary: {
     label: "Réserver",
