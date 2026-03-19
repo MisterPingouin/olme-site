@@ -7,29 +7,35 @@ import type { ReactNode } from "react";
 // - Les "Infos pratiques" RESTENT actives.
 // ================================================
 
-export type Cocktail = { name: string; notes: string; price: number };
+export type Cocktail = {
+  name: string;
+  notes: string;
+  price: number;
+  happyHourPrice?: number;
+};
 export type CocktailSection = { title: string; subtitle?: string; items: Cocktail[] };
 
 export type BeerItem = {
   name: string;
   style?: string;
-
-  // format "canette" (1 ligne)
   price?: number;
   sizeCl?: number;
-
-  // format "pression" (2 lignes)
-  byGlass?: number;   // ex: 25 cl
-  glassCl?: number;  // ex: 25
-  pint?: number;      // ex: 50 cl
-  pintCl?: number;    // ex: 50
+  happyHourPrice?: number;
+  byGlass?: number;
+  glassCl?: number;
+  happyHourByGlass?: number;
+  pint?: number;
+  pintCl?: number;
+  happyHourPint?: number;
 };
+
 
 export type SoftItem = {
   name: string;
   price: number;
   sizeCl: number;
   notes?: string;
+  happyHourPrice?: number;
 };
 
 // ================================================

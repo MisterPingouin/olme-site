@@ -10,6 +10,14 @@ function splitNotes(notes: string) {
   return { descriptors, ingredients };
 }
 
+function formatPrice(value: number) {
+  const needsDecimal = Math.round(value * 10) % 10 !== 0;
+  return value.toLocaleString("fr-FR", {
+    minimumFractionDigits: needsDecimal ? 1 : 0,
+    maximumFractionDigits: 2,
+  });
+}
+
 export default function Mixologie() {
   return (
     <>
@@ -19,11 +27,8 @@ export default function Mixologie() {
         className="anchor bg-o-red text-o-sand -mt-[2px] overflow-x-hidden"
       >
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
-          {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
           <div className="flex items-start gap-10">
-            {/* Colonne gauche */}
             <div className="flex-1 min-w-0">
-              {/* Header: titre | texte */}
               <div className="md:flex md:items-center md:justify-between md:gap-10 lg:block lg:space-y-3">
                 <div className="flex justify-between items-center md:block">
                   <h2
@@ -33,7 +38,6 @@ export default function Mixologie() {
                     Mixologie
                   </h2>
 
-                  {/* Illustration mobile (à droite du titre) */}
                   <div className="flex md:hidden">
                     <div className="mx-auto w-full max-w-[75px]">
                       <Image
@@ -48,17 +52,14 @@ export default function Mixologie() {
                   </div>
                 </div>
 
-                {/* Sous-titre : sous le titre UNIQUEMENT en desktop (lg) */}
                 <p className="max-w-[520px] text-o-sand/90 mt-4 md:mt-0 md:self-center lg:mt-2 lg:self-auto">
                   Ici chaque cocktail évoque un souvenir, un voyage. Nez gourmand ou épicé,
                   bouche acidulée ou sucrée-salée, la créativité n’a pas de limites.
                 </p>
               </div>
 
-              {/* Règle pointillée */}
               <hr className="mt-6 border-0 border-b-2 border-dotted border-o-sand/60" />
 
-              {/* Listes */}
               <div className="mt-6 space-y-10">
                 {MIXO_SECTIONS.map((sec, idx) => (
                   <section key={sec.title} aria-labelledby={`sec-${sec.title}`}>
@@ -73,18 +74,19 @@ export default function Mixologie() {
                       {sec.items.map((item) => {
                         const { descriptors, ingredients } = splitNotes(item.notes);
                         const hasDescriptors = descriptors.length > 0;
+
                         return (
                           <div key={item.name} className="flex flex-col">
-                            {/* Ligne 1 : [Nom - Notes] .......... [Prix] */}
-                            <div className="flex flex-wrap items-baseline gap-y-1">
-                              {/* Groupe gauche : Nom - Notes */}
-<div className="flex min-w-0 items-baseline gap-2 flex-1 pr-4">
+                            <div className="flex items-baseline gap-3 sm:gap-4">
+                              <div className="flex min-w-0 items-baseline gap-2 flex-1">
                                 <div className="font-b li-arrow shrink-0 break-words">
                                   {item.name}
                                 </div>
 
                                 {hasDescriptors && (
-                                  <span className="shrink-0" aria-hidden="true">-</span>
+                                  <span className="shrink-0" aria-hidden="true">
+                                    -
+                                  </span>
                                 )}
 
                                 {hasDescriptors && (
@@ -94,13 +96,24 @@ export default function Mixologie() {
                                 )}
                               </div>
 
-                              {/* Prix à droite */}
-<div className="ml-auto pl-4 min-w-[64px] text-right font-b whitespace-nowrap tabular-nums shrink-0">
-                                {item.price} €
+                              <div className="ml-auto pl-2 sm:pl-3 shrink-0 text-right tabular-nums max-w-[42vw] sm:max-w-none">
+                                <div className="inline-flex max-w-full items-center justify-end gap-1.5 sm:gap-2 flex-wrap">
+                                  {typeof item.happyHourPrice === "number" && (
+                                    <div className="inline-flex items-center gap-1 whitespace-nowrap text-[12px] sm:text-[13px] font-medium text-o-sand/80">
+                                      <span className="inline-flex items-center rounded-full border border-o-sand/30 px-1.5 py-[1px] text-[10px] sm:text-[11px] font-b leading-none">
+                                        HH
+                                      </span>
+                                      <span>{formatPrice(item.happyHourPrice)} €</span>
+                                    </div>
+                                  )}
+
+                                  <div className="whitespace-nowrap font-b">
+                                    {formatPrice(item.price)} €
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
-                            {/* Ligne 2 : ingrédients */}
                             {ingredients && (
                               <div className="text-16 font-medium text-o-sand/90 break-words mt-1 mb-2">
                                 {ingredients}
@@ -111,7 +124,6 @@ export default function Mixologie() {
                       })}
                     </div>
 
-                    {/* Séparateur de section */}
                     {idx < MIXO_SECTIONS.length - 1 && (
                       <hr className="mt-8 border-0 border-b-2 border-dotted border-o-sand/50" />
                     )}
@@ -120,7 +132,6 @@ export default function Mixologie() {
               </div>
             </div>
 
-            {/* Colonne droite : image (≥ lg) */}
             <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
               <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
                 <Image
@@ -138,7 +149,6 @@ export default function Mixologie() {
         </div>
       </section>
 
-      {/* Footer uniquement mobile */}
       <div className="lg:hidden">
         <Footer />
       </div>

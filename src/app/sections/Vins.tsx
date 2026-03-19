@@ -3,12 +3,39 @@ import { WINES, BEERS, SOFTS } from "../data/content";
 import Footer from "../components/Footer";
 
 function formatPrice(value: number) {
-  // affiche 6,5 au lieu de 6.5 en fr-FR
   const needsDecimal = Math.round(value * 10) % 10 !== 0;
   return value.toLocaleString("fr-FR", {
     minimumFractionDigits: needsDecimal ? 1 : 0,
     maximumFractionDigits: 2,
   });
+}
+
+function PriceLine({
+  price,
+  sizeCl,
+  happyHourPrice,
+}: {
+  price: number;
+  sizeCl?: number;
+  happyHourPrice?: number;
+}) {
+  return (
+    <div className="inline-flex max-w-full items-center justify-end gap-1.5 sm:gap-2 flex-wrap text-right">
+      {typeof happyHourPrice === "number" && (
+        <div className="inline-flex items-center gap-1 whitespace-nowrap text-[12px] sm:text-[13px] font-medium text-o-green/75">
+          <span className="inline-flex items-center rounded-full border border-o-green/30 px-1.5 py-[1px] text-[10px] sm:text-[11px] font-b leading-none">
+            HH
+          </span>
+          <span>{formatPrice(happyHourPrice)} €</span>
+        </div>
+      )}
+
+      <div className="whitespace-nowrap">
+        <span className="font-b">{formatPrice(price)} €</span>
+        {sizeCl && <span className="opacity-80"> — {sizeCl} cl</span>}
+      </div>
+    </div>
+  );
 }
 
 export default function Vins() {
@@ -20,11 +47,8 @@ export default function Vins() {
         className="anchor bg-[#DE9E53] text-o-green overflow-x-hidden"
       >
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 py-16">
-          {/* Wrapper principal : gauche (titre+texte+listes) | droite (image) */}
           <div className="flex items-start gap-10">
-            {/* Colonne gauche */}
             <div className="flex-1 min-w-0">
-              {/* Header: titre | sous-texte */}
               <div className="md:flex md:items-center md:justify-between md:gap-10 lg:block lg:space-y-3">
                 <div className="flex justify-between items-center md:block">
                   <h2
@@ -34,7 +58,6 @@ export default function Vins() {
                     Vins, bières & softs
                   </h2>
 
-                  {/* Illustration mobile (à droite du titre) */}
                   <div className="flex md:hidden">
                     <div className="mx-auto w-full max-w-[75px]">
                       <Image
@@ -56,10 +79,8 @@ export default function Vins() {
                 </p>
               </div>
 
-              {/* Règle pointillée */}
               <hr className="mt-6 border-0 border-b-2 border-dotted border-o-green/60" />
 
-              {/* Sections VINS */}
               <div className="mt-8 space-y-10">
                 {WINES.map((sec, idx) => (
                   <section key={sec.title} aria-labelledby={`w-${sec.title}`}>
@@ -72,12 +93,12 @@ export default function Vins() {
 
                     <div className="space-y-4">
                       {sec.items.map((item) => {
-                        // Ordonner les prix : le premier (verre OU bouteille) doit s’aligner avec le nom
                         const prices: Array<{
                           kind: "glass" | "bottle";
                           value: number;
                           cl?: number;
                         }> = [];
+
                         if (typeof item.byGlass === "number") {
                           prices.push({
                             kind: "glass",
@@ -85,8 +106,8 @@ export default function Vins() {
                             cl: item.glassCl ?? 12,
                           });
                         }
+
                         if (typeof item.bottle === "number") {
-                          // si pas de byGlass, la bouteille devient le "premier prix"
                           prices.push({
                             kind: "bottle",
                             value: item.bottle,
@@ -97,9 +118,8 @@ export default function Vins() {
                         return (
                           <div
                             key={item.name}
-                            className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 sm:gap-6 items-start"
+                            className="grid grid-cols-[minmax(0,1fr)_auto] gap-3 sm:gap-6 items-start"
                           >
-                            {/* Colonne gauche : nom + domaine (ligne 1), région + cépage (ligne 2), notes (ligne 3) */}
                             <div className="min-w-0">
                               <div className="font-b li-arrow break-words">
                                 {item.name}
@@ -125,8 +145,7 @@ export default function Vins() {
                               )}
                             </div>
 
-                            {/* Colonne droite : prix (1er prix aligné en haut sur la ligne du nom) */}
-                            <div className="shrink-0 w-auto text-right">
+                            <div className="shrink-0 w-auto max-w-[42vw] sm:max-w-none text-right">
                               {prices.length > 0 && (
                                 <div className="whitespace-nowrap">
                                   <span className="font-b">
@@ -140,6 +159,7 @@ export default function Vins() {
                                   )}
                                 </div>
                               )}
+
                               {prices.length > 1 && (
                                 <div className="whitespace-nowrap mt-1">
                                   <span className="font-b">
@@ -159,16 +179,15 @@ export default function Vins() {
                       })}
                     </div>
 
-                    {/* Séparateur entre sections */}
                     {idx < WINES.length - 1 && (
                       <hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
                     )}
                   </section>
                 ))}
               </div>
-<hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
-              {/* === Bière craft === */}
-                           {/* === Bière craft === */}
+
+              <hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
+
               <section aria-labelledby="w-beer" className="mt-12">
                 <h3 id="w-beer" className="font-b text-24 mb-4 tracking-tight">
                   Bière craft
@@ -185,9 +204,9 @@ export default function Vins() {
                     return (
                       <div
                         key={`${b.name}-${i}`}
-                        className="flex md:items-baseline justify-between gap-4 sm:gap-6"
+                        className="flex items-start md:items-baseline justify-between gap-3 sm:gap-6"
                       >
-                        <div className="min-w-0">
+                        <div className="min-w-0 flex-1">
                           <div className="font-b li-arrow break-words">{b.name}</div>
                           {b.style && (
                             <div className="text-16 text-o-green/80 break-words">
@@ -196,36 +215,33 @@ export default function Vins() {
                           )}
                         </div>
 
-                        <div className="shrink-0 w-auto md:w-[220px] text-right">
+                        <div className="shrink-0 w-auto max-w-[42vw] sm:max-w-none md:w-[220px] text-right">
                           {hasPression ? (
                             <>
                               {typeof b.byGlass === "number" && (
-                                <div className="whitespace-nowrap">
-                                  <span className="font-b">{formatPrice(b.byGlass)} €</span>
-                                  <span className="opacity-80">
-                                    {" "}
-                                    — {b.glassCl ?? 25} cl
-                                  </span>
-                                </div>
+                                <PriceLine
+                                  price={b.byGlass}
+                                  happyHourPrice={b.happyHourByGlass}
+                                  sizeCl={b.glassCl ?? 25}
+                                />
                               )}
 
                               {typeof b.pint === "number" && (
-                                <div className="whitespace-nowrap mt-1">
-                                  <span className="font-b">{formatPrice(b.pint)} €</span>
-                                  <span className="opacity-80">
-                                    {" "}
-                                    — {b.pintCl ?? 50} cl
-                                  </span>
+                                <div className="mt-1">
+                                  <PriceLine
+                                    price={b.pint}
+                                    happyHourPrice={b.happyHourPint}
+                                    sizeCl={b.pintCl ?? 50}
+                                  />
                                 </div>
                               )}
                             </>
                           ) : hasCanette && typeof b.price === "number" ? (
-                            <div className="whitespace-nowrap">
-                              <span className="font-b">{formatPrice(b.price)} €</span>
-                              {typeof b.sizeCl === "number" && (
-                                <span className="opacity-80"> — {b.sizeCl} cl</span>
-                              )}
-                            </div>
+                            <PriceLine
+                              price={b.price}
+                              happyHourPrice={b.happyHourPrice}
+                              sizeCl={b.sizeCl}
+                            />
                           ) : (
                             <div className="whitespace-nowrap opacity-70">—</div>
                           )}
@@ -235,48 +251,46 @@ export default function Vins() {
                   })}
                 </div>
               </section>
-<hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
-              {/* === Boissons sans alcool === */}
+
+              <hr className="mt-8 border-0 border-b-2 border-dotted border-o-green/40" />
+
               <section aria-labelledby="w-softs" className="mt-12">
                 <h3 id="w-softs" className="font-b text-24 mb-4 tracking-tight">
                   Boissons sans alcool
                 </h3>
+
                 <div className="space-y-3">
                   {SOFTS.map((s) => (
                     <div
                       key={s.name}
-                      className="flex md:items-baseline justify-between gap-4 sm:gap-6"
+                      className="flex items-start md:items-baseline justify-between gap-3 sm:gap-6"
                     >
-                      <div className="min-w-0">
-                        <div className="font-b li-arrow break-words">
-                          {s.name}
-                        </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-b li-arrow break-words">{s.name}</div>
                         {s.notes && (
                           <div className="text-16 text-o-green/80 break-words">
                             {s.notes}
                           </div>
                         )}
                       </div>
-                      <div className="shrink-0 w-auto md:w-[220px] text-right">
-                        <div className="whitespace-nowrap">
-                          <span className="font-b">
-                            {formatPrice(s.price)} €
-                          </span>
-                          <span className="opacity-80"> — {s.sizeCl} cl</span>
-                        </div>
+
+                      <div className="shrink-0 w-auto max-w-[42vw] sm:max-w-none md:w-[220px] text-right">
+                        <PriceLine
+                          price={s.price}
+                          happyHourPrice={s.happyHourPrice}
+                          sizeCl={s.sizeCl}
+                        />
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Mention cocktails NA */}
                 <p className="mt-4 text-16 text-o-green/80">
                   Cocktails sans alcool — voir page mixologie
                 </p>
               </section>
             </div>
 
-            {/* Colonne droite : image (≥ lg) */}
             <div className="hidden lg:flex md:mt-0 md:self-start md:shrink-0">
               <div className="mx-auto w-full max-w-[425px] aspect-[425/497]">
                 <Image
@@ -294,7 +308,6 @@ export default function Vins() {
         </div>
       </section>
 
-      {/* Footer mobile uniquement (comme avant) */}
       <div className="lg:hidden">
         <Footer />
       </div>
