@@ -115,6 +115,12 @@ export const BEERS: BeerItem[] = [
     price: 8,
     sizeCl: 44,
   },
+  {
+  name: "Azimut - Blanche Lime Basilic (canette)",
+  style: "Blanche — 4,5%",
+  price: 8.5,
+  sizeCl: 44,
+},
 ];
 
 // // DRAFT - Affichage public provisoire
