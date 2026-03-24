@@ -1,5 +1,5 @@
 export const SITE_POPUP = {
-  enabled: true,
+  enabled: false,
 
   activeFrom: "2026-03-13T10:00:00+01:00",
   activeUntil: "2026-03-22T03:00:00+01:00",
