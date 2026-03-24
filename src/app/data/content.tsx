@@ -55,28 +55,25 @@ export const SOFTS: SoftItem[] = [
     price: 4.5,
     sizeCl: 30,
   },
-  { name: "Ninkasi Ginger Ale bio", price: 5, sizeCl: 25 },
+  { name: "Ninkasi - Ginger Ale bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
     { 
-  name: "ChariTea - Mate",
-  notes: "Maté pétillant bio (citron & orange)",
-  price: 5.5,
+  name: "ChariTea - Mate Bio",
+  price: 5,
   sizeCl: 33,
 },
   {
-    name: "Ginger Beer Uma",
+    name: "Uma - Ginger Beer Bio",
     price: 6,
     sizeCl: 33,
   },
   {
-    name: "JNPR Tonic Bio",
+    name: "JNPR - Tonic Bio",
     notes: "sans sucres, sans édulcorant",
     price: 6,
     sizeCl: 33,
   },
-  { name: "Archipel Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
-  { name: "Archipel Kombucha Pomelo - Gingembre Bio", price: 6.5, sizeCl: 33 },
-
+  { name: "Archipel - Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
 ];
 
 // ================================================
@@ -411,17 +408,6 @@ export const WINES: WineSection[] = [
     title: "Rouge engagés",
     items: [
             {
-        name: "Aux vergers",
-        domain: "Cosima Bassouls",
-        region: "Beaujolais - Lantignié",
-        grapes: "100% gamay",
-        notes: "Léger et fruité : violette, herbacé",
-        byGlass: 7,
-        glassCl: 12,
-        bottle: 35,
-        bottleCl: 75,
-      },
-            {
         name: "L’envol du milan noir",
         domain: "dom. Prapin",
         region: "Coteaux-du-Lyonnais - VDF",
@@ -430,6 +416,17 @@ export const WINES: WineSection[] = [
         byGlass: 6.5,
         glassCl: 12,
         bottle: 32,
+        bottleCl: 75,
+      },
+                  {
+        name: "Aux vergers",
+        domain: "Cosima Bassouls",
+        region: "Beaujolais - Lantignié",
+        grapes: "100% gamay",
+        notes: "Léger et fruité : violette, herbacé",
+        byGlass: 7,
+        glassCl: 12,
+        bottle: 35,
         bottleCl: 75,
       },
 //       {
@@ -444,21 +441,21 @@ export const WINES: WineSection[] = [
 //   bottleCl: 75,
 // },
       {
-        name: "Espoir d’y vin",
-        domain: "dom. Prapin",
-        region: "Coteaux-du-Lyonnais - VDF",
-        grapes: "100% syrah",
-        notes: "Fruité et épicé : fruits rouges, poivre, menthol",
-        bottle: 35,
-        bottleCl: 75,
-      },
-      {
         name: "Compagnie des papillons",
         domain: "Clot de l’Oum",
         region: "Ariège - VDF",
         grapes: "carignan, syrah, grenache",
         notes: "Épicé et fruité : violette, framboise",
         bottle: 34,
+        bottleCl: 75,
+      },
+            {
+        name: "Espoir d’y vin",
+        domain: "dom. Prapin",
+        region: "Coteaux-du-Lyonnais - VDF",
+        grapes: "100% syrah",
+        notes: "Fruité et épicé : fruits rouges, poivre, menthol",
+        bottle: 35,
         bottleCl: 75,
       },
       {
@@ -484,15 +481,6 @@ export const WINES: WineSection[] = [
         bottleCl: 75,
       },
       {
-  name: "Holograppe",
-  domain: "Dom. Balansa",
-  region: "Languedoc - Vin de France",
-  grapes: "carignan blanc, carignan gris",
-  notes: "Tendu et salin : agrumes, pomme fraîche, finale iodée",
-  bottle: 44,
-  bottleCl: 75,
-},
-      {
         name: "Extra brut",
         domain: "Dom. Mittnacht frères",
         region: "Alsace - Crémant d'Alsace",
@@ -501,6 +489,15 @@ export const WINES: WineSection[] = [
         bottle: 42,
         bottleCl: 75,
       },
+            {
+  name: "Petillant Naturel - Holograppe",
+  domain: "Dom. Balansa",
+  region: "Languedoc - Vin de France",
+  grapes: "carignan blanc, carignan gris",
+  notes: "Tendu et salin : agrumes, pomme fraîche, finale iodée",
+  bottle: 44,
+  bottleCl: 75,
+},
     ],
   },
 ];
