@@ -492,7 +492,7 @@ export const WINES: WineSection[] = [
         region: "Alsace - Crémant d'Alsace",
         grapes: "100% pinot noir",
         notes: "Complexe et bulle fine : pomme, poire",
-        bottle: 45,
+        bottle: 42,
         bottleCl: 75,
       },
     ],
