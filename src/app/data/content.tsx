@@ -55,7 +55,7 @@ export const SOFTS: SoftItem[] = [
     price: 4.5,
     sizeCl: 30,
   },
-  { name: "Ninkasi - Ginger Ale bio", price: 5, sizeCl: 25 },
+  { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
     { 
   name: "ChariTea - Mate Bio",
@@ -84,7 +84,7 @@ export const BEERS: BeerItem[] = [
   // === PRESSION (2 lignes) ===
   {
     name: "Azimut - Premium Pils",
-    style: "Premium Pils — 5%",
+    style: "Pilsner — 5%",
     byGlass: 4,
     glassCl: 25,
     pint: 7,
@@ -92,7 +92,7 @@ export const BEERS: BeerItem[] = [
   },
   {
     name: "Fauve - Session IPA",
-    style: "Session IPA — 4%",
+    style: "IPA — 4%",
     byGlass: 4.5,
     glassCl: 25,
     pint: 8.5,
@@ -102,7 +102,7 @@ export const BEERS: BeerItem[] = [
   // === CANETTE (1 ligne) ===
   {
     name: "Fauve - Pic Flamboyant (canette)",
-    style: "Berliner Weisse fruits tropicaux — 5%",
+    style: "Sour aux fruits tropicaux — 5%",
     price: 7.5,
     sizeCl: 33,
   },
@@ -114,7 +114,7 @@ export const BEERS: BeerItem[] = [
   },
   {
   name: "Azimut - Blanche Lime Basilic (canette)",
-  style: "Blanche — 4,5%",
+  style: "Blanche au citron et basilic — 4,5%",
   price: 8.5,
   sizeCl: 44,
 },
@@ -326,10 +326,10 @@ export const WINES: WineSection[] = [
     items: [
       {
         name: "Les Pierres Dorées",
-        domain: "Domaine des Prévelières",
-        region: "Beaujolais",
+        domain: "Dom. des Prévelières",
+        region: "Beaujolais -",
         grapes: "100% chardonnay",
-        notes: "Solaire, végétal : agrumes, poire",
+        notes: "Solaire et végétal : agrumes, poire",
         byGlass: 6,
         glassCl: 12,
         bottle: 29,
@@ -349,7 +349,7 @@ export const WINES: WineSection[] = [
       {
         name: "Recto Verso",
         domain: "dom. Accoles",
-        region: "Rhône",
+        region: "Ardèche -",
         grapes: "grenache, clairette rose & blanche",
         notes: "Riche et hors-normes : violette, mentholé",
         byGlass: 7,
@@ -361,7 +361,7 @@ export const WINES: WineSection[] = [
   name: "Le Grand Frais",
   domain: "dom. Hautes Noëlles",
   region: "Loire - AOP Gros Plant du Pays Nantais",
-  grapes: "100% folle blanche sur lie",
+  grapes: "100% folle blanche",
   notes: "Vif et floral : fleurs blanches, citron, salin",
   bottle: 28,
   bottleCl: 75,
@@ -369,7 +369,7 @@ export const WINES: WineSection[] = [
       {
         name: "4 Faïsses",
         domain: "dom. Accoles",
-        region: "Rhône",
+        region: "Ardèche -",
         grapes: "100% chardonnay",
         notes: "Frais et généreux : Poire, fleurs blanches",
         bottle: 36,
@@ -388,7 +388,7 @@ export const WINES: WineSection[] = [
   name: "Zephyr",
   domain: "dom. Hautes Noëlles",
   region: "Loire - Muscadet Côtes de Grandlieu",
-  grapes: "100% melon de Bourgogne sur lie",
+  grapes: "100% melon de Bourgogne",
   notes: "Complexe et minéral : fruits blancs, amande, salin",
   bottle: 38,
   bottleCl: 75,
@@ -410,7 +410,7 @@ export const WINES: WineSection[] = [
             {
         name: "L’envol du milan noir",
         domain: "dom. Prapin",
-        region: "Coteaux-du-Lyonnais - VDF",
+        region: "Coteaux-du-Lyonnais -",
         grapes: "100% gamaret",
         notes: "Velouté et fruité : cassis, verveine",
         byGlass: 6.5,
@@ -421,7 +421,7 @@ export const WINES: WineSection[] = [
                   {
         name: "Aux vergers",
         domain: "Cosima Bassouls",
-        region: "Beaujolais - Lantignié",
+        region: "Beaujolais -",
         grapes: "100% gamay",
         notes: "Léger et fruité : violette, herbacé",
         byGlass: 7,
@@ -443,7 +443,7 @@ export const WINES: WineSection[] = [
       {
         name: "Compagnie des papillons",
         domain: "Clot de l’Oum",
-        region: "Ariège - VDF",
+        region: "Ariège -",
         grapes: "carignan, syrah, grenache",
         notes: "Épicé et fruité : violette, framboise",
         bottle: 34,
@@ -452,7 +452,7 @@ export const WINES: WineSection[] = [
             {
         name: "Espoir d’y vin",
         domain: "dom. Prapin",
-        region: "Coteaux-du-Lyonnais - VDF",
+        region: "Coteaux-du-Lyonnais -",
         grapes: "100% syrah",
         notes: "Fruité et épicé : fruits rouges, poivre, menthol",
         bottle: 35,
@@ -462,7 +462,7 @@ export const WINES: WineSection[] = [
   name: "Pichao",
   domain: "Clot de l’Oum",
   region: "Ariège - IGP Côtes Catalanes",
-  grapes: "syrah, carignan",
+  grapes: "syrah",
   notes: "Hors-norme et épicé : fruits noirs, lard fumé, poivre",
   bottle: 44,
   bottleCl: 75,
@@ -490,9 +490,9 @@ export const WINES: WineSection[] = [
         bottleCl: 75,
       },
             {
-  name: "Petillant Naturel - Holograppe",
+  name: "Pétillant Naturel - Holograppe",
   domain: "Dom. Balansa",
-  region: "Languedoc - Vin de France",
+  region: "Languedoc -",
   grapes: "carignan blanc, carignan gris",
   notes: "Tendu et salin : agrumes, pomme fraîche, finale iodée",
   bottle: 44,
