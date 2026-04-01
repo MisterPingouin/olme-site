@@ -63,6 +63,11 @@ export const SOFTS: SoftItem[] = [
   sizeCl: 33,
 },
   {
+    name: "Uma - Orangeade Bio",
+    price: 6,
+    sizeCl: 33,
+  },
+  {
     name: "Uma - Ginger Beer Bio",
     price: 6,
     sizeCl: 33,
@@ -236,11 +241,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   notes: "Fumé, amer — Mezcal au café, vermouth rouge & campari.",
   price: 13,
 },
-      {
-        name: "Tramonto a Capri",
-        notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
-        price: 14,
-      },
+      // {
+      //   name: "Tramonto a Capri",
+      //   notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
+      //   price: 14,
+      // },
       {
         name: "Vent des Caraïbes",
         notes:
