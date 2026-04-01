@@ -207,6 +207,18 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
         price: 10,
       },
+      //       {
+      //   name: "Carinho",
+      //   notes:
+      //     "Amer, agrumé — Porto blanc, Suze, citron & sirop simple.",
+      //   price: 11,
+      // },
+      //       {
+      //   name: "Pedro y Palomino",
+      //   notes:
+      //     "Oxydatif, épicé — Oloroso, eau-de-vie de mirabelle, super vin & ginger ale.",
+      //   price: 11,
+      // },
     ],
   },
   {
@@ -230,6 +242,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Doux, enveloppant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
         price: 12,
       },
+      {
+        name: "Back to the roots",
+        notes:
+          "Herbacé, acidulé — Gin, Roots, citron jaune, sucre de canne, teinture de thym, emulsifiant.",
+        price: 13,
+      },
     ],
   },
   {
@@ -241,6 +259,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   notes: "Fumé, amer — Mezcal au café, vermouth rouge & campari.",
   price: 13,
 },
+
       // {
       //   name: "Tramonto a Capri",
       //   notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
