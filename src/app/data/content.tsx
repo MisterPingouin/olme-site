@@ -226,6 +226,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     subtitle: "( 4 à 5 cl d’alcool )",
     items: [
       {
+  name: "Rivage épicé",
+  notes:
+    "Doux, profond — Rhum Tidal Spice, thé noir, sucre de canne, poivre sansho & Memphis BBQ.",
+  price: 13,
+},
+      {
         name: "Épine verte",
         notes:
           "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
@@ -245,7 +251,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Back to the roots",
         notes:
-          "Herbacé, acidulé — Gin, Roots, citron jaune, sucre de canne, teinture de thym, emulsifiant.",
+          "Herbacé, acidulé — Gin, mastika, citron, sucre de canne, thym & émulsifiant.",
         price: 13,
       },
     ],
