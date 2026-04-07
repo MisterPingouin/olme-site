@@ -507,6 +507,33 @@ export const WINES: WineSection[] = [
     ],
   },
   {
+    title: "Rosé engagés",
+    items: [
+      {
+        name: "Gamay Rosé",
+        domain: "Dom. des Prévelières",
+        region: "Beaujolais -",
+        grapes: "100% Gamay",
+        notes: "Aromatique et ample : fruits exotiques, pêche, abricot",
+        byGlass: 5,
+        glassCl: 12,
+        bottle: 24,
+        bottleCl: 75,
+      },
+      //       {
+      //   name: "Solis Lumen Rosé",
+      //   domain: "Dom. Montrose",
+      //   region: "IGP Pays d'Oc -",
+      //   grapes: "80% Grenache, 20% Cinsualt",
+      //   notes: "Frais et fruité : fruits rouges, agrumes",
+      //   byGlass: 5,
+      //   glassCl: 12,
+      //   bottle: 24,
+      //   bottleCl: 75,
+      // },
+    ],
+  },
+  {
     title: "Pétillant",
     items: [
       {
