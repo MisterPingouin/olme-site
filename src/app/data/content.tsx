@@ -94,6 +94,7 @@ export const BEERS: BeerItem[] = [
     glassCl: 25,
     pint: 7,
     pintCl: 50,
+    happyHourPint: 6,
   },
   {
     name: "Fauve - Session IPA",
@@ -201,6 +202,8 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes:
           "Frais, exotique — Rhum ambré, Rooibos glacé, fruit de la passion & poivre de Jamaïque.",
         price: 9,
+        happyHourPrice: 8,
+
       },
       {
         name: "Haïku",
@@ -247,6 +250,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes:
           "Doux, enveloppant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
         price: 12,
+        happyHourPrice: 11,
       },
       {
         name: "Back to the roots",
@@ -311,6 +315,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes:
           "Exotique, épicé — Gingembre, curry de Madras, fruit de la passion, citron, eau pétillante, sel",
         price: 8,
+        happyHourPrice: 7,
       },
       {
         name: "Aube Italienne",
@@ -321,12 +326,14 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         name: "Paprika Tonic",
         notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
         price: 8,
+        happyHourPrice: 7,
       },
       {
         name: "Éclat d’Automne",
         notes:
           "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
         price: 8,
+        happyHourPrice: 7,
       },
     ],
   },
