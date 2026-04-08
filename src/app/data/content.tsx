@@ -228,12 +228,25 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     title: "Modéré",
     subtitle: "( 4 à 5 cl d’alcool )",
     items: [
-      {
-  name: "Rivage épicé",
-  notes:
-    "Doux, profond — Rhum Tidal Spice, thé noir, sucre de canne, poivre sansho & Memphis BBQ.",
-  price: 13,
-},
+            {
+        name: "Marie-Antoinette",
+        notes:
+          "Doux, enveloppant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
+        price: 12,
+        happyHourPrice: 11,
+      },
+            {
+        name: "Mushu",
+        notes:
+          "Frais, végétal — Vodka, liqueur de panda, sirop de wasabi & citron.",
+        price: 12,
+      },
+//       {
+//   name: "Rivage épicé",
+//   notes:
+//     "Doux, profond — Rhum Tidal Spice, thé noir, sucre de canne, poivre sansho & Memphis BBQ.",
+//   price: 13,
+// },
       {
         name: "Épine verte",
         notes:
@@ -244,13 +257,6 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         name: "Fumée d’Amalfi",
         notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
         price: 13,
-      },
-      {
-        name: "Marie-Antoinette",
-        notes:
-          "Doux, enveloppant — Vodka, sirop d’hibiscus aux épices douces & verveine glacée.",
-        price: 12,
-        happyHourPrice: 11,
       },
       {
         name: "Back to the roots",
