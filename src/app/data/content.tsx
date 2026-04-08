@@ -126,71 +126,6 @@ export const BEERS: BeerItem[] = [
 },
 ];
 
-// // DRAFT - Affichage public provisoire
-// export const BEERS: BeerItem[] = [
-//   {
-//     name: "→ Carte en création",
-//     style: "La sélection de bières craft arrive très bientôt.",
-//     price: 0,
-//     sizeCl: 0
-//   }
-// ];
-
-// ================================================
-// MIXO_SECTIONS (Cocktails)
-// ================================================
-
-/* ===== Ancien contenu (à réactiver à l’ouverture) =====
-export const MIXO_SECTIONS: CocktailSection[] = [
-{
-title: "Low ABV",
-subtitle: "( 2 à 3 cl d’alcool )",
-items: [
-{ name: "Golden Drift", notes: "Frais, exotique - Rhum glacé, fruit de la passion, poivre de Jamaïque, banane", price: 9 },
-{ name: "Silk Bloom", notes: "Doux, floral - Umeshu, eau d’eglantine, eau pétillante, bitter aphrodite", price: 10 },
-{ name: "Autumn Ledger", notes: "Complexe, oxydatif - Vin de noix, sherry, dry vermouth", price: 10 },
-],
-},
-{
-title: "Regular ABV",
-subtitle: "( 4 à 5 cl d’alcool )",
-items: [
-{ name: "Volcano Mule", notes: "Fumé, épicé - Mezcal, citron, gingembre & poivre long, bitter, sel", price: 12 },
-{ name: "Tonka Sunset", notes: "Fruité, gourmand - Tequila, fève de tonka, clémentine", price: 12 },
-{ name: "Smoky Bloom", notes: "Fumé, amer - Gin, Lapsang Souchong, pamplemousse, Cynar", price: 12 },
-{ name: "Crimson Spark", notes: "Frais, acidulé - Vodka à l’hibiscus, vinaigre de myrtilles, Prosecco", price: 12 },
-],
-},
-{
-title: "High ABV",
-subtitle: "( 5 à 7 cl d’alcool )",
-items: [
-{ name: "Curry Old Fashioned", notes: "Épicé, salin  - Whisky, sirop de sarrasin, curry & sel, Aphrodite bitter", price: 13 },
-{ name: "Martinez", notes: "Floral, amer - Gin, vermouth rouge, liqueur de cerise amère, orange bitter", price: 14 },
-{ name: "Daiquiri Twist", notes: "Fruité, gourmand - Rhum ananas, rhum jamaïcain, citron vert, sucre muscovado, sel", price: 14 },
-],
-},
-{
-title: "No ABV",
-subtitle: "( 0 cl d’alcool )",
-items: [
-{ name: "Solar Detox", notes: "Amer, acidulé - Pamplemousse, citron, sel, eau pétillante, sirop thé fumé, gentiane sans alcool", price: 8 },
-{ name: "Dry Zen", notes: "Épicé, fumé - Citron, gingembre, thé fumé, sirop acid", price: 8 },
-{ name: "Golden Flow", notes: "Doux, fruité  - Clémentine, fève de tonka, citron, spirit sans alcool", price: 8 },
-{ name: "Jungle Air", notes: "Exotique, frais  - Thé glacé, fruit de la passion, poivre de Jamaïque, spirit sans alcool", price: 8 },
-],
-},
-{
-title: "Cocktails Omakase",
-subtitle: "( Sur mesure )",
-items: [
-{ name: "Mocktail sur mesure", notes: " Sans alcool -  Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison", price: 8 },
-{ name: "Cocktail sur mesure", notes: " Avec alcool -  Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison", price: 15 },
-],
-},
-];
-*/
-
 // // Affichage public – Carte mixologie
 export const MIXO_SECTIONS: CocktailSection[] = [
   {
@@ -210,12 +145,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
         price: 10,
       },
-      //       {
-      //   name: "Carinho",
-      //   notes:
-      //     "Amer, agrumé — Porto blanc, Suze, citron & sirop simple.",
-      //   price: 11,
-      // },
+            {
+        name: "Saudade",
+        notes:
+          "Floral, légèrement amer — Porto blanc, Suze, citron.",
+        price: 10,
+      },
       //       {
       //   name: "Pedro y Palomino",
       //   notes:
@@ -238,7 +173,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
         name: "Mushu",
         notes:
-          "Frais, végétal — Vodka, liqueur de panda, sirop de wasabi & citron.",
+          "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
         price: 12,
       },
 //       {
@@ -521,8 +456,8 @@ export const WINES: WineSection[] = [
         region: "Beaujolais -",
         grapes: "100% Gamay",
         notes: "Aromatique et ample : fruits exotiques, pêche, abricot",
-        byGlass: 5,
-        glassCl: 12,
+        // byGlass: 5,
+        // glassCl: 12,
         bottle: 24,
         bottleCl: 75,
       },
@@ -610,7 +545,7 @@ export type InfosContent = {
 export const INFOS: InfosContent = {
   heading: "Infos, réservation",
   address: ["15 rue montesquieu", "69007 LYON"],
-  opening: ["Mardi - Mercredi → 18h - 00h", "Jeudi - Samedi → 18h - 01h"],
+  opening: ["Mardi - Mercredi → 17h30 - 00h", "Jeudi - Samedi → 17h30 - 01h"],
   contact: ["contact@olmebar.com", "07 50 95 25 35"],
  groups: (
   <>
