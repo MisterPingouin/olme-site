@@ -140,11 +140,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         happyHourPrice: 8,
 
       },
-      {
-        name: "Haïku",
-        notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
-        price: 10,
-      },
+      // {
+      //   name: "Haïku",
+      //   notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
+      //   price: 10,
+      // },
             {
         name: "Saudade",
         notes:
