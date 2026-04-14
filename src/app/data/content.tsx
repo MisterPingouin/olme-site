@@ -112,6 +112,12 @@ export const BEERS: BeerItem[] = [
     price: 7.5,
     sizeCl: 33,
   },
+    {
+    name: "Fauve - Rejaillir le feu (canette)",
+    style: "Neipa — 6,2%",
+    price: 7.5,
+    sizeCl: 33,
+  },
   {
     name: "Fauve - Douce France (canette)",
     style: "Lager — 5%",
