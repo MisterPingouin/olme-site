@@ -79,6 +79,16 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 33,
   },
   { name: "Archipel - Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
+    {
+    name: "Schorles - Groseille Bio",
+    price: 6.5,
+    sizeCl: 33,
+  },
+      {
+    name: "Océan 52 - Eau minérale pétillante",
+    price: 3,
+    sizeCl: 33,
+  },
 ];
 
 // ================================================
