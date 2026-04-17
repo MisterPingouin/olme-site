@@ -204,11 +204,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
         price: 13,
       },
-      {
-        name: "Fumée d’Amalfi",
-        notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
-        price: 13,
-      },
+      // {
+      //   name: "Fumée d’Amalfi",
+      //   notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
+      //   price: 13,
+      // },
       {
         name: "Back to the roots",
         notes:
