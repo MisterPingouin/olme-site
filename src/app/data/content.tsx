@@ -274,11 +274,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 8,
         happyHourPrice: 7,
       },
-      // {
-      //   name: "Aube Italienne",
-      //   notes: "Amer, fruité — Pamplemousse, citron, amer sans alcool",
-      //   price: 8,
-      // },
+      {
+        name: "Aube Italienne",
+        notes: "Amer, pétillant — BTR (amer sans alcool), tonic, agrumes",
+        price: 8,
+      },
       {
         name: "Paprika Tonic",
         notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
