@@ -537,7 +537,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Saucisse laotienne à la citronnelle", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Tomme de brebis basque", price: 8 },
-    { name: "Chorizo Ibérique", price: 10 },
+    // { name: "Chorizo Ibérique", price: 10 },
     { name: "Saucisson Bellota Ibérique", price: 10 },
     { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Succulent au chocolat", price: 6 },
