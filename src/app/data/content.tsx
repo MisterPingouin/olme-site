@@ -277,7 +277,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Aube Italienne",
         notes: "Amer, pétillant — BTR (amer sans alcool), tonic, agrumes",
-        price: 8,
+        price: 6,
       },
       {
         name: "Paprika Tonic",
