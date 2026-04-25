@@ -49,12 +49,12 @@ export const SOFTS: SoftItem[] = [
   //   price: 5,
   //   sizeCl: 30,
   // },
-  {
-    name: "Limonade maison",
-    notes: "Gingembre, citron, menthe",
-    price: 4.5,
-    sizeCl: 30,
-  },
+  // {
+  //   name: "Limonade maison",
+  //   notes: "Gingembre, citron, menthe",
+  //   price: 4.5,
+  //   sizeCl: 30,
+  // },
   { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
     { 
@@ -161,12 +161,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       //   notes: "Doux, floral — Umeshu, liqueur cuir lointain, citron & eau pétillante.",
       //   price: 10,
       // },
-            {
-        name: "Saudade",
-        notes:
-          "Floral, légèrement amer — Porto blanc, Suze, citron.",
-        price: 10,
-      },
+      //       {
+      //   name: "Saudade",
+      //   notes:
+      //     "Floral, légèrement amer — Porto blanc, Suze, citron.",
+      //   price: 10,
+      // },
       //       {
       //   name: "Pedro y Palomino",
       //   notes:
@@ -186,12 +186,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 12,
         happyHourPrice: 11,
       },
-            {
-        name: "Mushu",
-        notes:
-          "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
-        price: 12,
-      },
+      //       {
+      //   name: "Mushu",
+      //   notes:
+      //     "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
+      //   price: 12,
+      // },
 //       {
 //   name: "Rivage épicé",
 //   notes:
@@ -209,12 +209,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       //   notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
       //   price: 13,
       // },
-      {
-        name: "Back to the roots",
-        notes:
-          "Herbacé, acidulé — Gin, mastika, citron, sucre de canne, thym & émulsifiant.",
-        price: 13,
-      },
+      // {
+      //   name: "Back to the roots",
+      //   notes:
+      //     "Herbacé, acidulé — Gin, mastika, citron, sucre de canne, thym & émulsifiant.",
+      //   price: 13,
+      // },
     ],
   },
   {
@@ -238,12 +238,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Exotique, acidulé — Rhum ananas, rhum des Caraïbes, citron vert, sucre de canne & sel.",
         price: 14,
       },
-      {
-        name: "Grain sauvage",
-        notes:
-          "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Abbotts bitters.",
-        price: 13,
-      },
+      // {
+      //   name: "Grain sauvage",
+      //   notes:
+      //     "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Abbotts bitters.",
+      //   price: 13,
+      // },
       {
         name: "L’Ombre du Noyer",
         notes: "Boisé, oxydatif — Whisky, whisky tourbé, vermouth, amontillado, liqueur Denoix.",
@@ -251,18 +251,18 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       },
     ],
   },
-  {
-    title: "Omakase",
-    subtitle: "( Sur mesure )",
-    items: [
-      {
-        name: "Omakase",
-        notes:
-          "Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison.",
-        price: 15,
-      },
-    ],
-  },
+  // {
+  //   title: "Omakase",
+  //   subtitle: "( Sur mesure )",
+  //   items: [
+  //     {
+  //       name: "Omakase",
+  //       notes:
+  //         "Une création personnalisée, respectueuse de vos souhaits, fondée sur le savoir-faire de la maison.",
+  //       price: 15,
+  //     },
+  //   ],
+  // },
   {
     title: "Sans alcool",
     subtitle: "( 0 cl d’alcool )",
@@ -279,12 +279,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Amer, pétillant — BTR (amer sans alcool), tonic, agrumes",
         price: 6,
       },
-      {
-        name: "Paprika Tonic",
-        notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
-        price: 8,
-        happyHourPrice: 7,
-      },
+      // {
+      //   name: "Paprika Tonic",
+      //   notes: "Frais, végétal — Poivron vert, paprika, tonic, citron",
+      //   price: 8,
+      //   happyHourPrice: 7,
+      // },
       {
         name: "Éclat d’Automne",
         notes:
@@ -531,15 +531,15 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
   title: "Brut Food",
   items: [
     { name: "Olives de Kalamata & d’Italie", price: 5 },
-    { name: "Artichauts alla Romana", price: 6 },
+    // { name: "Artichauts alla Romana", price: 6 },
     { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
-    { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
-    { name: "Saucisse laotienne à la citronnelle", price: 9 },
+    // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
+    // { name: "Saucisse laotienne à la citronnelle", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
     { name: "Tomme de brebis basque", price: 8 },
     // { name: "Chorizo Ibérique", price: 10 },
     { name: "Saucisson Bellota Ibérique", price: 10 },
-    { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
+    // { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Succulent au chocolat", price: 6 },
   ],
 };
