@@ -543,7 +543,6 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     // { name: "Succulent au chocolat", price: 6 },
   ],
 };
-
 // ================================================
 // INFOS PRATIQUES (ACTIF - NON MODIFIÉ)
 // ================================================
