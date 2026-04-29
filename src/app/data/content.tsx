@@ -89,6 +89,11 @@ export const SOFTS: SoftItem[] = [
     price: 3,
     sizeCl: 33,
   },
+    {
+  name: "Bap bap - BANG BANG (bière blonde bio sans alcool)",
+  price: 6.5,
+  sizeCl: 33,
+},
 ];
 
 // ================================================
@@ -139,6 +144,12 @@ export const BEERS: BeerItem[] = [
   style: "Blanche au citron et basilic — 4,5%",
   price: 8.5,
   sizeCl: 44,
+},
+  {
+  name: "Bap bap - BANG BANG (bouteille)",
+  style: "Pale Ale — 0,3%",
+  price: 6.5,
+  sizeCl: 33,
 },
 ];
 
