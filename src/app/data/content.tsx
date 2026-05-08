@@ -162,7 +162,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Été perdu",
         notes:
-          "Frais, exotique — Rhum ambré, Rooibos glacé, fruit de la passion & poivre de Jamaïque.",
+          "Frais, exotique — Rhum ambré, Rooibos glacé, fruit de la passion, fêve de tonka & citron.",
         price: 9,
         happyHourPrice: 8,
 
@@ -175,7 +175,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
         name: "Saudade",
         notes:
-          "Floral, légèrement amer — Porto blanc, Suze, citron.",
+          "Floral, légèrement amer — Porto blanc, Suze, citron & émulsifiant.",
         price: 10,
       },
       //       {
@@ -466,7 +466,7 @@ export const WINES: WineSection[] = [
       {
   name: "Pichao",
   domain: "Clot de l’Oum",
-  region: "Ariège - IGP Côtes Catalanes",
+  region: "Ariège - IGP Côtes Catalanes - 100% syrah",
   grapes: "syrah",
   notes: "Hors-norme et épicé : fruits noirs, lard fumé, poivre",
   bottle: 44,
