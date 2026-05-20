@@ -483,9 +483,9 @@ export const WINES: WineSection[] = [
         region: "Beaujolais -",
         grapes: "100% Gamay",
         notes: "Aromatique et ample : fruits exotiques, pêche, abricot",
-        byGlass: 6,
+        byGlass: 5.5,
         glassCl: 12,
-        bottle: 24,
+        bottle: 25,
         bottleCl: 75,
       },
       //       {
