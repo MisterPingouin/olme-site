@@ -49,12 +49,12 @@ export const SOFTS: SoftItem[] = [
   //   price: 5,
   //   sizeCl: 30,
   // },
-  // {
-  //   name: "Limonade maison",
-  //   notes: "Gingembre, citron, menthe",
-  //   price: 4.5,
-  //   sizeCl: 30,
-  // },
+  {
+    name: "Limonade maison",
+    notes: "Gingembre, citron, menthe",
+    price: 4.5,
+    sizeCl: 30,
+  },
   { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
     { 
@@ -184,6 +184,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       //     "Oxydatif, épicé — Oloroso, eau-de-vie de mirabelle, super vin & ginger ale.",
       //   price: 11,
       // },
+                  {
+        name: "Jaÿsinia",
+        notes:
+          "Floral, pétillant — Fleur de sureau, bergamote, prosecco, soda water, eau de fleur d'oranger",
+        price: 11,
+      },
     ],
   },
   {
@@ -237,7 +243,6 @@ export const MIXO_SECTIONS: CocktailSection[] = [
   notes: "Fumé, amer — Mezcal au café, vermouth rouge & campari.",
   price: 13,
 },
-
       // {
       //   name: "Tramonto a Capri",
       //   notes: "Onctueux, floral — Grappa, citron vert, sucre de canne & émulsifiant.",
@@ -555,6 +560,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Terrine de campagne & pickles", price: 9 },
     { name: "Saucisson de bellota", price: 10 },
     { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
+    { name: "Dessert à boire alcoolisé", price: 13 },
     // { name: "Succulent au chocolat", price: 6 },
   ],
 };
