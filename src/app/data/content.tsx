@@ -547,7 +547,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
   title: "Brut Food",
   items: [
     { name: "Olives de Kalamata & d’Italie", price: 5 },
-    { name: "Artichauts alla Romana", price: 6 },
+    // { name: "Artichauts alla Romana", price: 6 },
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
     { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
@@ -555,7 +555,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Saucisse laotienne à la citronnelle", price: 9 },
     { name: "Brillat savarin & noix", price: 8 },
     // { name: "Tomme de brebis basque", price: 8 },
-    { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
+    // { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9 },
     { name: "Terrine de campagne & pickles", price: 9 },
     { name: "Saucisson de bellota", price: 10 },
