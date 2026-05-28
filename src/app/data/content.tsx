@@ -90,8 +90,8 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 33,
   },
     {
-  name: "Bap bap - BANG BANG (bière blonde bio sans alcool)",
-  price: 6.5,
+  name: "Pink Sun - Green ray (bière west coast ipa sans alcool)",
+  price: 7,
   sizeCl: 33,
 },
 ];
@@ -146,9 +146,9 @@ export const BEERS: BeerItem[] = [
   sizeCl: 44,
 },
   {
-  name: "Bap bap - BANG BANG (bouteille)",
+  name: "Pink Sun - Green ray bière west coast ipa sans alcool (bouteille)",
   style: "Pale Ale — 0,3%",
-  price: 6.5,
+  price: 7,
   sizeCl: 33,
 },
 ];
