@@ -181,7 +181,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
         name: "Pedro y Palomino",
         notes:
-          "Tannique, pétillant — Oloroso, eau-de-vie de mirabelle, super vin & ginger ale.",
+          "Tannique, pétillant —  Xérès oloroso, mirabelle, super vin & ginger ale.",
         price: 11,
       },
                   {
