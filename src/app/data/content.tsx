@@ -555,10 +555,12 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Saucisse laotienne à la citronnelle", price: 9 },
     // { name: "Brillat savarin & noix", price: 8 },
     // { name: "Tomme de brebis basque", price: 8 },
-    { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
+    // { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9 },
     // { name: "Terrine de campagne & pickles", price: 9 },
     { name: "Saucisson de bellota", price: 10 },
+    { name: "Jambon Serrano Gran Reserva", price: 10 },
+
     // { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Dessert à boire alcoolisé", price: 13 },
     // { name: "Succulent au chocolat", price: 6 },
