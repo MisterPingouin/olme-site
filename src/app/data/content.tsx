@@ -293,7 +293,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
         name: "Poire défendue",
         notes:
-          "Gourmand, fruité — Thé glacé au jasmin, purée de poire, thym",
+          "Gourmand, fruité — Thé vert glacé au jasmin, purée de poire, thym",
         price: 8,
         happyHourPrice: 7,
       },
