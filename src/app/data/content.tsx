@@ -90,7 +90,7 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 33,
   },
     {
-  name: "Pink Sun - Green ray (bière west coast ipa sans alcool)",
+  name: "Pink Sun - Green ray sans alcool West coast IPA - 0,3%",
   price: 7,
   sizeCl: 33,
 },
@@ -446,6 +446,17 @@ export const WINES: WineSection[] = [
         bottle: 35,
         bottleCl: 75,
       },
+                  {
+        name: "Espoir d’y vin",
+        domain: "dom. Prapin",
+        region: "Coteaux-du-Lyonnais -",
+        grapes: "100% syrah",
+        notes: "Fruité et épicé : fruits rouges, poivre, menthol",
+                byGlass: 7,
+        glassCl: 12,
+        bottle: 35,
+        bottleCl: 75,
+      },
 //       {
 //   name: "Les Coulaires",
 //   domain: "Domaine Vendome",
@@ -464,15 +475,6 @@ export const WINES: WineSection[] = [
         grapes: "carignan, syrah, grenache",
         notes: "Épicé et fruité : violette, framboise",
         bottle: 34,
-        bottleCl: 75,
-      },
-            {
-        name: "Espoir d’y vin",
-        domain: "dom. Prapin",
-        region: "Coteaux-du-Lyonnais -",
-        grapes: "100% syrah",
-        notes: "Fruité et épicé : fruits rouges, poivre, menthol",
-        bottle: 35,
         bottleCl: 75,
       },
       {
