@@ -596,7 +596,7 @@ export const INFOS: InfosContent = {
   contact: ["contact@olmebar.com", "07 50 95 25 35"],
  groups: (
   <>
-    Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ,vernissage ...). Privatisation
+    Un espace dédié pour vos évènements (anniversaire, afterwork, pot de départ, pot de thèse, vernissage ...). Privatisation
     possible sur demande par mail sur{" "}
     <a
       href="mailto:contact@olmebar.com"
@@ -608,7 +608,7 @@ export const INFOS: InfosContent = {
   </>
 ),
 
-  terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur.",
+  terraces: "Dès mars, deux terrasses cosy pour profiter de l’extérieur ou de l'intérieur climatisé.",
   reservation: (
       <>
     La réservation n’est pas obligatoire, mais recommandée par{" "}
