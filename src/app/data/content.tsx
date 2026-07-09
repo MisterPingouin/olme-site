@@ -209,6 +209,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
         price: 12,
       },
+            {
+  name: "Coldbrew martini",
+  notes:
+    "Gourmand — Vodka, liqueur de café, café coldbrew guatemala, sucre de canne, émulsifiant.",
+  price: 12,
+},
 //       {
 //   name: "Rivage épicé",
 //   notes:
@@ -254,12 +260,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Exotique, acidulé — Rhum ananas, rhum des Caraïbes, citron vert, sucre de canne & sel.",
         price: 14,
       },
-      {
-        name: "Grain sauvage",
-        notes:
-          "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Abbotts bitters.",
-        price: 13,
-      },
+      // {
+      //   name: "Grain sauvage",
+      //   notes:
+      //     "Umami, épicé — Whisky de malt & de seigle, sirop de sarrasin & curry, Abbotts bitters.",
+      //   price: 13,
+      // },
       {
         name: "L’Ombre du Noyer",
         notes: "Boisé, oxydatif — Whisky, whisky tourbé, vermouth, amontillado, liqueur Denoix.",
