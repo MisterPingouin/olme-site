@@ -84,13 +84,13 @@ export const SOFTS: SoftItem[] = [
   //   price: 6.5,
   //   sizeCl: 33,
   // },
-      {
-    name: "Océan 52 - Eau minérale pétillante",
-    price: 3,
-    sizeCl: 33,
-  },
+  //     {
+  //   name: "Océan 52 - Eau minérale pétillante",
+  //   price: 3,
+  //   sizeCl: 33,
+  // },
     {
-  name: "Pink Sun - Green ray sans alcool West coast IPA - 0,3%",
+  name: "Pink Sun - Green ray bière sans alcool West coast IPA - 0,3%",
   price: 7,
   sizeCl: 33,
 },
@@ -146,8 +146,8 @@ export const BEERS: BeerItem[] = [
   sizeCl: 44,
 },
   {
-  name: "Pink Sun - Green ray bière west coast ipa sans alcool (bouteille)",
-  style: "Pale Ale — 0,3%",
+  name: "Pink Sun - Green ray sans alcool - 0,3%",
+  style: "West coast ipa — 0,3%",
   price: 7,
   sizeCl: 33,
 },
@@ -181,7 +181,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
         name: "Pedro y Palomino",
         notes:
-          "Tannique, pétillant —  Xérès oloroso, mirabelle, super vin & ginger ale.",
+          "Tannique, pétillant —  Xérès oloroso, mirabelle, super vin & ginger beer.",
         price: 11,
       },
                   {
@@ -212,7 +212,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
             {
   name: "Coldbrew martini",
   notes:
-    "Gourmand — Vodka, liqueur de café, café coldbrew guatemala, sucre de canne, émulsifiant.",
+    "Gourmand — Vodka, liqueur de café, café extrait à froid du Guatemala.",
   price: 12,
 },
 //       {
@@ -398,6 +398,15 @@ export const WINES: WineSection[] = [
         bottle: 36,
         bottleCl: 75,
       },
+            {
+        name: "Pente des coutis",
+        domain: "Dom. Colin",
+        region: "Loire -",
+        grapes: "100% chenin",
+        notes: "Doux & fruité : pêche de vigne",
+        bottle: 38,
+        bottleCl: 75,
+      },
       {
         name: "Fronteira blanc",
         domain: "Clot de l’Oum",
@@ -495,7 +504,7 @@ export const WINES: WineSection[] = [
     ],
   },
   {
-    title: "Rosé engagés",
+    title: "Rosé / Orange engagés",
     items: [
       {
         name: "Gamay Rosé",
@@ -506,6 +515,15 @@ export const WINES: WineSection[] = [
         byGlass: 5.5,
         glassCl: 12,
         bottle: 25,
+        bottleCl: 75,
+      },
+          {
+        name: "Aux innocents les mains pleines",
+        domain: "Dom. de Bon Augure",
+        region: "Pays d'Hérault -",
+        grapes: "chardonnay, sauvignon, grenache gris,",
+        notes: "Original, salin : foin, épices, abricot",
+        bottle: 31,
         bottleCl: 75,
       },
       //       {
