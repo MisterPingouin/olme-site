@@ -203,12 +203,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 12,
         happyHourPrice: 11,
       },
-            {
-        name: "Mushu",
-        notes:
-          "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
-        price: 12,
-      },
+      //       {
+      //   name: "Mushu",
+      //   notes:
+      //     "Frais, végétal — Vodka, liqueur de pandan, sirop de wasabi, coriandre & citron.",
+      //   price: 12,
+      // },
             {
   name: "Coldbrew martini",
   notes:
@@ -590,8 +590,8 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     // { name: "Tomme de brebis basque", price: 8 },
     { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9 },
-    { name: "Terrine de campagne & pickles", price: 9 },
-    // { name: "Saucisson de bellota", price: 10 },
+    // { name: "Terrine de campagne & pickles", price: 9 },
+    { name: "Saucisson de bellota", price: 10 },
     { name: "Jambon Serrano Gran Reserva", price: 10 },
 
     // { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
