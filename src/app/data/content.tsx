@@ -203,6 +203,13 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 12,
         happyHourPrice: 11,
       },
+                  {
+        name: "Road 83 Baby",
+        notes:
+          "Frais, boisé — Bourbon, sirop d'érable, BBQ bitters & eau gazeuse.",
+        price: 12,
+        happyHourPrice: 11,
+      },
       //       {
       //   name: "Mushu",
       //   notes:
@@ -543,7 +550,7 @@ export const WINES: WineSection[] = [
     title: "Pétillant",
     items: [
       {
-        name: "Prosecco Fiol Extra Brut",
+        name: "Prosecco La donna geli Extra Dry",
         region: "Italie",
         byGlass: 7,
         glassCl: 12,
