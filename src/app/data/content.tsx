@@ -321,13 +321,13 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 8,
         happyHourPrice: 7,
       },
-      {
-        name: "Éclat d’Automne",
-        notes:
-          "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
-        price: 8,
-        happyHourPrice: 7,
-      },
+      // {
+      //   name: "Éclat d’Automne",
+      //   notes:
+      //     "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
+      //   price: 8,
+      //   happyHourPrice: 7,
+      // },
     ],
   },
 ];
@@ -387,15 +387,15 @@ export const WINES: WineSection[] = [
         bottle: 34,
         bottleCl: 75,
       },
-      {
-  name: "Le Grand Frais",
-  domain: "dom. Hautes Noëlles",
-  region: "Loire - AOP Gros Plant du Pays Nantais",
-  grapes: "100% folle blanche",
-  notes: "Vif et floral : fleurs blanches, citron, salin",
-  bottle: 28,
-  bottleCl: 75,
-},
+//       {
+//   name: "Le Grand Frais",
+//   domain: "dom. Hautes Noëlles",
+//   region: "Loire - AOP Gros Plant du Pays Nantais",
+//   grapes: "100% folle blanche",
+//   notes: "Vif et floral : fleurs blanches, citron, salin",
+//   bottle: 28,
+//   bottleCl: 75,
+// },
       {
         name: "4 Faïsses",
         domain: "dom. Accoles",
@@ -593,7 +593,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
-    { name: "Brillat savarin & noix", price: 8 },
+    // { name: "Brillat savarin & noix", price: 8 },
     // { name: "Tomme de brebis basque", price: 8 },
     { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 9.5 },
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9 },
