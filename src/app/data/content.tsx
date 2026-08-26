@@ -228,12 +228,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
 //     "Doux, profond — Rhum Tidal Spice, thé noir, sucre de canne, poivre sansho & Memphis BBQ.",
 //   price: 13,
 // },
-      {
-        name: "Épine verte",
-        notes:
-          "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
-        price: 13,
-      },
+      // {
+      //   name: "Épine verte",
+      //   notes:
+      //     "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
+      //   price: 13,
+      // },
       // {
       //   name: "Fumée d’Amalfi",
       //   notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
@@ -296,13 +296,13 @@ export const MIXO_SECTIONS: CocktailSection[] = [
     title: "Sans alcool",
     subtitle: "( 0 cl d’alcool )",
     items: [
-      // {
-      //   name: "Latitude Gingembre",
-      //   notes:
-      //     "Exotique, épicé — Gingembre, curry de Madras, fruit de la passion, citron, eau pétillante, sel",
-      //   price: 8,
-      //   happyHourPrice: 7,
-      // },
+      {
+        name: "Latitude Gingembre",
+        notes:
+          "Exotique, épicé — Gingembre, curry de Madras, fruit de la passion, citron, eau pétillante, sel",
+        price: 8,
+        happyHourPrice: 7,
+      },
             {
         name: "Poire défendue",
         notes:
@@ -321,13 +321,13 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         price: 8,
         happyHourPrice: 7,
       },
-      // {
-      //   name: "Éclat d’Automne",
-      //   notes:
-      //     "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
-      //   price: 8,
-      //   happyHourPrice: 7,
-      // },
+      {
+        name: "Éclat d’Automne",
+        notes:
+          "Gourmand, épicé — Osco rouge, sirop d’hibiscus aux épices douces, verveine glacée",
+        price: 8,
+        happyHourPrice: 7,
+      },
     ],
   },
 ];
@@ -586,12 +586,12 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    // { name: "Olives de Kalamata & d’Italie", price: 5 },
+    { name: "Olives de verte d’Italie", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
-    { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
+    // { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
-    // { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
+    { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
     // { name: "Brillat savarin & noix", price: 8 },
     // { name: "Tomme de brebis basque", price: 8 },
@@ -599,9 +599,8 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9 },
     // { name: "Terrine de campagne & pickles", price: 9 },
     // { name: "Saucisson de bellota", price: 10 },
-    { name: "Jambon Serrano Gran Reserva", price: 10 },
-
-    // { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
+    // { name: "Jambon Serrano Gran Reserva", price: 10 },
+    { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Dessert à boire alcoolisé", price: 13 },
     // { name: "Succulent au chocolat", price: 6 },
   ],
