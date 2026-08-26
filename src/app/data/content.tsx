@@ -474,7 +474,6 @@ export const WINES: WineSection[] = [
         region: "Coteaux-du-Lyonnais -",
         grapes: "100% syrah",
         notes: "Fruité et épicé : fruits rouges, poivre, menthol",
-                byGlass: 7,
         glassCl: 12,
         bottle: 35,
         bottleCl: 75,
@@ -496,6 +495,8 @@ export const WINES: WineSection[] = [
         region: "Ariège -",
         grapes: "carignan, syrah, grenache",
         notes: "Épicé et fruité : violette, framboise",
+                        byGlass: 7,
+                                glassCl: 12,
         bottle: 34,
         bottleCl: 75,
       },
@@ -586,7 +587,7 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    { name: "Olives de verte d’Italie", price: 5 },
+    { name: "Olives verte d’Italie", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
     // { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
