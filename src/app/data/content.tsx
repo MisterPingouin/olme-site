@@ -207,8 +207,8 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         name: "Road 83 Baby",
         notes:
           "Frais, boisé — Bourbon, sirop d'érable, BBQ bitters & eau gazeuse.",
-        price: 12,
-        happyHourPrice: 11,
+        price: 13,
+        happyHourPrice: 12,
       },
       //       {
       //   name: "Mushu",
