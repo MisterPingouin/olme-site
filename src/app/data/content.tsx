@@ -604,7 +604,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
         { name: "Lomo Reserva", price: 11 },
     { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Dessert à boire alcoolisé", price: 13 },
-    // { name: "Succulent au chocolat", price: 6 },
+    { name: "Le dessert d'Olmé", price: 6 },
   ],
 };
 // ================================================
