@@ -188,7 +188,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
                   {
         name: "Jaÿsinia",
         notes:
-          "Floral, pétillant — Fleur de sureau, bergamote, prosecco, soda water, eau de fleur d'oranger",
+          "Floral, pétillant — Fleur de sureau, bergamote, prosecco, eau pétillante, eau de fleur d'oranger",
         price: 11,
       },
     ],
@@ -207,7 +207,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
                   {
         name: "Road 83 Baby",
         notes:
-          "Frais, boisé — Bourbon, sirop d'érable, BBQ bitters & eau gazeuse.",
+          "Frais, boisé, épicé — Bourbon, sirop d'érable, BBQ bitters & eau pétillante.",
         price: 13,
         happyHourPrice: 12,
       },
