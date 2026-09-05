@@ -588,7 +588,7 @@ export const WINES: WineSection[] = [
 export const BRUT_FOOD: { title: string; items: { name: string; price: number }[] } = {
   title: "Brut Food",
   items: [
-    { name: "Olives verte d’Italie", price: 5 },
+    { name: "Olives verte d’Italie / Kalamata", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
     // { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
