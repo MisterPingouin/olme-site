@@ -79,18 +79,19 @@ export const SOFTS: SoftItem[] = [
     sizeCl: 33,
   },
   { name: "Archipel - Kombucha Framboise Bio", price: 6.5, sizeCl: 33 },
-  //   {
-  //   name: "Schorles - Groseille Bio",
-  //   price: 6.5,
-  //   sizeCl: 33,
-  // },
+    {
+    name: "Schorles - Groseille ou Cassis Bio",
+    price: 6.5,
+    sizeCl: 33,
+  },
   //     {
   //   name: "Océan 52 - Eau minérale pétillante",
   //   price: 3,
   //   sizeCl: 33,
   // },
     {
-  name: "Pink Sun - Green ray bière sans alcool West coast IPA - 0,3%",
+  name: "Pink Sun -  bière sans alcool",
+  notes: "West coast IPA - 0,3%",
   price: 7,
   sizeCl: 33,
 },
@@ -146,7 +147,7 @@ export const BEERS: BeerItem[] = [
   sizeCl: 44,
 },
   {
-  name: "Pink Sun - Green ray sans alcool - 0,3%",
+  name: "Pink Sun - sans alcool ",
   style: "West coast ipa — 0,3%",
   price: 7,
   sizeCl: 33,
