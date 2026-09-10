@@ -137,7 +137,7 @@ export const BEERS: BeerItem[] = [
   {
     name: "Fauve - Garde à vous (canette)",
     style: "Bière de garde ambrée — 6.5%",
-    price: 8,
+    price: 7.5,
     sizeCl: 33,
   },
   {
