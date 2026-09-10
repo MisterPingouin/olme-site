@@ -135,10 +135,10 @@ export const BEERS: BeerItem[] = [
     sizeCl: 33,
   },
   {
-    name: "Fauve - Douce France (canette)",
-    style: "Lager — 5%",
+    name: "Fauve - Garde à vous (canette)",
+    style: "Bière de garde ambrée — 6.5%",
     price: 8,
-    sizeCl: 44,
+    sizeCl: 33,
   },
   {
   name: "Azimut - Blanche Lime Basilic (canette)",
