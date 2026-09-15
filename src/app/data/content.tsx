@@ -55,13 +55,13 @@ export const SOFTS: SoftItem[] = [
   //   price: 4.5,
   //   sizeCl: 30,
   // },
-  { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
+  // { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
-    { 
-  name: "ChariTea - Mate Bio",
-  price: 5,
-  sizeCl: 33,
-},
+//     { 
+//   name: "ChariTea - Mate Bio",
+//   price: 5,
+//   sizeCl: 33,
+// },
   {
     name: "Uma - Orangeade Bio",
     price: 6,
@@ -595,7 +595,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
-    // { name: "Brillat savarin & noix", price: 8 },
+    { name: "Brillat savarin & noix", price: 8 },
     { name: "Tomme de brebis basque", price: 8.5 },
     { name: "Burrata des Pouilles, pesto végétal aux graines de tournesol", price: 10 },
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9.5 },
