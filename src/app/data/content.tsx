@@ -104,8 +104,8 @@ export const SOFTS: SoftItem[] = [
 export const BEERS: BeerItem[] = [
   // === PRESSION (2 lignes) ===
   {
-    name: "Azimut - Premium Pils",
-    style: "Pilsner — 5%",
+    name: "La Débauche - Pils",
+    style: "Pilsner — 4.8%",
     byGlass: 4,
     glassCl: 25,
     pint: 7,
@@ -128,12 +128,12 @@ export const BEERS: BeerItem[] = [
     price: 7.5,
     sizeCl: 33,
   },
-    {
-    name: "Fauve - Rejaillir le feu (canette)",
-    style: "Neipa — 6,2%",
-    price: 7.5,
-    sizeCl: 33,
-  },
+  //   {
+  //   name: "Fauve - Rejaillir le feu (canette)",
+  //   style: "Neipa — 6,2%",
+  //   price: 7.5,
+  //   sizeCl: 33,
+  // },
   {
     name: "Fauve - Garde à vous (canette)",
     style: "Bière de garde ambrée — 6.5%",
