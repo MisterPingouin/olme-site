@@ -133,7 +133,14 @@ export const BEERS: BeerItem[] = [
   //   style: "Neipa — 6,2%",
   //   price: 7.5,
   //   sizeCl: 33,
-  // },
+  // },  
+  
+    {
+    name: "Fauve - Rouge soleil(canette)",
+    style: "Pastry sour fruits rouges — 6%",
+    price: 7.5,
+    sizeCl: 33,
+  },
   {
     name: "Fauve - Garde à vous (canette)",
     style: "Bière de garde ambrée — 6.5%",
@@ -526,15 +533,15 @@ export const WINES: WineSection[] = [
         bottle: 25,
         bottleCl: 75,
       },
-      //     {
-      //   name: "Aux innocents les mains pleines",
-      //   domain: "Dom. de Bon Augure",
-      //   region: "Pays d'Hérault -",
-      //   grapes: "chardonnay, sauvignon, grenache gris,",
-      //   notes: "Original, salin : foin, épices, abricot",
-      //   bottle: 31,
-      //   bottleCl: 75,
-      // },
+          {
+        name: "Aux innocents les mains pleines",
+        domain: "Dom. de Bon Augure",
+        region: "Pays d'Hérault -",
+        grapes: "chardonnay, sauvignon, grenache gris,",
+        notes: "Original, salin : foin, épices, abricot",
+        bottle: 31,
+        bottleCl: 75,
+      },
       //       {
       //   name: "Solis Lumen Rosé",
       //   domain: "Dom. Montrose",
