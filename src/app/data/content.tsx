@@ -57,11 +57,11 @@ export const SOFTS: SoftItem[] = [
   // },
   // { name: "Ninkasi - Ginger Ale Bio", price: 5, sizeCl: 25 },
     { name: "Ninkasi Tonic", price: 5, sizeCl: 25 },
-//     { 
-//   name: "ChariTea - Mate Bio",
-//   price: 5,
-//   sizeCl: 33,
-// },
+    { 
+  name: "ChariTea - Mate Bio",
+  price: 5,
+  sizeCl: 33,
+},
   {
     name: "Uma - Orangeade Bio",
     price: 6,
