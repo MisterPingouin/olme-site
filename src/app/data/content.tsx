@@ -113,8 +113,8 @@ export const BEERS: BeerItem[] = [
     happyHourPint: 6,
   },
   {
-    name: "La Débauche GOOD BOY - IPA",
-    style: "IPA — 6%",
+    name: "La Débauche Alma - Session IPA",
+    style: "Session IPA — 4,5%",
     byGlass: 4.5,
     glassCl: 25,
     pint: 8.5,
@@ -136,7 +136,7 @@ export const BEERS: BeerItem[] = [
   // },  
   
     {
-    name: "Fauve - Rouge soleil(canette)",
+    name: "Fauve - Rouge soleil (canette)",
     style: "Pastry sour fruits rouges — 6%",
     price: 7.5,
     sizeCl: 33,
@@ -170,7 +170,7 @@ export const MIXO_SECTIONS: CocktailSection[] = [
       {
         name: "Été perdu",
         notes:
-          "Frais, exotique — Rhum pineapple, Rooibos glacé, fruit de la passion, fêve de tonka & citron.",
+          "Frais, exotique — Rhum, Rooibos glacé, fruit de la passion, fêve de tonka & citron.",
         price: 9,
         happyHourPrice: 8,
 
@@ -405,6 +405,15 @@ export const WINES: WineSection[] = [
         bottle: 32,
         bottleCl: 75,
       },
+                  {
+        name: "Pente des coutis",
+        domain: "Dom. Colin",
+        region: "Loire -",
+        grapes: "100% chenin",
+        notes: "Doux & fruité : pêche de vigne",
+        bottle: 38,
+        bottleCl: 75,
+      },
             {
   name: "Le blanc de la Mariée",
   domain: "dom. dom. de la Garrelière",
@@ -430,15 +439,6 @@ export const WINES: WineSection[] = [
         grapes: "100% chardonnay",
         notes: "Frais et généreux : poire, fleurs blanches",
         bottle: 36,
-        bottleCl: 75,
-      },
-            {
-        name: "Pente des coutis",
-        domain: "Dom. Colin",
-        region: "Loire -",
-        grapes: "100% chenin",
-        notes: "Doux & fruité : pêche de vigne",
-        bottle: 38,
         bottleCl: 75,
       },
       {
@@ -543,7 +543,7 @@ export const WINES: WineSection[] = [
         region: "Ariège -",
         grapes: "carignan, syrah, grenache",
         notes: "Épicé et fruité : violette, framboise",
-                        byGlass: 7.5,
+                        byGlass: 7,
                                 glassCl: 12,
         bottle: 34,
         bottleCl: 75,
@@ -638,7 +638,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Olives verte d’Italie / Kalamata", price: 5 },
     { name: "Artichauts alla Romana", price: 6 },
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
-    { name: "Houmous de petits pois et amandes, radis multicolores", price: 8 },
+    { name: "Houmous de petits pois et amandes, betterave multicolores", price: 8 },
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
     { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
