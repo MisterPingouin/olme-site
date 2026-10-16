@@ -236,12 +236,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
 //     "Doux, profond — Rhum Tidal Spice, thé noir, sucre de canne, poivre sansho & Memphis BBQ.",
 //   price: 13,
 // },
-      // {
-      //   name: "Épine verte",
-      //   notes:
-      //     "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
-      //   price: 13,
-      // },
+      {
+        name: "Épine verte",
+        notes:
+          "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
+        price: 13,
+      },
       // {
       //   name: "Fumée d’Amalfi",
       //   notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
@@ -640,7 +640,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
     { name: "Houmous de petits pois et amandes, betterave multicolores", price: 8 },
     // { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
-    { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
+    // { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
     { name: "Brillat savarin & noix", price: 8 },
     // { name: "Tomme de brebis basque", price: 8.5 },
