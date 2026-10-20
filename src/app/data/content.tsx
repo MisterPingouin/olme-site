@@ -639,7 +639,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Artichauts alla Romana", price: 6 },
     // { name: "Salade de courgette coréenne (oi muchim)", price: 6 },
     { name: "Houmous de petits pois et amandes, betterave multicolores", price: 8 },
-    { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 9 },
+    { name: "Croquettes de choux-fleurs au paprika, crème sweet & sour", price: 10 },
     // { name: "Croquettes de scamorza, tomates anciennes, harissa maison", price: 12 },
     { name: "Saucisse laotienne à la citronnelle", price: 9.5 },
     { name: "Brillat savarin & noix", price: 8 },
