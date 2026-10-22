@@ -625,8 +625,8 @@ export const WINES: WineSection[] = [
   bottleCl: 75,
 },
             {
-  name: "Fils de pomme - Le sauvage 7€",
-  domain: "Cidre brut — 5.5%",
+  name: "Fils de pomme - Cidre brut Le sauvage",
+  domain: "Le sauvage — 5.5%",
 
         byGlass: 7,
         glassCl: 33,
