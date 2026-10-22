@@ -86,7 +86,7 @@ export const SOFTS: SoftItem[] = [
   },
   //     {
   //   name: "Océan 52 - Eau minérale pétillante",
-  //   price: 3,
+  //   price: 3.5,
   //   sizeCl: 33,
   // },
     {
@@ -623,6 +623,13 @@ export const WINES: WineSection[] = [
   notes: "Tendu et salin : agrumes, pomme fraîche, finale iodée",
   bottle: 44,
   bottleCl: 75,
+},
+            {
+  name: "Fils de pomme - Le sauvage 7€",
+  domain: "Cidre brut — 5.5%",
+
+        byGlass: 7,
+        glassCl: 33,
 },
     ],
   },
