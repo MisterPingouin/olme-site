@@ -159,6 +159,14 @@ export const BEERS: BeerItem[] = [
   price: 7,
   sizeCl: 33,
 },
+
+            {
+  name: "Fils de pomme - Cidre brut Le sauvage",
+  style: "Le sauvage — 5.5%",
+
+        price: 7,
+        sizeCl: 33,
+},
 ];
 
 // // Affichage public – Carte mixologie
@@ -623,13 +631,6 @@ export const WINES: WineSection[] = [
   notes: "Tendu et salin : agrumes, pomme fraîche, finale iodée",
   bottle: 44,
   bottleCl: 75,
-},
-            {
-  name: "Fils de pomme - Cidre brut Le sauvage",
-  domain: "Le sauvage — 5.5%",
-
-        byGlass: 7,
-        glassCl: 33,
 },
     ],
   },
