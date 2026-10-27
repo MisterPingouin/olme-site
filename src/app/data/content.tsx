@@ -250,11 +250,11 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
         price: 13,
       },
-      // {
-      //   name: "Fumée d’Amalfi",
-      //   notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
-      //   price: 13,
-      // },
+      {
+        name: "Fumée d’Amalfi",
+        notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
+        price: 13,
+      },
       {
         name: "Back to the roots",
         notes:
@@ -510,6 +510,8 @@ export const WINES: WineSection[] = [
         region: "Coteaux-du-Lyonnais -",
         grapes: "100% gamay",
         notes: "Léger et fruité : framboise, fraise",
+                byGlass: 6,
+        glassCl: 12,
         bottle: 29,
         bottleCl: 75,
       },
