@@ -546,6 +546,17 @@ export const WINES: WineSection[] = [
         bottle: 35,
         bottleCl: 75,
       },
+
+                        {
+        name: "Bel Soula",
+        domain: "dom. Balansa",
+        region: "Corbières, Languedoc -",
+        grapes: "Carignan, grenache, syrah",
+        notes: "Structuré et fruité : tanins fins, fraîcheur, garrigue, épices",
+        glassCl: 12,
+        bottle: 35,
+        bottleCl: 75,
+      },
 //       {
 //   name: "Les Coulaires",
 //   domain: "Domaine Vendome",
@@ -672,7 +683,7 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
         // { name: "Lomo Serrano Reserva", price: 11 },
     { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Dessert à boire alcoolisé", price: 13 },
-    { name: "Le dessert d'Olmé", price: 6 },
+    { name: "Le dessert d'Olmé", price: 6.5 },
   ],
 };
 // ================================================
