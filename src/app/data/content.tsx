@@ -553,7 +553,6 @@ export const WINES: WineSection[] = [
         region: "Corbières, Languedoc -",
         grapes: "Carignan, grenache, syrah",
         notes: "Structuré et fruité : tanins fins, fraîcheur, garrigue, épices",
-        glassCl: 12,
         bottle: 35,
         bottleCl: 75,
       },
