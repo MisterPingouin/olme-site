@@ -255,12 +255,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
         notes: "Fumé, amer — Gin, lapsang souchong, pamplemousse, Cynar & citron.",
         price: 13,
       },
-      {
-        name: "Back to the roots",
-        notes:
-          "Herbacé, acidulé — Gin, mastika, citron, sucre de canne, thym & émulsifiant.",
-        price: 13,
-      },
+      // {
+      //   name: "Back to the roots",
+      //   notes:
+      //     "Herbacé, acidulé — Gin, mastika, citron, sucre de canne, thym & émulsifiant.",
+      //   price: 13,
+      // },
     ],
   },
   {
