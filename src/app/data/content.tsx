@@ -194,12 +194,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
           "Floral, légèrement amer — Porto blanc, Suze, citron & émulsifiant.",
         price: 10,
       },
-            {
-        name: "Pedro y Palomino",
-        notes:
-          "Tannique, pétillant —  Xérès oloroso, mirabelle, super vin & ginger beer.",
-        price: 11,
-      },
+      //       {
+      //   name: "Pedro y Palomino",
+      //   notes:
+      //     "Tannique, pétillant —  Xérès oloroso, mirabelle, super vin & ginger beer.",
+      //   price: 11,
+      // },
                   {
         name: "Jaÿsinia",
         notes:
