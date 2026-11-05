@@ -245,6 +245,12 @@ export const MIXO_SECTIONS: CocktailSection[] = [
 //   price: 13,
 // },
       {
+  name: "Sexy nana",
+  notes:
+    "Gourmand, exotique — Vodka, liqueur de pandan, ananas, vanille, citron & prosecco.",
+  price: 13,
+},
+      {
         name: "Épine verte",
         notes:
           "Végétal, acidulé — Mezcal, poivron vert, cacahuète, citron & épices Jamaican jerk.",
@@ -413,15 +419,15 @@ export const WINES: WineSection[] = [
         bottle: 32,
         bottleCl: 75,
       },
-                  {
-        name: "Pente des coutis",
-        domain: "Dom. Colin",
-        region: "Loire -",
-        grapes: "100% chenin",
-        notes: "Doux & fruité : pêche de vigne",
-        bottle: 38,
-        bottleCl: 75,
-      },
+      //             {
+      //   name: "Pente des coutis",
+      //   domain: "Dom. Colin",
+      //   region: "Loire -",
+      //   grapes: "100% chenin",
+      //   notes: "Doux & fruité : pêche de vigne",
+      //   bottle: 38,
+      //   bottleCl: 75,
+      // },
             {
   name: "Le blanc de la Mariée",
   domain: "dom. dom. de la Garrelière",
@@ -515,8 +521,19 @@ export const WINES: WineSection[] = [
         bottle: 29,
         bottleCl: 75,
       },
-                  {
-        name: "Aux vergers",
+      //             {
+      //   name: "Aux vergers",
+      //   domain: "Cosima Bassouls",
+      //   region: "Beaujolais -",
+      //   grapes: "100% gamay",
+      //   notes: "Léger et profond : violette, herbacé",
+      //   byGlass: 7,
+      //   glassCl: 12,
+      //   bottle: 35,
+      //   bottleCl: 75,
+      // },
+                        {
+        name: "Aux saules",
         domain: "Cosima Bassouls",
         region: "Beaujolais -",
         grapes: "100% gamay",
