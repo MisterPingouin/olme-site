@@ -122,12 +122,12 @@ export const BEERS: BeerItem[] = [
   },
 
   // === CANETTE (1 ligne) ===
-  {
-    name: "Fauve - Pic Flamboyant (canette)",
-    style: "Sour aux fruits tropicaux — 5%",
-    price: 7.5,
-    sizeCl: 33,
-  },
+  // {
+  //   name: "Fauve - Pic Flamboyant (canette)",
+  //   style: "Sour aux fruits tropicaux — 5%",
+  //   price: 7.5,
+  //   sizeCl: 33,
+  // },
   //   {
   //   name: "Fauve - Rejaillir le feu (canette)",
   //   style: "Neipa — 6,2%",
