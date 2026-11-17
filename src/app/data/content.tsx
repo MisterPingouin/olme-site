@@ -161,8 +161,8 @@ export const BEERS: BeerItem[] = [
 },
 
             {
-  name: "Fils de pomme - Cidre brut Le sauvage",
-  style: "Le sauvage — 5.5%",
+  name: "Fils de pomme - Poiré",
+  style: "Le poiré — 3.5%",
 
         price: 7,
         sizeCl: 33,
