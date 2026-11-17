@@ -695,11 +695,11 @@ export const BRUT_FOOD: { title: string; items: { name: string; price: number }[
     { name: "Sprats légèrement fumés ( cousin de la sardine )", price: 9.5 },
     { name: "Terrine de campagne & pickles", price: 9 },
     // { name: "Saucisson de bellota", price: 10 },
-    { name: "Jambon Serrano Gran Reserva", price: 10 },
+    // { name: "Jambon Serrano Gran Reserva", price: 10 },
         // { name: "Lomo Serrano Reserva", price: 11 },
     { name: "Jambon Basque Duroc 30 mois d’affinage", price: 12 },
     // { name: "Dessert à boire alcoolisé", price: 13 },
-    // { name: "Le dessert d'Olmé", price: 6.5 },
+    { name: "Le dessert d'Olmé", price: 6.5 },
   ],
 };
 // ================================================
