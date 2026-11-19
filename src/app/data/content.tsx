@@ -532,6 +532,17 @@ export const WINES: WineSection[] = [
         bottle: 29,
         bottleCl: 75,
       },
+            {
+        name: "Les toto",
+        domain: "Clot de l’Oum",
+        region: "Ariège -",
+        grapes: "Côtes catalanes 100% syrah",
+        notes: "Léger, fruité, floral : violette, cassis, épices",
+                        // byGlass: 7,
+                //         glassCl: 12,
+        bottle: 29,
+        bottleCl: 75,
+      },
       //             {
       //   name: "Aux vergers",
       //   domain: "Cosima Bassouls",
