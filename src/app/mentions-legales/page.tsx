@@ -59,7 +59,7 @@ export default function MentionsLegales() {
                     contact@olmebar.com
                   </a>
                 </p>
-                <p>Tél. : <span className="opacity-80">[à compléter]</span></p>
+                <p>Tél. : <span className="opacity-80">06 52 88 89 14</span></p>
               </div>
             </section>
 
